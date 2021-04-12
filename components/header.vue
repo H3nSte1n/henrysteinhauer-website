@@ -1,13 +1,13 @@
 <template>
   <header class="header">
-    <div class="header__fill-box"/>
+    <div class="header__fill-box" />
     <h1>Henry Steinhauer</h1>
-    <div class="header__fill-box"/>
+    <div class="header__fill-box" />
   </header>
 </template>
 
 <script lang="ts">
-import { Vue } from 'nuxt-property-decorator'
+import { Vue } from 'nuxt-property-decorator';
 export default class Header extends Vue {}
 </script>
 
