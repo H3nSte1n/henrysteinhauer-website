@@ -35,7 +35,7 @@
     "core-js": "3.12.1",
     "nuxt": "2.15.4",
     "nuxt-property-decorator": "2.9.1",
-    "sass": "1.32.10"
+    "sass": "1.32.12"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "12.1.1",
