@@ -33,13 +33,13 @@
   },
   "dependencies": {
     "core-js": "3.12.1",
-    "nuxt": "2.15.4",
+    "nuxt": "2.15.6",
     "nuxt-property-decorator": "2.9.1",
     "sass": "1.32.12"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "12.1.1",
-    "@nuxt/types": "2.15.4",
+    "@nuxt/types": "2.15.6",
     "@nuxt/typescript-build": "2.1.0",
     "@nuxtjs/color-mode": "2.0.5",
     "@nuxtjs/eslint-config-typescript": "6.0.0",
