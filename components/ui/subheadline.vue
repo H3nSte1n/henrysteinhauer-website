@@ -19,6 +19,10 @@ export default class Subheadline extends Vue {
   text-align: center;
   max-width: 1306px;
   font-weight: 400;
+
+  @media screen and (min-width: 1480px) {
+    font-size: 150px;
+  }
 }
 
 </style>
