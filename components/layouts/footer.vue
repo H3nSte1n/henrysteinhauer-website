@@ -4,7 +4,7 @@
       <a class="footer__list-item">Design by<br />Johannes Zimmer</a>
       <a class="footer__list-item">Impressum</a>
     </div>
-    <a class="footer__nav-item">Back to Top</a>
+    <a class="footer__nav-item" @click="smoothScrolling">Back to Top</a>
   </div>
 </template>
 
@@ -12,7 +12,15 @@
 import { Vue, Component } from 'nuxt-property-decorator';
 
 @Component
-export default class Footer extends Vue {}
+export default class Footer extends Vue {
+  smoothScrolling() {
+    const element = document.querySelector('.header');
+    if (!element) return;
+    element.scrollIntoView({
+      behavior: 'smooth',
+    });
+  }
+}
 </script>
 
 <style scoped lang="scss">

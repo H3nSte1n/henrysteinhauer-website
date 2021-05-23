@@ -1,5 +1,5 @@
 <template>
-  <div class="nav__container">
+  <div class="nav__container" :class="{ 'nav__container--hide': scrollDown }">
     <div :class="{ nav: true, 'nav--active': toggleActive }">
       <a href="#header">Henry Steinhauer</a>
       <nav>
@@ -10,7 +10,7 @@
             class="nav__list-item"
             :style="{ top: index > 0 && toggleActive ? 'calc(50% - 20%)' : '0px' }"
           >
-            <a :href="nav.link">
+            <a @click="smoothScrolling(nav.link)">
               {{ nav.name }}
             </a>
           </li>
@@ -34,11 +34,15 @@ export default class Navigation extends Vue {
   readonly navs: Array<NavigationInterface> = [
     {
       name: 'MENU',
-      link: '#highlights',
+      link: '',
     },
     {
-      name: 'Highlights',
-      link: '#highlights',
+      name: 'About Me',
+      link: '#aboutme',
+    },
+    {
+      name: 'Achivments',
+      link: '#achivments',
     },
     {
       name: 'Skills',
@@ -55,6 +59,7 @@ export default class Navigation extends Vue {
   ];
 
   toggleActive: Boolean = false;
+  scrollDown: Boolean = false;
 
   toggleMenue() {
     if (window.innerWidth <= 700) {
@@ -62,6 +67,33 @@ export default class Navigation extends Vue {
     } else {
       this.toggleActive = false;
     }
+  }
+
+  smoothScrolling(elementName: string) {
+    if (elementName.length === 0) return;
+    const element = document.querySelector(elementName);
+    element!.scrollIntoView({
+      behavior: 'smooth',
+    });
+    this.scrollDown = true;
+  }
+
+  detectScrollDirection() {
+    let prevScrollpos = window.pageYOffset;
+    window.onscroll = () => {
+      const currentScrollPos = window.pageYOffset;
+      if (prevScrollpos > currentScrollPos) {
+        this.scrollDown = false;
+      } else {
+        this.scrollDown = true;
+      }
+      if (this.toggleActive) this.scrollDown = false;
+      prevScrollpos = currentScrollPos;
+    };
+  }
+
+  mounted() {
+    this.detectScrollDirection();
   }
 }
 </script>
@@ -86,6 +118,11 @@ export default class Navigation extends Vue {
     padding: 15px 20px 0 15px;
     background-color: white;
     z-index: 1;
+    transition: transform 0.4s ease-out;
+
+    &--hide {
+      transform: translateY(-50px);
+    }
   }
 
   &__list {

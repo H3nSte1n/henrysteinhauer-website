@@ -2,24 +2,24 @@
   <div class="index">
     <Navigation />
     <Header />
-    <InfoBox :info-box-infos="{}">
+    <InfoBox id="aboutme" :info-box-infos="{}">
       <AboutMe :about-me-info="aboutme.infos" />
     </InfoBox>
     <InfoBox :info-box-infos="{}">
       <h3 class="info-box__subline">{{ date.subline }}</h3>
       <strong id="animationNumber" ref="animationNumber" class="info-box__date">{{ date.year }}</strong>
     </InfoBox>
-    <InfoBox :info-box-infos="achievments.infos">
+    <InfoBox id="achivments" :info-box-infos="achievments.infos">
       <StatsOverview :stats="achievments.stats" :inverted-style="true" />
     </InfoBox>
-    <InfoBox :info-box-infos="skills.infos">
+    <InfoBox id="skills" :info-box-infos="skills.infos">
       <StatsOverview :stats="skills.stats" />
     </InfoBox>
-    <InfoBox :info-box-infos="social.infos">
+    <InfoBox id="social" :info-box-infos="social.infos">
       <h3 class="info-box__subline">{{ social.subline }}</h3>
       <SocialMediaBar :icons="social.icons" />
     </InfoBox>
-    <InfoBox :info-box-infos="contact.infos">
+    <InfoBox id="contact" :info-box-infos="contact.infos">
       <h3 class="info-box__subline">{{ contact.subline }}</h3>
       <a :href="mailLink" class="info-box__mail">
         {{ contact.email }}
