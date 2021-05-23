@@ -1,7 +1,7 @@
 <template>
   <div class="footer">
     <div class="footer__list">
-      <a class="footer__list-item">Design by<br>Johannes Zimmer</a>
+      <a class="footer__list-item">Design by<br />Johannes Zimmer</a>
       <a class="footer__list-item">Impressum</a>
     </div>
     <a class="footer__nav-item">Back to Top</a>
@@ -12,9 +12,7 @@
 import { Vue, Component } from 'nuxt-property-decorator';
 
 @Component
-export default class Footer extends Vue {
-
-}
+export default class Footer extends Vue {}
 </script>
 
 <style scoped lang="scss">
