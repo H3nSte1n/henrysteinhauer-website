@@ -2,7 +2,7 @@ import { Vue, Component } from 'vue-property-decorator';
 
 export interface MethodObjInterface {
   name: string,
-  params: Array<string>
+  params: Array<number | string>
 }
 
 export interface AnimationInterface {
@@ -13,8 +13,8 @@ export interface AnimationInterface {
 @Component
 export class Animation extends Vue {
 
-  private increaseNumberAnimation(sec: number, maxNumber: number, htmlElementName: HTMLElement) {
-    const htmlElement = this.$refs[htmlElementName]
+  private increaseNumberAnimation(sec: number, maxNumber: number, htmlElementName: string) {
+    const htmlElement = this.$refs[htmlElementName] as HTMLElement;
     if(parseInt(htmlElement.innerText) >= maxNumber) return
     setTimeout(() => {
       htmlElement.innerText = `${parseInt(htmlElement.innerText) + 1}`
@@ -31,7 +31,8 @@ export class Animation extends Vue {
       entries.forEach((entry) => {
         if(entry.isIntersecting){
           const methodObj: MethodObjInterface = animation.methodObj;
-          this[animation.methodObj.name](...methodObj.params)
+          const key = animation.methodObj.name as keyof Animation
+          this[key](...methodObj.params)
         }
       })
     }, options)

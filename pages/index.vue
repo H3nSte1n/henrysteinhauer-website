@@ -29,15 +29,14 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'nuxt-property-decorator';
-import InfoBox, { InfoBoxInterface } from '@/components/layouts/info-box.vue';
-import SocialMediaBar, { Icon } from '@/components/ui/social-media-bar.vue';
+import { Component } from 'nuxt-property-decorator';
+import InfoBox from '@/components/layouts/info-box.vue';
+import SocialMediaBar from '@/components/ui/social-media-bar.vue';
 import StatsOverview from '@/components/ui/stats-overview.vue';
-import { Stats } from '@/components/ui/stats-element.vue';
-import AboutMe, { AboutMeInterface } from '@/components/ui/about-me.vue';
+import AboutMe from '@/components/ui/about-me.vue';
 import Header from '@/components/layouts/header.vue';
 import Navigation from '@/components/layouts/navigation.vue';
-import { Animation, AnimationInterface } from '@/mixins/number-increase-animation.ts';
+import { Animation, AnimationInterface } from '@/mixins/number-increase-animation';
 
 @Component({
   components: {
@@ -47,10 +46,9 @@ import { Animation, AnimationInterface } from '@/mixins/number-increase-animatio
     AboutMe,
     Header,
     Navigation
-  },
-  mixins: [Animation]
+  }
 })
-export default class Index extends Vue {
+export default class Index extends Animation {
   date_subline: String = "What I've accomplished to"
   aboutme = {
     infos: {
