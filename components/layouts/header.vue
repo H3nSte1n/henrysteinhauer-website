@@ -5,7 +5,9 @@
       <p class="header-row--small"></p>
     </div>
     <div class="header-row">
-      <h1 class="header-row--small header-row--small-invert">Henry<br />Steinhauer</h1>
+      <h1 class="header-row--small header-row--small-invert header-row--small header-row--small-text">
+        Henry<br />Steinhauer
+      </h1>
       <h2 class="header-row--big">Developer</h2>
     </div>
   </header>
@@ -43,11 +45,24 @@ export default class Header extends Vue {}
       font-size: 26px;
       font-weight: 400;
 
-      &-invert {
-        padding-left: 26px;
+      &-text {
+        background-image: url('./assets/illustration-circle-contact.svg');
+        padding: 50px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        text-transform: uppercase;
+        font-size: 1.5vw;
 
+        @media screen and (min-width: 1024px) {
+          padding: 71px;
+          font-size: 2vw;
+        }
+      }
+
+      &-invert {
         @media screen and (min-width: 640px) {
-          padding-left: 6vw;
+          margin-left: 2vw;
         }
       }
     }
