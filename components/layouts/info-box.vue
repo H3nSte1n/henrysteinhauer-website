@@ -1,7 +1,12 @@
 <template>
   <div class="info-box">
-    <SubHeadline :class="caption.length == 0 ? 'info-box--gap' : ''" :displayed_text="subheadline" />
-    <Caption class="info-box--gap" v-if="caption.length > 0" :displayed_text="caption" />
+    <SubHeadline v-if="infoBoxInfos.headline"
+      :class="!infoBoxInfos.caption ? 'info-box--gap' : ''" :displayed_text="infoBoxInfos.headline"
+    />
+    <Caption v-if="infoBoxInfos.caption"
+      class="info-box--gap"
+      :displayed_text="infoBoxInfos.caption"
+    />
     <slot />
   </div>
 </template>
@@ -11,6 +16,11 @@ import { Component, Vue, Prop } from 'nuxt-property-decorator';
 import SubHeadline from '@/components/ui/subheadline.vue';
 import Caption from '@/components/ui/caption.vue';
 
+export interface InfoBoxInterface {
+  headline?: String,
+  caption?: String
+}
+
 @Component({
   components: {
     SubHeadline,
@@ -19,10 +29,7 @@ import Caption from '@/components/ui/caption.vue';
 })
 export default class InfoBox extends Vue {
   @Prop({required: true})
-  readonly subheadline!: String
-
-  @Prop({default: ""})
-  readonly caption!: String
+  readonly infoBoxInfos!: InfoBoxInterface
 }
 </script>
 
@@ -35,7 +42,11 @@ export default class InfoBox extends Vue {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20vh;
+  margin-bottom: 200px;
+
+  @media screen and (min-width: 1480px) {
+    margin-bottom: 300px;
+  }
 
   &__headline {
     margin-bottom: 2vh;
