@@ -1,5 +1,5 @@
 <template>
-  <h2 class="subheadline">{{ displayedText }}</h2>
+  <h2 class="subheadline" v-html="displayedText" />
 </template>
 
 <script lang="ts">
