@@ -1,5 +1,5 @@
 <template>
-  <div :class="invertedStyle ? 'stats-element stats-element--invert' : 'stats-element'" :style="{left: `calc(50% - ${position.x}px)`, top: `${position.y}px`}">
+  <div :class="invertedStyle ? 'stats-element stats-element--invert' : 'stats-element'" :style="{left: `calc(50% - ${positionX}%)`, top: `${positionY}px`}">
     <p>{{ stats.label }}</p>
     <strong class="stats-element--big">{{ stats.value }}</strong>
   </div>
@@ -29,6 +29,14 @@ export default class StatsElement extends Vue {
 
   mounted() {
     console.log(this.position);
+  }
+
+  get positionX() {
+    return this.position.x
+  }
+
+  get positionY() {
+    return this.position.y
   }
 }
 </script>

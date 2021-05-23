@@ -1,5 +1,5 @@
 <template>
-  <div class="stats_overview">
+  <div class="stats_overview" :style="{height: `${containerHeight}px`}">
     <template v-for="(skill, index) in stats">
       <StatsElement :key="index" :stats="skill" :position="statsPosition[index]" :invertedStyle="invertedStyle"/>
     </template>
@@ -16,7 +16,7 @@ import StatsElement, { Position, Stats } from '@/components/ui/stats-element.vue
   }
 })
 export default class StatsOverview extends Vue {
-  statsPosition!: Array<Position> = [];
+  statsPosition: Array<Position> = [];
   containerHeight: Number = 0;
 
   @Prop({ required: true })
@@ -25,26 +25,29 @@ export default class StatsOverview extends Vue {
   readonly invertedStyle!: Boolean;
 
   private calcSkillPosition() {
-    const gap = 50;
-    let minWidth = 0;
-    let maxWidth = 100;
+    let minWidth = 20;
+    let maxWidth = 10;
     let minHeight = 0;
-    let maxHeight = 20;
+    let maxHeight = 30;
+    let invertResult = -1
 
     this.stats.forEach((_stat, index) => {
-      this.statsPosition.push({
-        x: Math.floor(Math.random() * maxWidth) + minWidth,
-        y: Math.floor(Math.random() * maxHeight) + minHeight + gap
-      })
-      if(index % 2 == 0) {
-        this.statsPosition[index].x = this.statsPosition[index].x * -1;
-        minHeight += 120;
-        maxHeight += 120;
-        minWidth += 100;
-        maxWidth += 100;
+      if(index % 2 == 0 && index != 0) {
+        minHeight += 130;
+        maxHeight += 130;
       }
+      invertResult = invertResult * -1;
+
+      this.statsPosition.push({
+        x: this.calcRandomNum(maxWidth, minWidth) * invertResult,
+        y: this.calcRandomNum(maxHeight, minHeight)
+      })
     })
-    this.containerHeight = (this.stats.length / 2) * 120
+    this.containerHeight = ((this.stats.length / 2) * 100) + 400
+  }
+
+  calcRandomNum(max: number, min: number) {
+    return Math.floor(Math.random() * (max)) + min
   }
 
   created() {
@@ -59,7 +62,6 @@ export default class StatsOverview extends Vue {
   display: flex;
   max-width: 1400px;
   width: 100vw;
-  min-height: 100vh;
   flex-direction: column;
   justify-content: center;
   align-items: center;
