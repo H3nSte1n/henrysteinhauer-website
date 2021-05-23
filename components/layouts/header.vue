@@ -35,6 +35,11 @@ export default class Header extends Vue {}
     width: 100%;
     align-items: center;
     margin: 30px 0;
+    flex-direction: column;
+
+    @media screen and (min-width: 768px) {
+      flex-direction: row;
+    }
 
     &--big {
       font-size: 15vw;
@@ -52,7 +57,11 @@ export default class Header extends Vue {}
         background-size: contain;
         background-position: center;
         text-transform: uppercase;
-        font-size: 1.5vw;
+        font-size: 2vw;
+
+        @media screen and (min-width: 768px) {
+          font-size: 1.8vw;
+        }
 
         @media screen and (min-width: 1024px) {
           padding: 71px;

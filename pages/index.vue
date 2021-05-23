@@ -25,6 +25,7 @@
         {{ contact.email }}
       </a>
     </InfoBox>
+    <Footer />
   </div>
 </template>
 
@@ -36,6 +37,7 @@ import StatsOverview from '@/components/ui/stats-overview.vue';
 import AboutMe from '@/components/ui/about-me.vue';
 import Header from '@/components/layouts/header.vue';
 import Navigation from '@/components/layouts/navigation.vue';
+import Footer from '@/components/layouts/footer.vue';
 import { Animation, AnimationInterface } from '@/mixins/number-increase-animation';
 
 @Component({
@@ -46,6 +48,7 @@ import { Animation, AnimationInterface } from '@/mixins/number-increase-animatio
     AboutMe,
     Header,
     Navigation,
+    Footer,
   },
 })
 export default class Index extends Animation {
@@ -181,15 +184,27 @@ export default class Index extends Animation {
 
 .info-box {
   &__subline {
-    font-size: 13px;
+    font-size: 10px;
     font-weight: 300;
     text-transform: uppercase;
     margin-bottom: 50px;
+
+    @media screen and (min-width: 640px) {
+      font-size: 13px;
+    }
   }
   &__mail {
     color: black;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 19px;
+
+    @media screen and (min-width: 640px) {
+      font-size: 3vw;
+    }
+
+    @media screen and (min-width: 1280px) {
+      font-size: 2vw;
+    }
   }
 
   &__date {

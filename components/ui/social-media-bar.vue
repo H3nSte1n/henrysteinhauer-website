@@ -32,8 +32,16 @@ export default class SocialMediaBar extends Vue {
   &__icon {
     color: black;
     text-decoration: none;
-    font-size: 1.5vw;
+    font-size: 19px;
     position: absolute;
+
+    @media screen and (min-width: 640px) {
+      font-size: 3vw;
+    }
+
+    @media screen and (min-width: 1280px) {
+      font-size: 2vw;
+    }
 
     &-container {
       display: flex;
