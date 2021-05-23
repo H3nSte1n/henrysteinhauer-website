@@ -1,18 +1,28 @@
 <template>
   <div class="index">
-    <InfoBox :subheadline="achievements_headline" :caption="achievements_caption">
-      <StatsOverview :stats="achievments" :invertedStyle="true" />
+    <Navigation />
+    <Header />
+    <InfoBox :infoBoxInfos="{}">
+      <AboutMe :aboutMeInfo="aboutme.infos"/>
     </InfoBox>
-    <InfoBox :subheadline="skill_headline" :caption="skill_caption">
-      <StatsOverview :stats="skills" />
+    <InfoBox :infoBoxInfos="{}">
+      <h3 class="info-box__subline">{{ date_subline }}</h3>
+      <strong class="info-box__date" id="animationNumber" ref="animationNumber">2000</strong>
     </InfoBox>
-    <InfoBox :subheadline="social_headline">
-      <SocialMediaBar :Icons="icons"/>
+    <InfoBox :infoBoxInfos="achievments.infos">
+      <StatsOverview :stats="achievments.stats" :invertedStyle="true" />
     </InfoBox>
-    <InfoBox :subheadline="contact_headline">
-      <h3 class="info-box__subline">{{ contact_subline }}</h3>
-      <a :href="linkMail" class="info-box__mail">
-        {{ contact_mail }}
+    <InfoBox :infoBoxInfos="skills.infos">
+      <StatsOverview :stats="skills.stats" />
+    </InfoBox>
+    <InfoBox :infoBoxInfos="social.infos">
+      <h3 class="info-box__subline">{{ social.subline }}</h3>
+      <SocialMediaBar :Icons="social.icons"/>
+    </InfoBox>
+    <InfoBox :infoBoxInfos="contact.infos">
+      <h3 class="info-box__subline">{{ contact.subline }}</h3>
+      <a :href="mailLink" class="info-box__mail">
+        {{ contact.email }}
       </a>
     </InfoBox>
   </div>
@@ -20,68 +30,92 @@
 
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator';
-import InfoBox from '@/components/layouts/info-box.vue';
+import InfoBox, { InfoBoxInterface } from '@/components/layouts/info-box.vue';
 import SocialMediaBar, { Icon } from '@/components/ui/social-media-bar.vue';
-import StatsOverview from '~/components/ui/stats-overview.vue';
-import { Stats } from '@/components/ui/stats-element.vue'
+import StatsOverview from '@/components/ui/stats-overview.vue';
+import { Stats } from '@/components/ui/stats-element.vue';
+import AboutMe, { AboutMeInterface } from '@/components/ui/about-me.vue';
+import Header from '@/components/layouts/header.vue';
+import Navigation from '@/components/layouts/navigation.vue';
+import { Animation, AnimationInterface } from '@/mixins/number-increase-animation.ts';
 
 @Component({
   components: {
     InfoBox,
     SocialMediaBar,
-    StatsOverview
+    StatsOverview,
+    AboutMe,
+    Header,
+    Navigation
   },
+  mixins: [Animation]
 })
 export default class Index extends Vue {
-  achievements_headline: String = "My Highlights"
-  achievements_caption: String = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem "
-  achievments: Array<Stats> = [
-    {
-      label: 'Published Articles',
-      value: '6'
-    },
-    {
-      label: 'Commits',
-      value: '560'
-    },
-    {
-      label: 'Repositories',
-      value: '10'
-    },
-    {
-      label: 'Programming Languages',
-      value: '6'
+  date_subline: String = "What I've accomplished to"
+  aboutme = {
+    infos: {
+      headline: "About Me",
+      description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolor. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolor. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolor"
     }
-  ]
-  skill_headline: String = "What I 've learned"
-  skill_caption: String = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos e"
-  skills: Array<Stats> = [
-    {
-      label: 'Skill Level',
-      value: 'Kotlin'
-    },
-    {
-      label: 'Skill Level',
-      value: 'Ruby'
-    },
-    {
-      label: 'Skill Level',
-      value: 'Typescript'
-    },
-    {
-      label: 'Skill Level',
-      value: 'OpenAPI'
-    },
-    {
-      label: 'Skill Level',
-      value: 'Docker'
+  }
+  achievments = {
+    stats: [
+      {
+        label: 'Published Articles',
+        value: '6'
+      },
+      {
+        label: 'Commits',
+        value: '560'
+      },
+      {
+        label: 'Repositories',
+        value: '10'
+      },
+      {
+        label: 'Programming Languages',
+        value: '6'
+      }
+    ],
+    infos: {
+      headline: "My Highlights",
+      caption: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos e"
     }
-  ]
-  social_headline: String = "Want to know<br> more about me?"
-  contact_headline: String = "...or interested in<br> working together?"
-  contact_subline: String = "Let's talks!"
-  contact_mail: String = "Henrysteinhauer@t-online.de"
-  icons: Array<Icon> = [{
+  }
+  skills = {
+    infos: {
+      headline: "What I 've learned",
+      caption: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos e"
+    },
+    stats: [
+      {
+        label: 'Skill Level',
+        value: 'Kotlin'
+      },
+      {
+        label: 'Skill Level',
+        value: 'Ruby'
+      },
+      {
+        label: 'Skill Level',
+        value: 'Typescript'
+      },
+      {
+        label: 'Skill Level',
+        value: 'OpenAPI'
+      },
+      {
+        label: 'Skill Level',
+        value: 'Docker'
+      }
+    ]
+  }
+  social = {
+    infos: {
+      headline: "Want to know<br> more about me?"
+    },
+    subline: "Follow me on",
+    icons: [{
     src: "https://github.com/H3nSte1n",
     label: "Github"
   },
@@ -96,10 +130,31 @@ export default class Index extends Vue {
   {
     src: "https://github.com/H3nSte1n",
     label: "Reddit"
-  }]
+    }]
+  }
+  contact = {
+    infos: {
+      headline: "...or interested in<br> working together?"
+    },
+    subline: "Let's talks!",
+    email: "hello@steinhauer.dev"
+  }
+  animationsElements: Array<AnimationInterface> = [
+    {
+      methodObj: {
+        name: 'increaseNumberAnimation',
+        params: [70, 2021, 'animationNumber']
+      },
+      target: "#animationNumber"
+    }
+  ]
 
-  get linkMail(): String {
-    return `mailto:${this.contact_mail}`
+  get mailLink(): String {
+    return `mailto:${this.contact.email}`
+  }
+
+  mounted() {
+    this.startObserver(this.animationsElements)
   }
 }
 </script>
@@ -109,6 +164,7 @@ export default class Index extends Vue {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 20px;
 }
 
 .info-box {
@@ -116,13 +172,17 @@ export default class Index extends Vue {
     font-size: 13px;
     font-weight: 300;
     text-transform: uppercase;
+    margin-bottom: 50px;
 
   }
   &__mail {
     color: black;
     text-decoration: none;
     font-size: 20px;
-    margin-top: 34px;
+  }
+
+  &__date {
+    font-size: 40vw;
   }
 }
 </style>
