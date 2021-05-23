@@ -13,7 +13,6 @@ export default class Subheadline extends Vue {
 </script>
 
 <style scoped lang="scss">
-
 .subheadline {
   font-size: 10vw;
   text-align: center;
@@ -24,5 +23,4 @@ export default class Subheadline extends Vue {
     font-size: 150px;
   }
 }
-
 </style>

@@ -5,7 +5,7 @@
       <p class="header-row--small"></p>
     </div>
     <div class="header-row">
-      <h1 class="header-row--small header-row--small-invert">Henry<br>Steinhauer</h1>
+      <h1 class="header-row--small header-row--small-invert">Henry<br />Steinhauer</h1>
       <h2 class="header-row--big">Developer</h2>
     </div>
   </header>

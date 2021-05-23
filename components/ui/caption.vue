@@ -1,6 +1,6 @@
 <template>
   <div>
-    <hr v-if="dividing_line">
+    <hr v-if="dividing_line" />
     <p class="caption">
       {{ displayed_text }}
     </p>
@@ -15,13 +15,12 @@ export default class Caption extends Vue {
   @Prop({ required: true })
   readonly displayed_text!: string;
 
-  @Prop({default: false})
+  @Prop({ default: false })
   readonly dividing_line!: boolean;
 }
 </script>
 
 <style scoped lang="scss">
-
 .caption {
   font-size: 1.4vw;
   max-width: 1050px;
@@ -31,5 +30,4 @@ export default class Caption extends Vue {
     font-size: 26px;
   }
 }
-
 </style>

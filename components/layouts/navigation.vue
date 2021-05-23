@@ -1,22 +1,23 @@
 <template>
   <div class="nav__container">
-    <div :class="{'nav': true, 'nav--active': toggleActive}">
+    <div :class="{ nav: true, 'nav--active': toggleActive }">
       <a href="#header">Henry Steinhauer</a>
       <nav>
-        <ul @click="toggleMenue" :class="{'nav__list': true, 'nav__list--active': toggleActive}">
-          <li v-for="(nav, index) in navs"
+        <ul @click="toggleMenue" :class="{ nav__list: true, 'nav__list--active': toggleActive }">
+          <li
+            v-for="(nav, index) in navs"
             :key="index"
             class="nav__list-item"
-            :style="{top: index > 0 && toggleActive ? 'calc(50% - 20%)' : '0px'}"
+            :style="{ top: index > 0 && toggleActive ? 'calc(50% - 20%)' : '0px' }"
           >
             <a :href="nav.link">
-              {{nav.name}}
+              {{ nav.name }}
             </a>
           </li>
         </ul>
       </nav>
     </div>
-    <hr>
+    <hr />
   </div>
 </template>
 
@@ -24,42 +25,42 @@
 import { Vue, Component } from 'nuxt-property-decorator';
 
 interface NavigationInterface {
-  name: String,
-  link: String
+  name: String;
+  link: String;
 }
 
 @Component
 export default class Navigation extends Vue {
   readonly navs: Array<NavigationInterface> = [
     {
-      name: "MENU",
-      link: "#highlights"
+      name: 'MENU',
+      link: '#highlights',
     },
     {
-      name: "Highlights",
-      link: "#highlights"
+      name: 'Highlights',
+      link: '#highlights',
     },
     {
-      name: "Skills",
-      link: "#skills"
+      name: 'Skills',
+      link: '#skills',
     },
     {
-      name: "Social Media",
-      link: "#social"
+      name: 'Social Media',
+      link: '#social',
     },
     {
-      name: "contact",
-      link: "#contact"
+      name: 'contact',
+      link: '#contact',
     },
-  ]
+  ];
 
   toggleActive: Boolean = false;
 
   toggleMenue() {
-    if(window.innerWidth <= 700) {
+    if (window.innerWidth <= 700) {
       this.toggleActive = !this.toggleActive;
     } else {
-      this.toggleActive = false
+      this.toggleActive = false;
     }
   }
 }

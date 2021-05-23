@@ -10,6 +10,7 @@
     "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
     "lint": "npm run lint:js",
     "format": "prettier \"**/*.{js,json,css,scss,vue,html,md}\" --check",
+    "format:fix": "prettier \"**/*.{js,json,css,scss,vue,html,md}\" --check --write",
     "test": "jest --colors --coverage --config jest.config.js",
     "test:dev": "jest --watch --colors --verbose --config jest.config.js",
     "commit": "git-cz",

@@ -1,12 +1,11 @@
 <template>
   <div class="info-box">
-    <SubHeadline v-if="infoBoxInfos.headline"
-      :class="!infoBoxInfos.caption ? 'info-box--gap' : ''" :displayed_text="infoBoxInfos.headline"
+    <SubHeadline
+      v-if="infoBoxInfos.headline"
+      :class="!infoBoxInfos.caption ? 'info-box--gap' : ''"
+      :displayed_text="infoBoxInfos.headline"
     />
-    <Caption v-if="infoBoxInfos.caption"
-      class="info-box--gap"
-      :displayed_text="infoBoxInfos.caption"
-    />
+    <Caption v-if="infoBoxInfos.caption" class="info-box--gap" :displayed_text="infoBoxInfos.caption" />
     <slot />
   </div>
 </template>
@@ -17,24 +16,23 @@ import SubHeadline from '@/components/ui/subheadline.vue';
 import Caption from '@/components/ui/caption.vue';
 
 export interface InfoBoxInterface {
-  headline?: String,
-  caption?: String
+  headline?: String;
+  caption?: String;
 }
 
 @Component({
   components: {
     SubHeadline,
-    Caption
-  }
+    Caption,
+  },
 })
 export default class InfoBox extends Vue {
-  @Prop({required: true})
-  readonly infoBoxInfos!: InfoBoxInterface
+  @Prop({ required: true })
+  readonly infoBoxInfos!: InfoBoxInterface;
 }
 </script>
 
 <style scoped lang="scss">
-
 .info-box {
   display: flex;
   max-width: 1400px;
@@ -56,5 +54,4 @@ export default class InfoBox extends Vue {
     margin-bottom: 20vh;
   }
 }
-
 </style>

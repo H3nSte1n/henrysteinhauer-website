@@ -9,14 +9,14 @@
 import { Vue, Component, Prop } from 'nuxt-property-decorator';
 
 export interface AboutMeInterface {
-  headline: string,
-  description: string
+  headline: string;
+  description: string;
 }
 
 @Component
 export default class AboutMe extends Vue {
   @Prop({ required: true })
-  readonly aboutMeInfo!: AboutMeInterface
+  readonly aboutMeInfo!: AboutMeInterface;
 }
 </script>
 

@@ -3,7 +3,7 @@
     <Navigation />
     <Header />
     <InfoBox :infoBoxInfos="{}">
-      <AboutMe :aboutMeInfo="aboutme.infos"/>
+      <AboutMe :aboutMeInfo="aboutme.infos" />
     </InfoBox>
     <InfoBox :infoBoxInfos="{}">
       <h3 class="info-box__subline">{{ date_subline }}</h3>
@@ -17,7 +17,7 @@
     </InfoBox>
     <InfoBox :infoBoxInfos="social.infos">
       <h3 class="info-box__subline">{{ social.subline }}</h3>
-      <SocialMediaBar :Icons="social.icons"/>
+      <SocialMediaBar :Icons="social.icons" />
     </InfoBox>
     <InfoBox :infoBoxInfos="contact.infos">
       <h3 class="info-box__subline">{{ contact.subline }}</h3>
@@ -45,114 +45,119 @@ import { Animation, AnimationInterface } from '@/mixins/number-increase-animatio
     StatsOverview,
     AboutMe,
     Header,
-    Navigation
-  }
+    Navigation,
+  },
 })
 export default class Index extends Animation {
-  date_subline: String = "What I've accomplished to"
+  date_subline: String = "What I've accomplished to";
   aboutme = {
     infos: {
-      headline: "About Me",
-      description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolor. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolor. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolor"
-    }
-  }
+      headline: 'About Me',
+      description:
+        'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolor. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolor. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolor',
+    },
+  };
   achievments = {
     stats: [
       {
         label: 'Published Articles',
-        value: '6'
+        value: '6',
       },
       {
         label: 'Commits',
-        value: '560'
+        value: '560',
       },
       {
         label: 'Repositories',
-        value: '10'
+        value: '10',
       },
       {
         label: 'Programming Languages',
-        value: '6'
-      }
+        value: '6',
+      },
     ],
     infos: {
-      headline: "My Highlights",
-      caption: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos e"
-    }
-  }
+      headline: 'My Highlights',
+      caption:
+        'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos e',
+    },
+  };
   skills = {
     infos: {
       headline: "What I 've learned",
-      caption: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos e"
+      caption:
+        'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos e',
     },
     stats: [
       {
         label: 'Skill Level',
-        value: 'Kotlin'
+        value: 'Kotlin',
       },
       {
         label: 'Skill Level',
-        value: 'Ruby'
+        value: 'Ruby',
       },
       {
         label: 'Skill Level',
-        value: 'Typescript'
+        value: 'Typescript',
       },
       {
         label: 'Skill Level',
-        value: 'OpenAPI'
+        value: 'OpenAPI',
       },
       {
         label: 'Skill Level',
-        value: 'Docker'
-      }
-    ]
-  }
+        value: 'Docker',
+      },
+    ],
+  };
   social = {
     infos: {
-      headline: "Want to know<br> more about me?"
+      headline: 'Want to know<br> more about me?',
     },
-    subline: "Follow me on",
-    icons: [{
-    src: "https://github.com/H3nSte1n",
-    label: "Github"
-  },
-  {
-    src: "https://github.com/H3nSte1n",
-    label: "Twitter"
-  },
-  {
-    src: "https://github.com/H3nSte1n",
-    label: "Medium"
-  },
-  {
-    src: "https://github.com/H3nSte1n",
-    label: "Reddit"
-    }]
-  }
+    subline: 'Follow me on',
+    icons: [
+      {
+        src: 'https://github.com/H3nSte1n',
+        label: 'Github',
+      },
+      {
+        src: 'https://github.com/H3nSte1n',
+        label: 'Twitter',
+      },
+      {
+        src: 'https://github.com/H3nSte1n',
+        label: 'Medium',
+      },
+      {
+        src: 'https://github.com/H3nSte1n',
+        label: 'Reddit',
+      },
+    ],
+  };
   contact = {
     infos: {
-      headline: "...or interested in<br> working together?"
+      headline: '...or interested in<br> working together?',
     },
     subline: "Let's talks!",
-    email: "hello@steinhauer.dev"
-  }
+    email: 'hello@steinhauer.dev',
+  };
   animationsElements: Array<AnimationInterface> = [
     {
       methodObj: {
         name: 'increaseNumberAnimation',
-        params: [70, 2021, 'animationNumber']
+        params: [70, 2021, 'animationNumber'],
       },
-      target: "#animationNumber"
-    }
-  ]
+      target: '#animationNumber',
+    },
+  ];
 
   get mailLink(): String {
-    return `mailto:${this.contact.email}`
+    return `mailto:${this.contact.email}`;
   }
 
   mounted() {
-    this.startObserver(this.animationsElements)
+    this.startObserver(this.animationsElements);
   }
 }
 </script>
@@ -171,7 +176,6 @@ export default class Index extends Animation {
     font-weight: 300;
     text-transform: uppercase;
     margin-bottom: 50px;
-
   }
   &__mail {
     color: black;

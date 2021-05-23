@@ -10,19 +10,19 @@
 import { Vue, Component, Prop } from 'nuxt-property-decorator';
 
 export interface Icon {
-  src: String,
-  label: String
+  src: String;
+  label: String;
 }
 
 @Component
 export default class SocialMediaBar extends Vue {
-  @Prop({required: true, default: []})
-  readonly Icons!: Array<Icon>
+  @Prop({ required: true, default: [] })
+  readonly Icons!: Array<Icon>;
 }
 </script>
 
 <style scoped lang="scss">
-.social-media-bar{
+.social-media-bar {
   width: 100%;
   max-width: 1052px;
   display: flex;
@@ -32,7 +32,7 @@ export default class SocialMediaBar extends Vue {
     text-decoration: none;
     font-size: 1.5vw;
 
-    &:hover{
+    &:hover {
       background-image: url('./assets/illustration-circle-contact.svg');
     }
   }
