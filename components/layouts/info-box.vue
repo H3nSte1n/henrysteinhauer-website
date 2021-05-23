@@ -3,9 +3,9 @@
     <SubHeadline
       v-if="infoBoxInfos.headline"
       :class="!infoBoxInfos.caption ? 'info-box--gap' : ''"
-      :displayed_text="infoBoxInfos.headline"
+      :displayed-text="infoBoxInfos.headline"
     />
-    <Caption v-if="infoBoxInfos.caption" class="info-box--gap" :displayed_text="infoBoxInfos.caption" />
+    <Caption v-if="infoBoxInfos.caption" class="info-box--gap" :displayed-text="infoBoxInfos.caption" />
     <slot />
   </div>
 </template>

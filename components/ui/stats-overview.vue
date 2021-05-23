@@ -1,7 +1,7 @@
 <template>
   <div class="stats_overview" :style="{ height: `${containerHeight}px` }">
     <template v-for="(skill, index) in stats">
-      <StatsElement :key="index" :stats="skill" :position="statsPosition[index]" :invertedStyle="invertedStyle" />
+      <StatsElement :key="index" :stats="skill" :position="statsPosition[index]" :inverted-style="invertedStyle" />
     </template>
   </div>
 </template>
@@ -21,18 +21,19 @@ export default class StatsOverview extends Vue {
 
   @Prop({ required: true })
   readonly stats!: Array<Stats>;
+
   @Prop({ default: false })
   readonly invertedStyle!: Boolean;
 
   private calcSkillPosition() {
-    let minWidth = 20;
-    let maxWidth = 10;
+    const minWidth = 20;
+    const maxWidth = 10;
     let minHeight = 0;
     let maxHeight = 30;
     let invertResult = -1;
 
     this.stats.forEach((_stat, index) => {
-      if (index % 2 == 0 && index != 0) {
+      if (index % 2 === 0 && index !== 0) {
         minHeight += 130;
         maxHeight += 130;
       }

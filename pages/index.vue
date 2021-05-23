@@ -2,24 +2,24 @@
   <div class="index">
     <Navigation />
     <Header />
-    <InfoBox :infoBoxInfos="{}">
-      <AboutMe :aboutMeInfo="aboutme.infos" />
+    <InfoBox :info-box-infos="{}">
+      <AboutMe :about-me-info="aboutme.infos" />
     </InfoBox>
-    <InfoBox :infoBoxInfos="{}">
-      <h3 class="info-box__subline">{{ date_subline }}</h3>
-      <strong class="info-box__date" id="animationNumber" ref="animationNumber">2000</strong>
+    <InfoBox :info-box-infos="{}">
+      <h3 class="info-box__subline">{{ date.subline }}</h3>
+      <strong id="animationNumber" ref="animationNumber" class="info-box__date">{{ date.year }}</strong>
     </InfoBox>
-    <InfoBox :infoBoxInfos="achievments.infos">
-      <StatsOverview :stats="achievments.stats" :invertedStyle="true" />
+    <InfoBox :info-box-infos="achievments.infos">
+      <StatsOverview :stats="achievments.stats" :inverted-style="true" />
     </InfoBox>
-    <InfoBox :infoBoxInfos="skills.infos">
+    <InfoBox :info-box-infos="skills.infos">
       <StatsOverview :stats="skills.stats" />
     </InfoBox>
-    <InfoBox :infoBoxInfos="social.infos">
+    <InfoBox :info-box-infos="social.infos">
       <h3 class="info-box__subline">{{ social.subline }}</h3>
-      <SocialMediaBar :Icons="social.icons" />
+      <SocialMediaBar :icons="social.icons" />
     </InfoBox>
-    <InfoBox :infoBoxInfos="contact.infos">
+    <InfoBox :info-box-infos="contact.infos">
       <h3 class="info-box__subline">{{ contact.subline }}</h3>
       <a :href="mailLink" class="info-box__mail">
         {{ contact.email }}
@@ -49,7 +49,11 @@ import { Animation, AnimationInterface } from '@/mixins/number-increase-animatio
   },
 })
 export default class Index extends Animation {
-  date_subline: String = "What I've accomplished to";
+  date = {
+    subline: 'What I"ve accomplished to',
+    year: '2000',
+  };
+
   aboutme = {
     infos: {
       headline: 'About Me',
@@ -57,6 +61,7 @@ export default class Index extends Animation {
         'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolor. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolor. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolor',
     },
   };
+
   achievments = {
     stats: [
       {
@@ -82,6 +87,7 @@ export default class Index extends Animation {
         'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos e',
     },
   };
+
   skills = {
     infos: {
       headline: "What I 've learned",
@@ -111,6 +117,7 @@ export default class Index extends Animation {
       },
     ],
   };
+
   social = {
     infos: {
       headline: 'Want to know<br> more about me?',
@@ -135,6 +142,7 @@ export default class Index extends Animation {
       },
     ],
   };
+
   contact = {
     infos: {
       headline: '...or interested in<br> working together?',
@@ -142,6 +150,7 @@ export default class Index extends Animation {
     subline: "Let's talks!",
     email: 'hello@steinhauer.dev',
   };
+
   animationsElements: Array<AnimationInterface> = [
     {
       methodObj: {

@@ -1,8 +1,8 @@
 <template>
   <div>
-    <hr v-if="dividing_line" />
+    <hr v-if="dividingLine" />
     <p class="caption">
-      {{ displayed_text }}
+      {{ displayedText }}
     </p>
   </div>
 </template>
@@ -13,10 +13,10 @@ import { Vue, Prop, Component } from 'nuxt-property-decorator';
 @Component
 export default class Caption extends Vue {
   @Prop({ required: true })
-  readonly displayed_text!: string;
+  readonly displayedText!: string;
 
   @Prop({ default: false })
-  readonly dividing_line!: boolean;
+  readonly dividingLine!: boolean;
 }
 </script>
 

@@ -1,5 +1,5 @@
 <template>
-  <h2 class="subheadline" v-html="displayed_text" />
+  <h2 class="subheadline">{{ displayedText }}</h2>
 </template>
 
 <script lang="ts">
@@ -8,7 +8,7 @@ import { Vue, Prop, Component } from 'nuxt-property-decorator';
 @Component
 export default class Subheadline extends Vue {
   @Prop({ required: true })
-  readonly displayed_text!: string;
+  readonly displayedText!: string;
 }
 </script>
 

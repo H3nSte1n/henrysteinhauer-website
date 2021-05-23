@@ -3,7 +3,7 @@
     <div :class="{ nav: true, 'nav--active': toggleActive }">
       <a href="#header">Henry Steinhauer</a>
       <nav>
-        <ul @click="toggleMenue" :class="{ nav__list: true, 'nav__list--active': toggleActive }">
+        <ul :class="{ nav__list: true, 'nav__list--active': toggleActive }" @click="toggleMenue">
           <li
             v-for="(nav, index) in navs"
             :key="index"

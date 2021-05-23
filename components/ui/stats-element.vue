@@ -25,14 +25,12 @@ export interface Position {
 export default class StatsElement extends Vue {
   @Prop({ required: true })
   readonly stats!: Stats;
+
   @Prop({ required: true })
   readonly position!: Position;
+
   @Prop({ default: false })
   readonly invertedStyle!: Boolean;
-
-  mounted() {
-    console.log(this.position);
-  }
 
   get positionX() {
     return this.position.x;
