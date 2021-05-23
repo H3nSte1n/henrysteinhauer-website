@@ -48,8 +48,7 @@ export default class StatsElement extends Vue {
   flex-direction: column;
   text-align: center;
   position: absolute;
-  transform: translate(0px, 0px);
-  animation: test 1000s ease-in-out infinite;
+  //animation: movement 1000s ease-out infinite;
 
   &--invert {
     flex-direction: column-reverse;
@@ -69,7 +68,7 @@ export default class StatsElement extends Vue {
   transform: translate($xAxis, $yAxis);
 }
 
-@keyframes test {
+@keyframes movement {
   0% {
     @include transform(-10px, 20px);
   }

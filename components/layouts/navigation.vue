@@ -145,6 +145,7 @@ export default class Navigation extends Vue {
       padding: 0 0 20px 0;
       text-align: right;
       position: relative;
+      cursor: pointer;
 
       @media screen and (min-width: 700px) {
         padding: 0 15px;

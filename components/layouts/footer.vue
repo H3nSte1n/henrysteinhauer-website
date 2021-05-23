@@ -43,12 +43,14 @@ export default class Footer extends Vue {
 
     &-item {
       padding: 12px 0;
+      cursor: pointer;
     }
   }
 
   &__nav-item {
     position: relative;
     text-transform: uppercase;
+    cursor: pointer;
 
     @media screen and (min-width: 768px) {
       background-image: url(./assets/illustration-circle-contact.svg);
