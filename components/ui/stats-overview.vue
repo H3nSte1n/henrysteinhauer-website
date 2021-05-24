@@ -48,7 +48,7 @@ export default class StatsOverview extends Vue {
   }
 
   calcRandomNum(max: number, min: number) {
-    return Math.floor(Math.random() * (max - min + 1) + min)
+    return Math.floor(Math.random() * (max - min + 1) + min);
   }
 
   created() {
