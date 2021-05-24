@@ -1,0 +1,15 @@
+@font-face {
+  font-family: 'RadioGrotesk';
+  src: url('RadioGrotesk-Regular.eot'); /* IE9 Compat Modes */
+  src: url('RadioGrotesk-Regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('RadioGrotesk-Regular.woff') format('woff'), /* Pretty Modern Browsers */
+       url('RadioGrotesk-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+}
+
+h1, h2, h3 {
+  font-family: "RadioGrotesk";
+}
+
+p, a {
+  font-family: "RadioGrotesk";
+}
