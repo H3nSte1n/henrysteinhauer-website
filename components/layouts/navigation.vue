@@ -1,7 +1,7 @@
 <template>
   <div class="nav__container" :class="{ 'nav__container--hide': scrollDown }">
     <div :class="{ nav: true, 'nav--active': toggleActive }">
-      <a href="#header">Henry Steinhauer</a>
+      <a @click="smoothScrolling('.header')">Henry Steinhauer</a>
       <nav>
         <ul :class="{ nav__list: true, 'nav__list--active': toggleActive }" @click="toggleMenue">
           <li
@@ -106,6 +106,10 @@ export default class Navigation extends Vue {
   margin-bottom: 15px;
   overflow: hidden;
   position: relative;
+
+  & a {
+    cursor: pointer;
+  }
 
   &--active {
     height: 100vh;
