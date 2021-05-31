@@ -160,7 +160,7 @@ export default class Index extends Animation {
         name: 'increaseNumberAnimation',
         params: [70, 2021, 'animationNumber'],
       },
-      target: '#animationNumber',
+      target: 'animationNumber',
     },
   ];
 
@@ -209,6 +209,8 @@ export default class Index extends Animation {
 
   &__date {
     font-size: 40vw;
+    margin-top: -50px;
+    text-align: left;
   }
 }
 </style>
