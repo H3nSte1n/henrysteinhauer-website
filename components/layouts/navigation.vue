@@ -113,13 +113,18 @@ export default class Navigation extends Vue {
   }
 
   &__container {
-    width: 100%;
+    width: 100vw;
     position: sticky;
     top: 0px;
     padding: 15px 20px 0 15px;
     z-index: 1;
     transition: transform 0.4s ease-out;
-    background-color: #EDEDE7;
+    background-color: rgba(237, 237, 231, 0.2);
+    backdrop-filter: blur(8px);
+
+    @supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+      background-color: rgba(237, 237, 231, 0.8);
+    }
 
     &--hide {
       transform: translateY(-50px);
