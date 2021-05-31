@@ -44,7 +44,7 @@ export default class StatsOverview extends Vue {
         y: this.calcRandomNum(maxHeight, minHeight),
       });
     });
-    this.containerHeight = (this.stats.length / 2) * 100 + 100;
+    this.containerHeight = (this.stats.length / 2) * 170;
   }
 
   calcRandomNum(max: number, min: number) {
