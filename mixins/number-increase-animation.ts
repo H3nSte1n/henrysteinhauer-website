@@ -39,7 +39,7 @@ export class Animation extends Vue {
 
   startObserver(animations: Array<AnimationInterface>) {
     animations.forEach((animation) => {
-      const testHTMLElement = document.querySelector(animation.target)!;
+      const testHTMLElement = this.$refs[animation.target] as HTMLElement;
       const observer = this.createObserver(animation);
       observer.observe(testHTMLElement);
     });
