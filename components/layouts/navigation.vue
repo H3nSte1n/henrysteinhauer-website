@@ -49,10 +49,6 @@ export default class Navigation extends Vue {
       link: '#skills',
     },
     {
-      name: 'Social Media',
-      link: '#social',
-    },
-    {
       name: 'contact',
       link: '#contact',
     },
@@ -107,6 +103,7 @@ export default class Navigation extends Vue {
   overflow: hidden;
   position: relative;
 
+
   & a {
     cursor: pointer;
   }
@@ -120,9 +117,9 @@ export default class Navigation extends Vue {
     position: sticky;
     top: 0px;
     padding: 15px 20px 0 15px;
-    background-color: white;
     z-index: 1;
     transition: transform 0.4s ease-out;
+    background-color: #EDEDE7;
 
     &--hide {
       transform: translateY(-50px);
