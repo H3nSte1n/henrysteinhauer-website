@@ -1,9 +1,13 @@
 <template>
-  <div class="stats_overview" :style="{ height: `${containerHeight}px` }">
-    <template v-for="(skill, index) in stats">
-      <StatsElement :key="index" :stats="skill" :position="statsPosition[index]" :inverted-style="invertedStyle" />
-    </template>
-  </div>
+  <kinesis-container perspective=1000 event="scroll">
+    <kinesis-element :strength="40" type="depth">
+      <div class="stats_overview" :style="{ height: `${containerHeight}px` }">
+        <template v-for="(skill, index) in stats">
+          <StatsElement :key="index" :stats="skill" :position="statsPosition[index]" :inverted-style="invertedStyle" />
+        </template>
+      </div>
+    </kinesis-element>
+  </kinesis-container>
 </template>
 
 <script lang="ts">

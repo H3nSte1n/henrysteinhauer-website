@@ -3,8 +3,12 @@
     :class="invertedStyle ? 'stats-element stats-element--invert' : 'stats-element'"
     :style="{ left: `calc(50% - ${positionX}%)`, top: `${positionY}px` }"
   >
-    <p>{{ stats.label }}</p>
-    <strong class="stats-element--big">{{ stats.value }}</strong>
+    <kinesis-container perspective=1000 event="scroll">
+      <kinesis-element :strength="40" type="depth">
+        <p>{{ stats.label }}</p>
+        <strong class="stats-element--big">{{ stats.value }}</strong>
+      </kinesis-element>
+    </kinesis-container>
   </div>
 </template>
 

@@ -2,30 +2,28 @@
   <div class="index">
     <Navigation />
     <Header />
-    <InfoBox id="aboutme" :info-box-infos="{}">
+    <InfoBox id="aboutme" :info-box-infos="{}" v-rellax="rellax">
       <AboutMe :about-me-info="aboutme.infos" />
     </InfoBox>
-    <InfoBox :info-box-infos="{}">
+    <InfoBox :info-box-infos="{}" v-rellax="rellax">
       <h3 class="info-box__subline">{{ date.subline }}</h3>
       <strong id="animationNumber" ref="animationNumber" class="info-box__date">{{ date.year }}</strong>
     </InfoBox>
-    <InfoBox id="achivments" :info-box-infos="achievments.infos">
+    <InfoBox id="achivments" :info-box-infos="achievments.infos" v-rellax="rellax">
       <StatsOverview :stats="achievments.stats" :inverted-style="true" />
     </InfoBox>
-    <InfoBox id="skills" :info-box-infos="skills.infos">
+    <InfoBox id="skills" :info-box-infos="skills.infos" v-rellax="rellax">
       <StatsOverview :stats="skills.stats" />
     </InfoBox>
-    <InfoBox id="social" :info-box-infos="social.infos">
+    <InfoBox id="social" :info-box-infos="social.infos" v-rellax="rellax">
       <h3 class="info-box__subline">{{ social.subline }}</h3>
       <SocialMediaBar :icons="social.icons" />
     </InfoBox>
-    <InfoBox id="contact" :info-box-infos="contact.infos">
+    <InfoBox id="contact" :info-box-infos="contact.infos" v-rellax="rellax">
       <h3 class="info-box__subline">{{ contact.subline }}</h3>
-      <a :href="mailLink" class="info-box__mail">
-        {{ contact.email }}
-      </a>
+      <Button :buttonObj="contact.link" />
     </InfoBox>
-    <Footer />
+    <Footer v-rellax="rellax" />
   </div>
 </template>
 
@@ -39,6 +37,7 @@ import Header from '@/components/layouts/header.vue';
 import Navigation from '@/components/layouts/navigation.vue';
 import Footer from '@/components/layouts/footer.vue';
 import { Animation, AnimationInterface } from '@/mixins/number-increase-animation';
+import Button from '@/components/ui/button.vue'
 
 @Component({
   components: {
@@ -49,6 +48,7 @@ import { Animation, AnimationInterface } from '@/mixins/number-increase-animatio
     Header,
     Navigation,
     Footer,
+    Button,
   },
 })
 export default class Index extends Animation {
@@ -150,8 +150,11 @@ export default class Index extends Animation {
     infos: {
       headline: '...or interested in<br> working together?',
     },
+    link: {
+      label: 'hello@steinhauer.dev',
+      src: `mailto:hello@steinhauer.dev`
+    },
     subline: "Let's talks!",
-    email: 'hello@steinhauer.dev',
   };
 
   animationsElements: Array<AnimationInterface> = [
@@ -163,6 +166,10 @@ export default class Index extends Animation {
       target: 'animationNumber',
     },
   ];
+
+  rellax = {
+    speed: -2
+  };
 
   get mailLink(): String {
     return `mailto:${this.contact.email}`;
