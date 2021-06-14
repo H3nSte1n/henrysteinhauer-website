@@ -103,7 +103,6 @@ export default class Navigation extends Vue {
   overflow: hidden;
   position: relative;
 
-
   & a {
     cursor: pointer;
   }

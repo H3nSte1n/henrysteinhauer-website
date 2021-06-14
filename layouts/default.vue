@@ -6,7 +6,7 @@
 
 <style>
 html {
-  background-image: url('./assets/background-image.png')
+  background-image: url('./assets/background-image.png');
 }
 
 *,
