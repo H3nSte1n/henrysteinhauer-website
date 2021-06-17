@@ -1,8 +1,14 @@
 <template>
   <div class="footer">
     <div class="footer__list">
-      <a class="footer__list-item">Design by<br />Johannes Zimmer</a>
-      <a class="footer__list-item">Impressum</a>
+      <template v-for="(link, index) in links">
+        <Button
+          :key="index"
+          :button-obj="link"
+          :styles="{ 'font-size': '16px', 'text-transform': 'uppercase' }"
+          class="footer__list-item"
+        />
+      </template>
     </div>
     <a class="footer__nav-item" @click="smoothScrolling">Back to Top</a>
   </div>
@@ -10,9 +16,26 @@
 
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator';
+import Button from '@/components/ui/button.vue';
+import type { IButtonObj } from '@/components/ui/button.vue';
 
-@Component
+@Component({
+  components: {
+    Button,
+  },
+})
 export default class Footer extends Vue {
+  links: Array<IButtonObj> = [
+    {
+      label: 'Design by<br>Johannes Zimmer',
+      src: '#',
+    },
+    {
+      label: 'Impressum',
+      src: '/impressum',
+    },
+  ];
+
   smoothScrolling() {
     const element = document.querySelector('.header');
     if (!element) return;

@@ -1,25 +1,24 @@
 <template>
   <div class="social-media-bar">
     <template v-for="(icon, index) in Icons">
-      <a :key="index" :href="icon.src" class="social-media-bar__icon-container">
-        <span class="social-media-bar__icon">{{ icon.label }}</span>
-      </a>
+      <Button :key="index" :button-obj="icon" />
     </template>
   </div>
 </template>
 
 <script lang="ts">
 import { Vue, Component, Prop } from 'nuxt-property-decorator';
+import Button from '@/components/ui/button.vue';
+import type { IButtonObj } from '@/components/ui/button.vue';
 
-export interface Icon {
-  src: String;
-  label: String;
-}
-
-@Component
+@Component({
+  components: {
+    Button,
+  },
+})
 export default class SocialMediaBar extends Vue {
   @Prop({ required: true, default: [] })
-  readonly Icons!: Array<Icon>;
+  readonly Icons!: Array<IButtonObj>;
 }
 </script>
 
