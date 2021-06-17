@@ -63,7 +63,6 @@ export default {
   build: {},
 
   sitemap: {
-    generate: true,
     hostname: 'https://henrysteinhauer.dev',
   },
 };
