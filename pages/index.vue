@@ -21,9 +21,12 @@
     </InfoBox>
     <InfoBox id="contact" :info-box-infos="contact.infos">
       <h3 class="info-box__subline">{{ contact.subline }}</h3>
-      <a :href="mailLink" class="info-box__mail">
-        {{ contact.email }}
-      </a>
+      <Button
+        :button-obj="{
+          label: contact.email,
+          src: contact.mailLink,
+        }"
+      />
     </InfoBox>
     <Footer />
   </div>
@@ -39,6 +42,7 @@ import Header from '@/components/layouts/header.vue';
 import Navigation from '@/components/layouts/navigation.vue';
 import Footer from '@/components/layouts/footer.vue';
 import { Animation, AnimationInterface } from '@/mixins/number-increase-animation';
+import Button from '@/components/ui/button.vue';
 
 @Component({
   components: {
@@ -49,6 +53,7 @@ import { Animation, AnimationInterface } from '@/mixins/number-increase-animatio
     Header,
     Navigation,
     Footer,
+    Button,
   },
 })
 export default class Index extends Animation {
