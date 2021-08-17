@@ -1,7 +1,7 @@
 <template>
   <div class="nav__container" :class="{ 'nav__container--hide': scrollDown }">
     <div :class="{ nav: true, 'nav--active': toggleActive }">
-      <a @click="smoothScrolling('.header')">Henry Steinhauer</a>
+      <a class="nav__list-item-link" @click="smoothScrolling('.header')">Henry Steinhauer</a>
       <nav>
         <ul :class="{ nav__list: true, 'nav__list--active': toggleActive }" @click="toggleMenue">
           <li
@@ -10,7 +10,7 @@
             class="nav__list-item"
             :style="{ top: index > 0 && toggleActive ? 'calc(50% - 20%)' : '0px' }"
           >
-            <a @click="smoothScrolling(nav.link)">
+            <a @click="smoothScrolling(nav.link)" class="nav__list-item-link">
               {{ nav.name }}
             </a>
           </li>
@@ -102,6 +102,7 @@ export default class Navigation extends Vue {
   margin-bottom: 15px;
   overflow: hidden;
   position: relative;
+  padding: 0 10px;
 
   & a {
     cursor: pointer;
@@ -152,6 +153,40 @@ export default class Navigation extends Vue {
       position: relative;
       cursor: pointer;
 
+      &-link {
+        @media screen and (min-width: 700px) {
+          line-height: 26px;
+
+          &:before,
+          &:after {
+            backface-visibility: hidden;
+            border: 1px solid rgba(rgb(0, 0, 0), 0);
+            bottom: 0px;
+            content: " ";
+            display: block;
+            margin: 0 auto;
+            position: relative;
+            transition: all 280ms ease-in-out;
+            width: 0;
+          }
+
+          &:hover:before,
+          &:hover:after {
+            backface-visibility: hidden;
+            border-color: rgb(0, 0, 0);
+            transition: width 350ms ease-in-out;
+            width: 110%;
+            letter-spacing: 2px;
+            position: relative;
+            left: -5%;
+          }
+
+          &:hover:before {
+            bottom: auto;
+            top: 0;
+          }
+        }
+      }
       @media screen and (min-width: 700px) {
         padding: 0 15px;
       }
