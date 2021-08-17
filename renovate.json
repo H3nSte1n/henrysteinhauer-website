@@ -1,3 +1,14 @@
 {
-  "extends": ["config:base"]
+  "extends": [
+    "config:base",
+    ":prHourlyLimitNone",
+    ":label(renovate)"
+  ],
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true,
+      "label": ["automerge(renovate)"]
+    }
+  ]
 }
