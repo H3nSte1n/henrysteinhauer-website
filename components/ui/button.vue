@@ -33,7 +33,6 @@ export default class Button extends Vue {
   justify-content: center;
   align-items: center;
   position: relative;
-  width: 100%;
   height: 16vh;
   cursor: pointer;
 

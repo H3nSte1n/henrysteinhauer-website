@@ -28,6 +28,12 @@ export default class SocialMediaBar extends Vue {
   max-width: 1052px;
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
+
+  @media screen and (min-width: 920px) {
+    flex-wrap: unset;
+  }
+
   &__icon {
     color: black;
     text-decoration: none;

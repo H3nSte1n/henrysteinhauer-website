@@ -1,15 +1,13 @@
 <template>
   <div class="footer">
-    <div class="footer__list">
-      <template v-for="(link, index) in links">
-        <Button
-          :key="index"
-          :button-obj="link"
-          :styles="{ 'font-size': '16px', 'text-transform': 'uppercase' }"
-          class="footer__list-item"
-        />
-      </template>
-    </div>
+    <template v-for="(link, index) in links">
+      <Button
+        :key="index"
+        :button-obj="link"
+        :styles="{ 'font-size': '16px', 'text-transform': 'uppercase' }"
+        class="footer__list-item"
+      />
+    </template>
     <a class="footer__nav-item" @click="smoothScrolling">Back to Top</a>
   </div>
 </template>
@@ -50,8 +48,12 @@ export default class Footer extends Vue {
 .footer {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  flex: 1 1 0px;
+  flex-flow: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
   align-items: center;
+  margin-bottom: 50px;
 
   &__list {
     display: flex;
@@ -74,15 +76,12 @@ export default class Footer extends Vue {
     position: relative;
     text-transform: uppercase;
     cursor: pointer;
-
-    @media screen and (min-width: 768px) {
-      background-image: url(./assets/illustration-circle-contact.svg);
-      padding: 32px;
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: center;
-      font-size: 16px;
-    }
+    background-image: url(./assets/illustration-circle-contact.svg);
+    padding: 32px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    font-size: 16px;
   }
 }
 </style>
