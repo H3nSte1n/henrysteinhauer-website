@@ -1,5 +1,5 @@
 <template>
-  <div class="nav__container" :class="{ 'nav__container--hide': scrollDown }">
+  <div ref="nav" class="nav__container" :class="{ 'nav__container--hide': scrollDown }">
     <div :class="{ nav: true, 'nav--active': toggleActive }">
       <a class="nav__list-item-link" @click="smoothScrolling('.header')">Henry Steinhauer</a>
       <nav>
@@ -65,12 +65,21 @@ export default class Navigation extends Vue {
     }
   }
 
-  smoothScrolling(elementName: string) {
-    if (elementName.length === 0) return;
-    const element = document.querySelector(elementName);
-    element!.scrollIntoView({
+  scrollToElement(elementName: string, offset: number) {
+    const element = document.querySelector(elementName) as HTMLElement;
+    const elementPosition = element!.offsetTop;
+    const offsetPosition = elementPosition - offset;
+
+    window.scrollTo({
+      top: offsetPosition,
       behavior: 'smooth',
     });
+  }
+
+  smoothScrolling(elementName: string) {
+    if (elementName.length === 0) return;
+    const navHeight = (this.$refs.nav as HTMLElement).offsetHeight;
+    this.scrollToElement(elementName, navHeight);
     this.scrollDown = true;
   }
 
