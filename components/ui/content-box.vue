@@ -1,0 +1,28 @@
+<template>
+  <div class="content-box">
+    <h2 v-if="headline" class="content-box__headline">
+      {{ headline }}
+    </h2>
+    <slot />
+  </div>
+</template>
+
+<script lang="ts">
+import { Vue, Prop, Component } from 'nuxt-property-decorator';
+
+@Component
+export default class Caption extends Vue {
+  @Prop({ required: false })
+  readonly headline!: string;
+}
+</script>
+
+<style scoped lang="scss">
+.content-box {
+  margin: 0 20px;
+
+  &__headline {
+    margin-bottom: 20px;
+  }
+}
+</style>
