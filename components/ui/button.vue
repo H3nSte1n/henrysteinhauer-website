@@ -1,5 +1,5 @@
 <template>
-  <a :key="index" :href="buttonObj.src" class="button">
+  <a :key="index" :href="buttonObj.src" target="_blank" class="button">
     <svg
       width="100%"
       viewBox="0 0 214 127"
