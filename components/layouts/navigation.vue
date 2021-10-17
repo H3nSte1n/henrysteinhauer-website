@@ -136,7 +136,7 @@ export default class Navigation extends Vue {
     }
 
     &--hide {
-      transform: translateY(-50px);
+      transform: translateY(-100%);
     }
   }
 

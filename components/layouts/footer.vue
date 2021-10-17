@@ -27,10 +27,12 @@ export default class Footer extends Vue {
     {
       label: 'Design by<br>Johannes Zimmer',
       src: '#',
+      mobileHideSVG: true,
     },
     {
       label: 'Impressum',
       src: '/impressum',
+      mobileHideSVG: true,
     },
   ];
 
