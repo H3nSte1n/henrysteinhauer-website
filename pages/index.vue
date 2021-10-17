@@ -135,18 +135,22 @@ export default class Index extends Animation {
       {
         src: 'https://github.com/H3nSte1n',
         label: 'Github',
+        mobileHideSVG: true,
       },
       {
         src: 'https://github.com/H3nSte1n',
         label: 'Twitter',
+        mobileHideSVG: true,
       },
       {
         src: 'https://github.com/H3nSte1n',
         label: 'Medium',
+        mobileHideSVG: true,
       },
       {
         src: 'https://github.com/H3nSte1n',
         label: 'Reddit',
+        mobileHideSVG: true,
       },
     ],
   };
