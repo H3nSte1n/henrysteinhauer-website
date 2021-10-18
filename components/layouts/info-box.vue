@@ -1,5 +1,5 @@
 <template>
-  <div class="info-box">
+  <div ref="info-box" class="info-box">
     <SubHeadline
       v-if="infoBoxInfos.headline"
       :class="!infoBoxInfos.caption ? 'info-box--gap' : ''"
@@ -11,9 +11,10 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'nuxt-property-decorator';
+import { Component, Prop } from 'nuxt-property-decorator';
 import SubHeadline from '@/components/ui/subheadline.vue';
 import Caption from '@/components/ui/caption.vue';
+import { Animation, AnimationInterface } from '@/mixins/number-increase-animation';
 
 export interface InfoBoxInterface {
   headline?: String;
@@ -26,9 +27,19 @@ export interface InfoBoxInterface {
     Caption,
   },
 })
-export default class InfoBox extends Vue {
+export default class InfoBox extends Animation {
   @Prop({ required: true })
   readonly infoBoxInfos!: InfoBoxInterface;
+
+  animationsElements: Array<AnimationInterface> = [
+    {
+      methodObj: {
+        name: 'revealAnimation',
+        params: ['caption'],
+      },
+      target: 'info-box',
+    },
+  ];
 }
 </script>
 

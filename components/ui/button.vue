@@ -1,5 +1,5 @@
 <template>
-  <a :key="index" :href="buttonObj.src" target="_blank" class="button">
+  <a :key="index" ref="button" :href="buttonObj.src" target="_blank" class="button">
     <svg
       width="100%"
       viewBox="0 0 214 127"
@@ -15,6 +15,7 @@
       />
     </svg>
     <span
+      ref="buttonContent"
       class="button__icon"
       :class="{ 'button--relative': buttonObj.mobileHideSVG }"
       :style="styles"
@@ -40,8 +41,36 @@ export default class Button extends Vue {
   @Prop({ required: false })
   readonly styles!: Array<any>;
 
+  @Prop({ required: false })
+  readonly withHoverAnimation!: boolean;
+
   get prepareStyle() {
     return '';
+  }
+
+  relativeCoords(event: Event) {
+    const bounds = event.target.getBoundingClientRect();
+    const width = (this.$refs.button as HTMLElement).offsetWidth / 2;
+    const height = (this.$refs.button as HTMLElement).offsetHeight / 2;
+    const x = event.clientX - bounds.left - width;
+    const y = event.clientY - bounds.top - height;
+    return { x, y };
+  }
+
+  animate(event: Event) {
+    const { x, y } = this.relativeCoords(event);
+    const devider = 10;
+    (this.$refs.buttonContent as HTMLElement).style.transform = `translate(${-(x / devider)}px, ${-(y / devider)}px)`;
+  }
+
+  resetAnimation() {
+    (this.$refs.buttonContent as HTMLElement).style.transform = 'translate(0px, 0px)';
+  }
+
+  mounted() {
+    if (!this.withHoverAnimation) return;
+    (this.$refs.button as HTMLElement).addEventListener('mousemove', this.animate);
+    (this.$refs.button as HTMLElement).addEventListener('mouseleave', this.resetAnimation);
   }
 }
 </script>
@@ -64,13 +93,13 @@ export default class Button extends Vue {
 
   &__path {
     &--animation {
-      stroke-dasharray: 1150;
+      stroke-dasharray: 1153;
       stroke-dashoffset: 0;
 
       @media screen and (min-width: 768px) {
-        stroke-dasharray: 1150;
-        stroke-dashoffset: 1150;
-        transition: stroke-dashoffset 0.5s ease-in-out;
+        stroke-dasharray: 1153;
+        stroke-dashoffset: 1153;
+        transition: stroke-dashoffset 0.35s cubic-bezier(0.1, 0.7, 1, 0.1);
       }
     }
   }
@@ -94,6 +123,7 @@ export default class Button extends Vue {
   }
 
   &__icon {
+    transition: transform 0.2s linear;
     color: black;
     text-decoration: none;
     font-size: 19px;

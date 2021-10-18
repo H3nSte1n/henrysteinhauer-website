@@ -26,6 +26,7 @@
           label: contact.email,
           src: contact.mailLink,
         }"
+        :with-hover-animation="true"
       />
     </InfoBox>
     <Footer />

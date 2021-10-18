@@ -34,8 +34,8 @@ export default class StatsOverview extends Vue {
 
     this.stats.forEach((_stat, index) => {
       if (index % 2 === 0 && index !== 0) {
-        minHeight += 170;
-        maxHeight += 170;
+        minHeight += 280;
+        maxHeight += 280;
       }
       invertResult = invertResult * -1;
 
@@ -44,7 +44,7 @@ export default class StatsOverview extends Vue {
         y: this.calcRandomNum(maxHeight, minHeight),
       });
     });
-    this.containerHeight = (this.stats.length / 2) * 170;
+    this.containerHeight = (this.stats.length / 2) * 280;
   }
 
   calcRandomNum(max: number, min: number) {

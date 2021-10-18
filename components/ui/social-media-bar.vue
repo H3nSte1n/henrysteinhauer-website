@@ -1,7 +1,7 @@
 <template>
   <div class="social-media-bar">
     <template v-for="(icon, index) in Icons">
-      <Button :key="index" :button-obj="icon" />
+      <Button :key="index" :button-obj="icon" :with-hover-animation="true" />
     </template>
   </div>
 </template>

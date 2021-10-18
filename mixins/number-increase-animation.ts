@@ -8,6 +8,7 @@ export interface MethodObjInterface {
 export interface AnimationInterface {
   methodObj: MethodObjInterface;
   target: string;
+  options?: Record<string, number>;
 }
 
 @Component
@@ -21,27 +22,37 @@ export class Animation extends Vue {
     }, sec);
   }
 
+  private revealAnimation(element: string) {
+    if (!element) return;
+    const htmlElement = this.$refs[element] as HTMLElement;
+    if (htmlElement.classList.contains(`${element}--visible`)) return;
+    htmlElement.classList.add(`${element}--visible`);
+  }
+
   private createObserver(animation: AnimationInterface) {
     const options = {
       threshold: 0.5,
     };
 
-    return new IntersectionObserver((entries, _observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const methodObj: MethodObjInterface = animation.methodObj;
-          const key = animation.methodObj.name as keyof Animation;
-          this[key](...methodObj.params);
-        }
-      });
-    }, options);
+    return new IntersectionObserver(
+      (entries, _observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const methodObj: MethodObjInterface = animation.methodObj;
+            const key = animation.methodObj.name as keyof Animation;
+            this[key](...methodObj.params);
+          }
+        });
+      },
+      { ...options, ...animation.options },
+    );
   }
 
   startObserver(animations: Array<AnimationInterface>) {
     animations.forEach((animation) => {
-      const testHTMLElement = this.$refs[animation.target] as HTMLElement;
+      const htmlElement = this.$refs[animation.target] as HTMLElement;
       const observer = this.createObserver(animation);
-      observer.observe(testHTMLElement);
+      observer.observe(htmlElement);
     });
   }
 }
