@@ -10,7 +10,7 @@
             class="nav__list-item"
             :style="{ top: index > 0 && toggleActive ? 'calc(50% - 20%)' : '0px' }"
           >
-            <a @click="smoothScrolling(nav.link)" class="nav__list-item-link">
+            <a class="nav__list-item-link" @click="smoothScrolling(nav.link)">
               {{ nav.name }}
             </a>
           </li>
@@ -171,7 +171,7 @@ export default class Navigation extends Vue {
             backface-visibility: hidden;
             border: 1px solid rgba(rgb(0, 0, 0), 0);
             bottom: 0px;
-            content: " ";
+            content: ' ';
             display: block;
             margin: 0 auto;
             position: relative;
