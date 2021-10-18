@@ -8,7 +8,7 @@
     {
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true,
-      "label": ["automerge(renovate)"]
+      "labels": ["automerge(renovate)"]
     }
   ]
 }
