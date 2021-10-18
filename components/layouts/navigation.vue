@@ -1,8 +1,9 @@
 <template>
   <div ref="nav" class="nav__container" :class="{ 'nav__container--hide': scrollDown }">
     <div :class="{ nav: true, 'nav--active': toggleActive }">
-      <a class="nav__list-item-link" @click="smoothScrolling('.header')">Henry Steinhauer</a>
-      <nav>
+      <a v-if="!viewSubNavMenue" class="nav__list-item-link" href="/">Henry Steinhauer</a>
+      <a else class="nav__list-item-link" @click="smoothScrolling('.header')">Henry Steinhauer</a>
+      <nav v-if="viewSubNavMenue">
         <ul :class="{ nav__list: true, 'nav__list--active': toggleActive }" @click="toggleMenue">
           <li
             v-for="(nav, index) in navs"
@@ -56,6 +57,7 @@ export default class Navigation extends Vue {
 
   toggleActive: Boolean = false;
   scrollDown: Boolean = false;
+  viewSubNavMenue = true;
 
   toggleMenue() {
     if (window.innerWidth <= 700) {
@@ -98,6 +100,7 @@ export default class Navigation extends Vue {
   }
 
   mounted() {
+    this.viewSubNavMenue = this.$nuxt.$route.path === '/';
     this.detectScrollDirection();
   }
 }
