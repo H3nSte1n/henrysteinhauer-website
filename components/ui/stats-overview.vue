@@ -26,8 +26,8 @@ export default class StatsOverview extends Vue {
   readonly invertedStyle!: Boolean;
 
   private calcSkillPosition() {
-    const minWidth = 20;
-    const maxWidth = 10;
+    const minWidth = 10;
+    const maxWidth = 40;
     let minHeight = 0;
     let maxHeight = 30;
     let invertResult = -1;
@@ -60,7 +60,7 @@ export default class StatsOverview extends Vue {
 <style scoped lang="scss">
 .stats_overview {
   display: flex;
-  max-width: 1400px;
+  max-width: 1050px;
   width: 100vw;
   flex-direction: column;
   justify-content: center;
