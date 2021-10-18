@@ -26,11 +26,13 @@ export default class Footer extends Vue {
   links: Array<IButtonObj> = [
     {
       label: 'Design by<br>Johannes Zimmer',
-      src: '#',
+      src: 'https://johanneszimmer.com/',
+      mobileHideSVG: true,
     },
     {
       label: 'Impressum',
       src: '/impressum',
+      mobileHideSVG: true,
     },
   ];
 

@@ -1,7 +1,7 @@
 <template>
   <div class="index">
     <Navigation />
-    <Header />
+    <Header v-bind="header" />
     <InfoBox id="aboutme" :info-box-infos="{}">
       <AboutMe :about-me-info="aboutme.infos" />
     </InfoBox>
@@ -57,6 +57,12 @@ import Button from '@/components/ui/button.vue';
   },
 })
 export default class Index extends Animation {
+  header = {
+    sublinePartOne: 'Software',
+    sublinePartTwo: 'Developer',
+    headline: 'Henry <br>Steinhauer',
+  };
+
   date = {
     subline: 'What I"ve accomplished to',
     year: '2000',
@@ -135,18 +141,22 @@ export default class Index extends Animation {
       {
         src: 'https://github.com/H3nSte1n',
         label: 'Github',
+        mobileHideSVG: true,
       },
       {
         src: 'https://github.com/H3nSte1n',
         label: 'Twitter',
+        mobileHideSVG: true,
       },
       {
         src: 'https://github.com/H3nSte1n',
         label: 'Medium',
+        mobileHideSVG: true,
       },
       {
         src: 'https://github.com/H3nSte1n',
         label: 'Reddit',
+        mobileHideSVG: true,
       },
     ],
   };

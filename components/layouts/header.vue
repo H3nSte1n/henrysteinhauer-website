@@ -1,23 +1,33 @@
 <template>
   <header class="header">
     <div class="header-row">
-      <h2 class="header-row--big">Full Stack</h2>
+      <h2 class="header-row--big">{{ sublinePartOne }}</h2>
       <p class="header-row--small"></p>
     </div>
     <div class="header-row">
-      <h1 class="header-row--small header-row--small-invert header-row--small header-row--small-text">
-        Henry<br />Steinhauer
-      </h1>
-      <h2 class="header-row--big">Developer</h2>
+      <h1
+        class="header-row--small header-row--small-invert header-row--small header-row--small-text"
+        v-html="headline"
+      />
+      <h2 class="header-row--big">{{ sublinePartTwo }}</h2>
     </div>
   </header>
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'nuxt-property-decorator';
+import { Vue, Component, Prop } from 'nuxt-property-decorator';
 
 @Component
-export default class Header extends Vue {}
+export default class Header extends Vue {
+  @Prop({ required: true })
+  readonly sublinePartOne!: string;
+
+  @Prop({ required: true })
+  readonly sublinePartTwo!: string;
+
+  @Prop({ required: true })
+  readonly headline!: string;
+}
 </script>
 
 <style scoped lang="scss">
