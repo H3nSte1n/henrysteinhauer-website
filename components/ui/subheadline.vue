@@ -1,5 +1,5 @@
 <template>
-  <h2 class="subheadline" ref="subheadline" v-html="displayedText" />
+  <h2 ref="subheadline" class="subheadline" :class="{ 'subheadline--center': isCenter }" v-html="displayedText" />
 </template>
 
 <script lang="ts">
@@ -10,6 +10,9 @@ import { Animation, AnimationInterface } from '@/mixins/number-increase-animatio
 export default class Subheadline extends Animation {
   @Prop({ required: true })
   readonly displayedText!: string;
+
+  @Prop({ required: true })
+  readonly isCenter!: boolean;
 
   animationsElements: Array<AnimationInterface> = [
     {
@@ -32,10 +35,12 @@ export default class Subheadline extends Animation {
 
 <style scoped lang="scss">
 .subheadline {
-  font-size: 10vw;
+  font-size: 8vw;
   text-align: center;
+  width: 1050px;
   max-width: 1306px;
   font-weight: 400;
+  text-align: left;
   transform: translateY(100%);
   opacity: 0;
   transition: transform 0.5s ease-out, opacity 0.5s ease-out;
@@ -43,6 +48,10 @@ export default class Subheadline extends Animation {
   &--visible {
     transform: translateY(0%);
     opacity: 1;
+  }
+
+  &--center {
+    text-align: center;
   }
 
   @media screen and (min-width: 1480px) {

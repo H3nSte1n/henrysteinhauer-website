@@ -22,15 +22,18 @@ export default class AboutMe extends Vue {
 
 <style scoped lang="scss">
 .about-me {
+  margin-top: 30px;
+
   &__headline {
     float: left;
     margin: 3px 30px 30px 0;
-    font-size: 14px;
+    font-size: 2vw;
     font-weight: 400;
   }
 
   &__desc {
-    font-size: 21px;
+    font-size: 2.5vw;
+    text-align: justify;
   }
 }
 </style>

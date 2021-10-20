@@ -1,25 +1,22 @@
 <template>
   <div class="index">
     <Navigation />
-    <Header v-bind="header" />
-    <InfoBox id="aboutme" :info-box-infos="{}">
-      <AboutMe :about-me-info="aboutme.infos" />
-    </InfoBox>
-    <InfoBox :info-box-infos="{}">
+    <Header v-bind="header" :about-me="aboutme" />
+    <InfoBox :info-box-infos="{}" :with-blob="true">
       <h3 class="info-box__subline">{{ date.subline }}</h3>
       <strong id="animationNumber" ref="animationNumber" class="info-box__date">{{ date.year }}</strong>
     </InfoBox>
-    <InfoBox id="achivments" :info-box-infos="achievments.infos">
+    <InfoBox id="achivments" :info-box-infos="achievments.infos" :with-underline="true">
       <StatsOverview :stats="achievments.stats" :inverted-style="true" />
     </InfoBox>
-    <InfoBox id="skills" :info-box-infos="skills.infos">
+    <InfoBox id="skills" :info-box-infos="skills.infos" :with-underline="true">
       <StatsOverview :stats="skills.stats" />
     </InfoBox>
-    <InfoBox id="social" :info-box-infos="social.infos">
+    <InfoBox id="social" :info-box-infos="social.infos" :with-blob="true" :headline-center="true">
       <h3 class="info-box__subline">{{ social.subline }}</h3>
       <SocialMediaBar :icons="social.icons" />
     </InfoBox>
-    <InfoBox id="contact" :info-box-infos="contact.infos">
+    <InfoBox id="contact" :info-box-infos="contact.infos" :with-blob="true" :headline-center="true">
       <h3 class="info-box__subline">{{ contact.subline }}</h3>
       <Button
         :button-obj="{
@@ -73,7 +70,7 @@ export default class Index extends Animation {
     infos: {
       headline: 'About Me',
       description:
-        'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolor. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolor. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolor',
+        'Hey, I am a passionate Software Engineer and writer on Medium. I love to explore new programming languages, design patterns, and frameworks. In my free time, I work on various private development projects and run, climb and read books. Hey, I am a passionate Software Engineer and writer on Medium. I love to explore new programming languages, design patterns, and frameworks. In my free time, I work on various private development projects and run, climb and read books.',
     },
   };
 
@@ -203,7 +200,6 @@ export default class Index extends Animation {
     font-size: 10px;
     font-weight: 300;
     text-transform: uppercase;
-    margin-bottom: 50px;
 
     @media screen and (min-width: 640px) {
       font-size: 13px;
@@ -224,9 +220,11 @@ export default class Index extends Animation {
   }
 
   &__date {
-    font-size: 40vw;
+    font-size: 34vw;
     margin-top: -50px;
     text-align: left;
+    font-weight: 500;
+    letter-spacing: 1vw;
   }
 }
 </style>

@@ -47,19 +47,19 @@ export default class StatsElement extends Animation {
     },
   ];
 
-  calcAnimationDelay() {
-    const max = 4;
-    const min = 0;
+  calcRotationPosition() {
+    const max = 0;
+    const min = 360;
 
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
 
-  addAnimationDelayToBlobClass() {
-    (this.$refs.blobs as HTMLElement).style.animationDelay = `${this.calcAnimationDelay()}s`;
+  addRotationPositionToBlobClass() {
+    (this.$refs.blobs as HTMLElement).style.transform = `rotate(${this.calcRotationPosition()}deg)`;
   }
 
   mounted() {
-    this.addAnimationDelayToBlobClass();
+    this.addRotationPositionToBlobClass();
     this.startObserver(this.animationsElements);
   }
 
@@ -274,7 +274,7 @@ export default class StatsElement extends Animation {
   height: 12vw;
   top: -75%;
   left: -25%;
-  animation: rotate_blob 23s linear infinite;
+  animation: rotate_blob 526s linear infinite;
 
   &::before {
     content: '';
@@ -302,11 +302,8 @@ export default class StatsElement extends Animation {
 }
 
 @keyframes rotate_blob {
-  0% {
-    transform: rotate(0deg);
-  }
   100% {
-    transform: rotate(360deg);
+    transform: rotate(9000deg);
   }
 }
 

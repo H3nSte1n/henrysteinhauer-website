@@ -109,6 +109,8 @@ export default class Navigation extends Vue {
 <style scoped lang="scss">
 .nav {
   width: 100%;
+  max-width: 92%;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   margin-bottom: 15px;
