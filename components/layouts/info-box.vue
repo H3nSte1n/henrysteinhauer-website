@@ -1,5 +1,5 @@
 <template>
-  <div ref="info-box" class="info-box" :class="{ 'info-box--blob': withBlob }">
+  <div class="info-box" :class="{ 'info-box--blob': withBlob }">
     <SubHeadline
       v-if="infoBoxInfos.headline"
       :class="!infoBoxInfos.caption ? 'info-box--gap' : ''"
@@ -25,10 +25,9 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop } from 'nuxt-property-decorator';
+import { Vue, Component, Prop } from 'nuxt-property-decorator';
 import SubHeadline from '@/components/ui/subheadline.vue';
 import Caption from '@/components/ui/caption.vue';
-import { Animation, AnimationInterface } from '@/mixins/number-increase-animation';
 
 export interface InfoBoxInterface {
   headline?: String;
@@ -41,7 +40,7 @@ export interface InfoBoxInterface {
     Caption,
   },
 })
-export default class InfoBox extends Animation {
+export default class InfoBox extends Vue {
   @Prop({ required: true })
   readonly infoBoxInfos!: InfoBoxInterface;
 
@@ -53,16 +52,6 @@ export default class InfoBox extends Animation {
 
   @Prop({ required: false })
   readonly withUnderline!: boolean;
-
-  animationsElements: Array<AnimationInterface> = [
-    {
-      methodObj: {
-        name: 'revealAnimation',
-        params: ['caption'],
-      },
-      target: 'info-box',
-    },
-  ];
 }
 </script>
 
@@ -70,15 +59,16 @@ export default class InfoBox extends Animation {
 .info-box {
   display: flex;
   position: relative;
-  max-width: 1400px;
+  max-width: 1200px;
   width: 100%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 200px;
+  padding: 0 2%;
+  padding: 3vh 0;
 
-  @media screen and (min-width: 1480px) {
-    margin-bottom: 300px;
+  @media screen and (min-width: 1024px) {
+    padding: 0 10%;
   }
 
   &--blob {
@@ -88,7 +78,7 @@ export default class InfoBox extends Animation {
       height: 90%;
       position: absolute;
       border-radius: 100%;
-      top: 0%;
+      bottom: 0%;
       left: 0%;
       background-color: rgba(23, 99, 142, 0.17);
       filter: blur(3vw);
@@ -99,7 +89,7 @@ export default class InfoBox extends Animation {
       width: 60%;
       height: 90%;
       position: absolute;
-      top: 0%;
+      bottom: 0%;
       left: 31%;
       border-radius: 100%;
       background-color: rgba(61, 142, 23, 0.1925);
@@ -112,7 +102,15 @@ export default class InfoBox extends Animation {
   }
 
   &--gap {
-    margin-bottom: 20vh;
+    margin-bottom: 12vh;
+
+    @media screen and (min-width: 768px) {
+      margin-bottom: 16vh;
+    }
+
+    @media screen and (min-width: 1024px) {
+      margin-bottom: 20vh;
+    }
   }
 }
 </style>

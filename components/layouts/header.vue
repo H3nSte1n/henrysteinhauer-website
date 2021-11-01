@@ -2,10 +2,7 @@
   <header class="header">
     <div class="header-row">
       <h2 class="header-row--big">{{ sublinePartOne }}</h2>
-      <h1
-        class="header-row--small header-row--small-invert header-row--small header-row--small-text"
-        v-html="headline"
-      />
+      <h2 class="header-row--small header-row--small-invert header-row--small header-row--small-text" v-html="tag" />
     </div>
     <div ref="row" class="header-row">
       <p ref="stripe" class="header-row--small header-row__stripe"></p>
@@ -35,11 +32,12 @@ export default class Header extends Vue {
   readonly sublinePartTwo!: string;
 
   @Prop({ required: true })
-  readonly headline!: string;
+  readonly tag!: string;
 
   @Prop({ required: true })
   readonly aboutMe!: AboutMeInterface;
 
+  // TODO: Outsource animation logic
   getGapToBottom(scrollPosition: number, maxHeigt: number) {
     const currentGap = (this.$refs.stripe as HTMLElement).getBoundingClientRect().top;
     const scrollPos = scrollPosition - currentGap;
@@ -66,6 +64,11 @@ export default class Header extends Vue {
   width: 100%;
   max-width: 92%;
   margin-bottom: 100px;
+  padding-top: 30vh;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 0;
+  }
 
   @media screen and (min-width: 1480px) {
     margin-bottom: 200px;
@@ -76,11 +79,12 @@ export default class Header extends Vue {
     justify-content: space-between;
     width: 100%;
     align-items: center;
-    margin: 30px 0;
+    margin: 0px 0;
     flex-direction: column;
 
     @media screen and (min-width: 768px) {
       flex-direction: row;
+      margin: 30px 0;
     }
 
     &__container {
@@ -139,11 +143,16 @@ export default class Header extends Vue {
     }
 
     &--small {
+      display: none;
       font-size: 26px;
       font-weight: 400;
 
+      @media screen and (min-width: 768px) {
+        display: block;
+      }
+
       &-text {
-        background-image: url('./assets/illustration-circle-contact.svg');
+        background-image: url('./assets/images/illustration-circle-contact.svg');
         padding: 50px;
         background-repeat: no-repeat;
         background-size: contain;

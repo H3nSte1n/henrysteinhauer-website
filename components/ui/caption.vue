@@ -42,7 +42,7 @@ export default class Caption extends Animation {
 .caption {
   font-size: 1.4vw;
   max-width: 1050px;
-  margin: 6vh 10px 0 10px;
+  margin: 6vh 0 0 0;
   transform: translateY(100%);
   opacity: 0;
   transition: transform 0.5s ease-out 0.15s, opacity 0.35s ease-out 0.15s;

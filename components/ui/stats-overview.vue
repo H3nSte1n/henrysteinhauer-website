@@ -28,8 +28,8 @@ export default class StatsOverview extends Vue {
   private calcSkillPosition() {
     const minWidth = 10;
     const maxWidth = 40;
-    let minHeight = 0;
-    let maxHeight = 30;
+    let minHeight = 10;
+    let maxHeight = 27;
     let invertResult = -1;
 
     this.stats.forEach((_stat, index) => {
@@ -61,10 +61,12 @@ export default class StatsOverview extends Vue {
 .stats_overview {
   display: flex;
   max-width: 1050px;
-  width: 100vw;
+  width: 95vw;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
+  left: 50%;
+  transform: translateX(-50%);
 }
 </style>
