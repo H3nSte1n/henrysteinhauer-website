@@ -60,7 +60,7 @@ export default class Index extends Vue {
   header = {
     sublinePartOne: 'Software',
     sublinePartTwo: 'Developer',
-    headline: 'Henry <br>Steinhauer',
+    tag: 'Henry <br>Steinhauer',
   };
 
   pesonalData = ['Henry Steinhauer', 'Taunusstraße 24', '53225 Bonn'];

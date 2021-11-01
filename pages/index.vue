@@ -4,18 +4,24 @@
     <Header v-bind="header" :about-me="aboutme" />
     <InfoBox :info-box-infos="{}" :with-blob="true">
       <h3 class="info-box__subline">{{ date.subline }}</h3>
-      <strong id="animationNumber" ref="animationNumber" class="info-box__date">{{ date.year }}</strong>
+      <p>
+        <strong id="animationNumber" ref="animationNumber" class="info-box__date">{{ date.year }}</strong>
+      </p>
     </InfoBox>
-    <InfoBox id="achivments" :info-box-infos="achievments.infos" :with-underline="true">
+    <SectionConnection />
+    <InfoBox id="achivments" :info-box-infos="achievments.infos" :with-underline="false">
       <StatsOverview :stats="achievments.stats" :inverted-style="true" />
     </InfoBox>
-    <InfoBox id="skills" :info-box-infos="skills.infos" :with-underline="true">
+    <SectionConnection />
+    <InfoBox id="skills" :info-box-infos="skills.infos" :with-underline="false">
       <StatsOverview :stats="skills.stats" />
     </InfoBox>
+    <SectionConnection />
     <InfoBox id="social" :info-box-infos="social.infos" :with-blob="true" :headline-center="true">
       <h3 class="info-box__subline">{{ social.subline }}</h3>
       <SocialMediaBar :icons="social.icons" />
     </InfoBox>
+    <SectionConnection />
     <InfoBox id="contact" :info-box-infos="contact.infos" :with-blob="true" :headline-center="true">
       <h3 class="info-box__subline">{{ contact.subline }}</h3>
       <Button
@@ -24,6 +30,7 @@
           src: contact.mailLink,
         }"
         :with-hover-animation="true"
+        :with-svg="true"
       />
     </InfoBox>
     <Footer />
@@ -39,8 +46,9 @@ import AboutMe from '@/components/ui/about-me.vue';
 import Header from '@/components/layouts/header.vue';
 import Navigation from '@/components/layouts/navigation.vue';
 import Footer from '@/components/layouts/footer.vue';
-import { Animation, AnimationInterface } from '@/mixins/number-increase-animation';
 import Button from '@/components/ui/button.vue';
+import SectionConnection from '@/components/ui/section-connection.vue';
+import { Animation, AnimationInterface } from '@/mixins/number-increase-animation';
 
 @Component({
   components: {
@@ -52,13 +60,14 @@ import Button from '@/components/ui/button.vue';
     Navigation,
     Footer,
     Button,
+    SectionConnection,
   },
 })
 export default class Index extends Animation {
   header = {
     sublinePartOne: 'Software',
     sublinePartTwo: 'Developer',
-    headline: 'Henry <br>Steinhauer',
+    tag: 'Henry <br>Steinhauer',
   };
 
   date = {
@@ -78,19 +87,19 @@ export default class Index extends Animation {
     stats: [
       {
         label: 'Published Articles',
-        value: '6',
+        value: '-',
       },
       {
         label: 'Commits',
-        value: '560',
+        value: '-',
       },
       {
         label: 'Repositories',
-        value: '10',
+        value: '-',
       },
       {
         label: 'Programming Languages',
-        value: '6',
+        value: '-',
       },
     ],
     infos: {
@@ -179,6 +188,37 @@ export default class Index extends Animation {
 
   get mailLink(): String {
     return `mailto:${this.contact.email}`;
+  }
+
+  mappingGithubStats = (githubStats: Record<any, any>) => {
+    return [
+      {
+        label: 'Published Articles',
+        value: '6',
+      },
+      {
+        label: 'Commits',
+        value: githubStats.data.user.contributionsCollection.contributionCalendar.totalContributions,
+      },
+      {
+        label: 'Repositories',
+        value: githubStats.data.user.repositories.totalCount,
+      },
+      {
+        label: 'Programming Languages',
+        value: '6',
+      },
+    ];
+  };
+
+  async fetch() {
+    const githubStats = await fetch(`http://localhost:3000/api/github-stats`, {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' },
+    });
+
+    const { stats } = await githubStats.json();
+    this.achievments.stats = this.mappingGithubStats(stats);
   }
 
   mounted() {
