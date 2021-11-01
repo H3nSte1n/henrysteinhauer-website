@@ -42,9 +42,9 @@ svg {
   width: 100%;
   height: 100%;
   stroke-width: 1.5px;
-}
 
-.path {
-  transition: stroke-dashoffset 0.2s linear;
+  & path {
+    transition: stroke-dashoffset 0.2s linear;
+  }
 }
 </style>

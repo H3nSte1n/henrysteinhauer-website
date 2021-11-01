@@ -194,8 +194,6 @@ export default class Header extends Animation {
 }
 
 .svg {
-  transition: stroke-dashoffset 0.2s linear;
-
   &--hide-small {
     display: none;
     @media screen and (min-width: 768px) {
@@ -208,6 +206,10 @@ export default class Header extends Animation {
     @media screen and (min-width: 768px) {
       display: none;
     }
+  }
+
+  & path {
+    transition: stroke-dashoffset 0.2s linear;
   }
 }
 </style>
