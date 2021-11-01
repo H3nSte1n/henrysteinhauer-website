@@ -1,5 +1,9 @@
 export default {
-  // Global page headers: https://go.nuxtjs.dev/config-head
+  serverMiddleware: [
+    // TODO: activate
+    // 'redirect-ssl',
+    { path: '/api/github-stats', handler: '~/api/github-stats.ts' },
+  ],
   head: {
     title: 'Henry Steinhauer',
     htmlAttrs: {
