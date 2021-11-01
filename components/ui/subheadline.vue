@@ -4,7 +4,7 @@
 
 <script lang="ts">
 import { Prop, Component } from 'nuxt-property-decorator';
-import { Animation, AnimationInterface } from '@/mixins/number-increase-animation';
+import { Animation, AnimationInterface } from '~/mixins/Animation';
 
 @Component
 export default class Subheadline extends Animation {

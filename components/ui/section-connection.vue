@@ -8,7 +8,7 @@
 
 <script lang="ts">
 import { Component } from 'nuxt-property-decorator';
-import { Animation, AnimationInterface } from '@/mixins/number-increase-animation';
+import { Animation, AnimationInterface } from '~/mixins/Animation';
 
 @Component
 export default class SectionConnection extends Animation {

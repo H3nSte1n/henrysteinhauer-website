@@ -14,7 +14,7 @@
 
 <script lang="ts">
 import { Component, Prop } from 'nuxt-property-decorator';
-import { Animation, AnimationInterface } from '@/mixins/number-increase-animation';
+import { Animation, AnimationInterface } from '~/mixins/Animation';
 
 export interface Stats {
   label: String;

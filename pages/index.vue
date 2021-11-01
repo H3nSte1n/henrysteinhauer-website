@@ -39,16 +39,16 @@
 
 <script lang="ts">
 import { Component } from 'nuxt-property-decorator';
-import InfoBox from '@/components/layouts/info-box.vue';
+import InfoBox from '@/components/wrapper/info-box.vue';
 import SocialMediaBar from '@/components/ui/social-media-bar.vue';
 import StatsOverview from '@/components/ui/stats-overview.vue';
 import AboutMe from '@/components/ui/about-me.vue';
-import Header from '@/components/layouts/header.vue';
-import Navigation from '@/components/layouts/navigation.vue';
-import Footer from '@/components/layouts/footer.vue';
+import Header from '@/components/wrapper/header.vue';
+import Navigation from '@/components/wrapper/navigation.vue';
+import Footer from '@/components/wrapper/footer.vue';
 import Button from '@/components/ui/button.vue';
 import SectionConnection from '@/components/ui/section-connection.vue';
-import { Animation, AnimationInterface } from '@/mixins/number-increase-animation';
+import { Animation, AnimationInterface } from '~/mixins/Animation';
 
 @Component({
   components: {
