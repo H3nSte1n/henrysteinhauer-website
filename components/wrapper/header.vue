@@ -1,13 +1,26 @@
 <template>
-  <header class="header">
+  <header ref="header" class="header">
     <div class="header-row">
       <h2 class="header-row--big">{{ sublinePartOne }}</h2>
       <h2 class="header-row--small header-row--small-invert header-row--small header-row--small-text" v-html="tag" />
     </div>
     <div ref="row" class="header-row">
-      <p ref="stripe" class="header-row--small header-row__stripe"></p>
+      <svg class="svg svg--hide-small" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 316 747">
+        <path
+          ref="path"
+          d="M193.181 1c2 173-199.069 263.5-191.999 518 4 144 177.5 238 269.5 225.5 73.6-10 43.833-23.833 0-31.5"
+          stroke="#000"
+        />
+      </svg>
       <div class="header-row__container">
         <h2 class="header-row--big header-row--big-blobs-reverse">{{ sublinePartTwo }}</h2>
+        <svg class="svg svg--hide-large" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 257 327">
+          <path
+            ref="path2"
+            d="M255.993 1C256.802 77.4 202 136.675 117 146 23.5 156.257-14.5 267 10.5 311"
+            stroke="#000"
+          />
+        </svg>
         <AboutMe :about-me-info="aboutMe.infos" />
       </div>
     </div>
@@ -15,16 +28,17 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from 'nuxt-property-decorator';
+import { Component, Prop } from 'nuxt-property-decorator';
 import AboutMe from '@/components/ui/about-me.vue';
 import type { AboutMeInterface } from '@/components/ui/about-me.vue';
+import { Animation, AnimationInterface } from '~/mixins/Animation';
 
 @Component({
   components: {
     AboutMe,
   },
 })
-export default class Header extends Vue {
+export default class Header extends Animation {
   @Prop({ required: true })
   readonly sublinePartOne!: string;
 
@@ -37,24 +51,24 @@ export default class Header extends Vue {
   @Prop({ required: true })
   readonly aboutMe!: AboutMeInterface;
 
-  // TODO: Outsource animation logic
-  getGapToBottom(scrollPosition: number, maxHeigt: number) {
-    const currentGap = (this.$refs.stripe as HTMLElement).getBoundingClientRect().top;
-    const scrollPos = scrollPosition - currentGap;
+  totalLength!: number;
+  path!: SVGGeometryElement;
 
-    if (scrollPos >= maxHeigt) return;
-    (this.$refs.stripe as HTMLElement).style.height = `${scrollPos}px`;
-  }
-
-  animateOnScroll() {
-    const scrollPosition = (this.$refs.stripe as HTMLElement).getBoundingClientRect().top;
-    const maxHeigt = (this.$refs.row as HTMLElement).offsetHeight;
-
-    document.addEventListener('scroll', () => this.getGapToBottom(scrollPosition, maxHeigt));
+  getAnimationsElement(refSvgName: string): Array<AnimationInterface> {
+    return [
+      {
+        methodObj: {
+          name: 'animateOnScroll',
+          params: ['drawSVG', [this.initPath(refSvgName), refSvgName]],
+        },
+        target: 'header',
+      },
+    ];
   }
 
   mounted() {
-    this.animateOnScroll();
+    this.startObserver(this.getAnimationsElement('path'));
+    this.startObserver(this.getAnimationsElement('path2'));
   }
 }
 </script>
@@ -175,6 +189,24 @@ export default class Header extends Vue {
           margin-left: 2vw;
         }
       }
+    }
+  }
+}
+
+.svg {
+  transition: stroke-dashoffset 0.2s linear;
+
+  &--hide-small {
+    display: none;
+    @media screen and (min-width: 768px) {
+      display: block;
+    }
+  }
+
+  &--hide-large {
+    display: block;
+    @media screen and (min-width: 768px) {
+      display: none;
     }
   }
 }

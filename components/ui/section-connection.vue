@@ -15,19 +15,12 @@ export default class SectionConnection extends Animation {
   totalLength!: number;
   path!: SVGGeometryElement;
 
-  initPath() {
-    this.path = this.$refs.path as SVGGeometryElement;
-    this.totalLength = this.path.getTotalLength();
-    this.path.style.strokeDasharray = `${this.totalLength}`;
-    this.path.style.strokeDashoffset = `${this.totalLength}`;
-  }
-
-  getAnimationsElement(): Array<AnimationInterface> {
+  getAnimationsElement(refSvgName: string): Array<AnimationInterface> {
     return [
       {
         methodObj: {
           name: 'animateOnScroll',
-          params: ['drawSVG', [this.totalLength, 'path']],
+          params: ['drawSVG', [this.initPath(refSvgName), refSvgName]],
         },
         target: 'section-connection',
       },
@@ -35,8 +28,7 @@ export default class SectionConnection extends Animation {
   }
 
   mounted() {
-    this.initPath();
-    this.startObserver(this.getAnimationsElement());
+    this.startObserver(this.getAnimationsElement('path'));
   }
 }
 </script>

@@ -32,10 +32,19 @@ export class Animation extends Vue {
   drawSVG(totalLength: number, element: string) {
     window.requestAnimationFrame(() => {
       const path = this.$refs[element] as HTMLElement;
-      const scrollPercentage = this.getScrollPercentage(0.2, path);
+      const scrollPercentage = this.getScrollPercentage(0.4, path);
       const drawLength = totalLength * scrollPercentage;
       if (drawLength < totalLength && drawLength > 0) path.style.strokeDashoffset = `${drawLength}`;
     });
+  }
+
+  initPath(pathName: string): number {
+    const path = this.$refs[pathName] as SVGGeometryElement;
+    const totalLength = path.getTotalLength();
+    path.style.strokeDasharray = `${totalLength}`;
+    path.style.strokeDashoffset = `${totalLength}`;
+
+    return totalLength;
   }
 
   getScrollPercentage(gapBottom: number, path: HTMLElement) {
@@ -44,7 +53,6 @@ export class Animation extends Vue {
   }
 
   animateOnScroll(method: string, params: Array<number | string>) {
-    console.log(method, params);
     document.addEventListener('scroll', () => {
       this[method as keyof Animation](...params);
     });
