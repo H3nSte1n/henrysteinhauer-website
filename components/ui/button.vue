@@ -15,14 +15,6 @@
         stroke="black"
       />
     </svg>
-    <!-- <svg
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 1798 12"
-      :class="{ 'svg--mobile-hide': buttonObj.mobileHideSVG }"
-    >
-      <path d="M.5 11S455.5 1 928 1s455.5 6 869.5 6" stroke="#1F1E1E" />
-    </svg> -->
     <span
       ref="buttonContent"
       class="button__text"
@@ -133,6 +125,7 @@ export default class Button extends Vue {
   margin: 10px 10px;
   text-decoration: none;
   text-align: center;
+  z-index: 9999;
 
   &:hover {
     .svg__path--animation {
@@ -149,6 +142,7 @@ export default class Button extends Vue {
     position: absolute;
     padding: 10px;
     width: auto;
+    z-index: 9999;
 
     @media screen and (min-width: 640px) {
       font-size: 3vw;

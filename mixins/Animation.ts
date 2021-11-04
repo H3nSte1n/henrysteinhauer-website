@@ -32,7 +32,7 @@ export class Animation extends Vue {
   drawSVG(totalLength: number, element: string) {
     window.requestAnimationFrame(() => {
       const path = this.$refs[element] as HTMLElement;
-      const scrollPercentage = this.getScrollPercentage(0.1, path);
+      const scrollPercentage = this.getScrollPercentage(0.2, path);
       const drawLength = totalLength * scrollPercentage;
       if (drawLength < totalLength && drawLength > 0) path.style.strokeDashoffset = `${drawLength}`;
     });
