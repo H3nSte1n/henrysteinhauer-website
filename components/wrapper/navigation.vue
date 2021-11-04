@@ -95,7 +95,7 @@ export default class Navigation extends Vue {
     let prevScrollpos = window.pageYOffset;
     window.onscroll = () => {
       const currentScrollPos = window.pageYOffset;
-      if (prevScrollpos > currentScrollPos) {
+      if (prevScrollpos > currentScrollPos || currentScrollPos === 0) {
         this.scrollDown = false;
       } else {
         this.scrollDown = true;
