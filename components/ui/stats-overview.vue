@@ -1,5 +1,5 @@
 <template>
-  <div class="stats_overview" :style="{ height: `${containerHeight}px` }">
+  <div class="stats_overview" :style="{ height: `${containerHeight}vh` }">
     <template v-for="(skill, index) in stats">
       <StatsElement :key="index" :stats="skill" :position="statsPosition[index]" :inverted-style="invertedStyle" />
     </template>
@@ -29,13 +29,13 @@ export default class StatsOverview extends Vue {
     const minWidth = 10;
     const maxWidth = 40;
     let minHeight = 10;
-    let maxHeight = 27;
+    let maxHeight = 20;
     let invertResult = -1;
 
     this.stats.forEach((_stat, index) => {
       if (index % 2 === 0 && index !== 0) {
-        minHeight += 280;
-        maxHeight += 280;
+        minHeight += 37;
+        maxHeight += 37;
       }
       invertResult = invertResult * -1;
 
@@ -44,7 +44,7 @@ export default class StatsOverview extends Vue {
         y: this.calcRandomNum(maxHeight, minHeight),
       });
     });
-    this.containerHeight = (this.stats.length / 2) * 280;
+    this.containerHeight = (this.stats.length / 2) * 30;
   }
 
   calcRandomNum(max: number, min: number) {

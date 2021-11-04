@@ -2,7 +2,7 @@
   <div
     ref="stats-element"
     :class="invertedStyle ? 'stats-element stats-element--invert' : 'stats-element'"
-    :style="{ left: `calc(50% - ${positionX}%)`, top: `${positionY}px` }"
+    :style="{ left: `calc(50% - ${positionX}%)`, top: `${positionY}vh` }"
   >
     <div>
       <p>{{ stats.label }}</p>
