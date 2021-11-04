@@ -23,6 +23,9 @@ export default class SectionConnection extends Animation {
           params: ['drawSVG', [this.initPath(refSvgName), refSvgName]],
         },
         target: 'section-connection',
+        options: {
+          threshold: 0.1,
+        },
       },
     ];
   }
