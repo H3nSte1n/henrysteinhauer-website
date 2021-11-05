@@ -135,9 +135,9 @@ export default class Navigation extends Vue {
   &__container {
     width: 100vw;
     position: sticky;
+    z-index: 99999;
     top: 0px;
     padding: 15px 0 0 0;
-    z-index: 1;
     transition: transform 0.4s ease-out;
     background-image: url('./assets/images/background-image.jpg');
     background-color: #edede7;
