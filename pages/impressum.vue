@@ -1,7 +1,7 @@
 <template>
   <div class="impressum">
     <Navigation />
-    <Header v-bind="header" />
+    <SubsiteHeader v-bind="header" />
     <ContentBox headline="Angaben gemäß § 5 TMG">
       <h3 class="subheadline">Kontaktdaten</h3>
       <List :items="pesonalData" :gap="true" />
@@ -39,16 +39,16 @@
 
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator';
-import Header from '@/components/wrapper/header.vue';
+import SubsiteHeader from '@/components/wrapper/subsite-header.vue';
 import InfoBox from '@/components/wrapper/info-box.vue';
 import Navigation from '@/components/wrapper/navigation.vue';
 import Footer from '@/components/wrapper/footer.vue';
-import ContentBox from '@/components/ui/content-box.vue';
 import List from '@/components/ui/list.vue';
+import ContentBox from '@/components/wrapper/content-box.vue';
 
 @Component({
   components: {
-    Header,
+    SubsiteHeader,
     InfoBox,
     Navigation,
     Footer,
@@ -58,9 +58,7 @@ import List from '@/components/ui/list.vue';
 })
 export default class Index extends Vue {
   header = {
-    sublinePartOne: 'Software',
-    sublinePartTwo: 'Developer',
-    tag: 'Henry <br>Steinhauer',
+    headline: 'Impressum',
   };
 
   pesonalData = ['Henry Steinhauer', 'Taunusstraße 24', '53225 Bonn'];

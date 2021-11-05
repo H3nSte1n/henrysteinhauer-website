@@ -61,7 +61,7 @@ export default class Footer extends Vue {
   align-items: center;
   align-items: baseline;
   justify-content: space-between;
-  margin-top: 20vh;
+  margin: 16vh auto 6vh auto;
 
   &__list {
     display: flex;
