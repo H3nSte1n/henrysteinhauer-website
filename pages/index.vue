@@ -80,7 +80,7 @@ export default class Index extends Animation {
     infos: {
       headline: 'About Me',
       description:
-        'Hey, I am a passionate Software Engineer and writer on Medium. I love to explore new programming languages, design patterns, and frameworks. In my free time, I work on various private development projects and run, climb and read books. Hey, I am a passionate Software Engineer and writer on Medium. I love to explore new programming languages, design patterns, and frameworks. In my free time, I work on various private development projects and run, climb and read books.',
+        "Hey, I'm Henry Steinhauer, a passionate Software Engineer and writer on Medium. I love to explore new programming languages, design patterns, and frameworks. In my free time, I work on various private development projects and run, climb, cook and read books. I have also recently discovered my passion for travelling. But before I chat you up too much ;D, welcome to my portfolio website. Here you can find some information describing me and what I have done so far.",
     },
   };
 
@@ -106,7 +106,7 @@ export default class Index extends Animation {
     infos: {
       headline: 'My Highlights',
       caption:
-        'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos e',
+        'There were many great and exciting projects again this year. I was able to get to know new languages and frameworks for some of them. In others, I was able to delve deeper into code architecture. Here you can find a few statistics on all of them :D.',
     },
   };
 
@@ -114,7 +114,7 @@ export default class Index extends Animation {
     infos: {
       headline: "What I 've learned",
       caption:
-        'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos e',
+        "This year, I was particularly taken with one programming language. And I'm talking about Kotlin. But nevertheless, there were also many other exciting frameworks, libraries and programming languages that I was able to get to know this year. I have listed a few of them below. A more complete list can be found on my github profile.",
     },
     stats: [
       {
