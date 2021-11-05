@@ -57,7 +57,7 @@ export default class SocialMediaBar extends Vue {
       height: 16vh;
 
       &:hover {
-        background-image: url('./assets/images/illustration-circle-contact.svg');
+        background-image: url('./assets/images/svgs/illustration-circle-contact.svg');
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;

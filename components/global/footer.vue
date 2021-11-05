@@ -83,7 +83,7 @@ export default class Footer extends Vue {
     position: relative;
     text-transform: uppercase;
     cursor: pointer;
-    background-image: url(./assets/images/illustration-circle-contact.svg);
+    background-image: url(./assets/images/svgs/illustration-circle-contact.svg);
     padding: 32px;
     background-repeat: no-repeat;
     background-size: contain;

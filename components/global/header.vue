@@ -167,7 +167,7 @@ export default class Header extends Animation {
       }
 
       &-text {
-        background-image: url('./assets/images/illustration-circle-contact.svg');
+        background-image: url('./assets/images/svgs/illustration-circle-contact.svg');
         padding: 50px;
         background-repeat: no-repeat;
         background-size: contain;
