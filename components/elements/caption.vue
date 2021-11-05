@@ -1,7 +1,7 @@
 <template>
   <div>
     <hr v-if="dividingLine" />
-    <p class="caption" ref="caption">
+    <p ref="caption" class="caption">
       {{ displayedText }}
     </p>
   </div>
