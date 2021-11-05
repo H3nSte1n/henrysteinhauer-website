@@ -9,7 +9,7 @@
 
 <script lang="ts">
 import { Prop, Component } from 'nuxt-property-decorator';
-import { Animation, AnimationInterface } from '~/mixins/Animation';
+import { Animation, IAnimation } from '@/mixins/Animation';
 
 @Component
 export default class Caption extends Animation {
@@ -19,7 +19,7 @@ export default class Caption extends Animation {
   @Prop({ default: false })
   readonly dividingLine!: boolean;
 
-  animationsElements: Array<AnimationInterface> = [
+  animationsElements: Array<IAnimation> = [
     {
       methodObj: {
         name: 'revealAnimation',

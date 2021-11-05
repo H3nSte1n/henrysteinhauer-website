@@ -39,17 +39,15 @@
 
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator';
-import SubsiteHeader from '@/components/wrapper/subsite-header.vue';
-import InfoBox from '@/components/wrapper/info-box.vue';
-import Navigation from '@/components/wrapper/navigation.vue';
-import Footer from '@/components/wrapper/footer.vue';
-import List from '@/components/ui/list.vue';
-import ContentBox from '@/components/wrapper/content-box.vue';
+import SubsiteHeader from '@/components/global/subsite-header.vue';
+import Navigation from '@/components/global/navigation.vue';
+import Footer from '@/components/global/footer.vue';
+import List from '@/components/elements/list.vue';
+import ContentBox from '@/components/global/content-box.vue';
 
 @Component({
   components: {
     SubsiteHeader,
-    InfoBox,
     Navigation,
     Footer,
     ContentBox,

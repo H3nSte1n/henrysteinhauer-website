@@ -14,14 +14,15 @@
 
 <script lang="ts">
 import { Component, Prop } from 'nuxt-property-decorator';
-import { Animation, AnimationInterface } from '~/mixins/Animation';
+import type { IAnimation } from '@/mixins/Animation';
+import { Animation } from '~/mixins/Animation';
 
-export interface Stats {
+export interface IStats {
   label: String;
   value: String;
 }
 
-export interface Position {
+export interface IPosition {
   x: Number;
   y: Number;
 }
@@ -29,15 +30,15 @@ export interface Position {
 @Component
 export default class StatsElement extends Animation {
   @Prop({ required: true })
-  readonly stats!: Stats;
+  readonly stats!: IStats;
 
   @Prop({ required: true })
-  readonly position!: Position;
+  readonly position!: IPosition;
 
   @Prop({ default: false })
   readonly invertedStyle!: Boolean;
 
-  animationsElements: Array<AnimationInterface> = [
+  animationsElements: Array<IAnimation> = [
     {
       methodObj: {
         name: 'revealAnimation',

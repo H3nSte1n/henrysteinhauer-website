@@ -1,5 +1,11 @@
 <template>
-  <a :key="index" ref="button" :href="buttonObj.src" :target="isTargetBlank ? '_blank' : '_self'" class="button">
+  <a
+    :key="index"
+    ref="button"
+    :href="buttonObj.src"
+    :target="buttonObj.isTargetBlank ? '_blank' : '_self'"
+    class="button"
+  >
     <svg
       v-if="withSvg"
       width="100%"
@@ -38,6 +44,7 @@ export interface IButtonObj {
   label: String;
   mobileHideSVG?: boolean;
   textLeft?: boolean;
+  isTargetBlank?: boolean;
 }
 
 @Component
@@ -53,9 +60,6 @@ export default class Button extends Vue {
 
   @Prop({ required: false })
   readonly withHoverAnimation!: boolean;
-
-  @Prop({ required: false })
-  readonly isTargetBlank!: boolean;
 
   get prepareStyle() {
     return '';

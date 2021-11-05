@@ -26,8 +26,8 @@
 
 <script lang="ts">
 import { Vue, Component, Prop } from 'nuxt-property-decorator';
-import SubHeadline from '@/components/ui/subheadline.vue';
-import Caption from '@/components/ui/caption.vue';
+import SubHeadline from '@/components/elements/subheadline.vue';
+import Caption from '@/components/elements/caption.vue';
 
 export interface InfoBoxInterface {
   headline?: String;

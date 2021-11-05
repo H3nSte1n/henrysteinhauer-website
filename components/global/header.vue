@@ -29,9 +29,10 @@
 
 <script lang="ts">
 import { Component, Prop } from 'nuxt-property-decorator';
-import AboutMe from '@/components/ui/about-me.vue';
-import type { AboutMeInterface } from '@/components/ui/about-me.vue';
-import { Animation, AnimationInterface } from '~/mixins/Animation';
+import type { IAboutMeProps } from '@/components/wrapper/about-me.vue';
+import AboutMe from '@/components/wrapper/about-me.vue';
+import type { IAnimation } from '@/mixins/Animation';
+import { Animation } from '@/mixins/Animation';
 
 @Component({
   components: {
@@ -49,12 +50,12 @@ export default class Header extends Animation {
   readonly tag!: string;
 
   @Prop({ required: true })
-  readonly aboutMe!: AboutMeInterface;
+  readonly aboutMe!: IAboutMeProps;
 
   totalLength!: number;
   path!: SVGGeometryElement;
 
-  getAnimationsElement(refSvgName: string): Array<AnimationInterface> {
+  getAnimationsElement(refSvgName: string): Array<IAnimation> {
     return [
       {
         methodObj: {

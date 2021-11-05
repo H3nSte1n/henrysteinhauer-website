@@ -5,7 +5,7 @@ export interface MethodObjInterface {
   params: Array<number | string | Array<string | number>>;
 }
 
-export interface AnimationInterface {
+export interface IAnimation {
   methodObj: MethodObjInterface;
   target: string;
   options?: Record<string, number>;
@@ -58,7 +58,7 @@ export class Animation extends Vue {
     });
   }
 
-  private createObserver(animation: AnimationInterface) {
+  private createObserver(animation: IAnimation) {
     const options = {
       threshold: 0.5,
     };
@@ -77,7 +77,7 @@ export class Animation extends Vue {
     );
   }
 
-  startObserver(animations: Array<AnimationInterface>) {
+  startObserver(animations: Array<IAnimation>) {
     animations.forEach((animation) => {
       const htmlElement = this.$refs[animation.target] as HTMLElement;
       const observer = this.createObserver(animation);

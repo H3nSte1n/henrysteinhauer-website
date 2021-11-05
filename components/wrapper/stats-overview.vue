@@ -8,7 +8,8 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'nuxt-property-decorator';
-import StatsElement, { Position, Stats } from '@/components/ui/stats-element.vue';
+import type { IPosition, IStats } from '@/components/elements/stats-element.vue';
+import StatsElement from '@/components/elements/stats-element.vue';
 
 @Component({
   components: {
@@ -16,11 +17,11 @@ import StatsElement, { Position, Stats } from '@/components/ui/stats-element.vue
   },
 })
 export default class StatsOverview extends Vue {
-  statsPosition: Array<Position> = [];
+  statsPosition: Array<IPosition> = [];
   containerHeight: Number = 0;
 
   @Prop({ required: true })
-  readonly stats!: Array<Stats>;
+  readonly stats!: Array<IStats>;
 
   @Prop({ default: false })
   readonly invertedStyle!: Boolean;

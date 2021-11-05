@@ -15,8 +15,8 @@
 
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator';
-import Button from '@/components/ui/button.vue';
-import type { IButtonObj } from '@/components/ui/button.vue';
+import Button from '@/components/elements/button.vue';
+import type { IButtonObj } from '@/components/elements/button.vue';
 
 @Component({
   components: {
@@ -36,6 +36,7 @@ export default class Footer extends Vue {
       src: 'https://johanneszimmer.com/',
       mobileHideSVG: true,
       textLeft: true,
+      isTargetBlank: true,
     },
   ];
 
