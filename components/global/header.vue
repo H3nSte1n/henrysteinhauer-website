@@ -2,7 +2,7 @@
   <header ref="header" class="header">
     <div class="header-row">
       <h2 class="header-row--big">{{ sublinePartOne }}</h2>
-      <h2 class="header-row--small header-row--small-invert header-row--small header-row--small-text" v-html="tag" />
+      <h3 class="header-row--small header-row--small-invert header-row--small header-row--small-text" v-html="tag" />
     </div>
     <div ref="row" class="header-row">
       <svg class="svg svg--hide-small" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 316 747">

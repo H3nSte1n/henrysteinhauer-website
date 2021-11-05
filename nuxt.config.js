@@ -7,7 +7,7 @@ export default {
   head: {
     title: 'Henry Steinhauer',
     htmlAttrs: {
-      lang: 'de',
+      lang: 'en',
     },
     meta: [
       { charset: 'utf-8' },
@@ -18,7 +18,12 @@ export default {
       { name: 'msapplication-TileImage', content: '/assets/fav/ms-icon-144x144.png' },
       { name: 'msapplication-TileImage', content: '/assets/fav/ms-icon-150x150.png' },
       { name: 'theme-color', content: '#ffffff' },
-      { hid: 'description', name: 'description', content: '' },
+      {
+        hid: 'description',
+        name: 'description',
+        content:
+          "Hello, I'm Henry Steinhauer, passionate software developer and author on Medium. This is my portfolio website. Here you can find some information describing me and what I have done so far.",
+      },
       { hid: 'og:title', property: 'og:title', content: 'Henry Steinhauer' },
       { hid: 'og:description', property: 'og:description', content: '' },
       { hid: 'og:url', property: 'og:url', content: 'https://steinhauer.dev' },
