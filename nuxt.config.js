@@ -5,7 +5,7 @@ export default {
     { path: '/api/github-stats', handler: '~/api/github-stats.ts' },
   ],
   head: {
-    title: 'Henry Steinhauer',
+    title: 'Henry Steinhauer - Portfolio Website',
     htmlAttrs: {
       lang: 'en',
     },
@@ -22,7 +22,12 @@ export default {
         hid: 'description',
         name: 'description',
         content:
-          "Hello, I'm Henry Steinhauer, passionate software developer and author on Medium. This is my portfolio website. Here you can find some information describing me and what I have done so far.",
+          "Hey, I'm Henry, passionate software developer and author on Medium.  Here you can find some information describing me and what I have done so far.",
+      },
+      {
+        hid: 'keywords',
+        name: 'keywords',
+        content: 'nuxt, typescript, henry, steinhauer, express, portfolio, software development, backend, frontend',
       },
       { hid: 'og:title', property: 'og:title', content: 'Henry Steinhauer' },
       { hid: 'og:description', property: 'og:description', content: '' },
