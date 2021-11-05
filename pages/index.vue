@@ -1,25 +1,28 @@
 <template>
   <div class="index">
     <Navigation />
-    <Header v-bind="header" />
-    <InfoBox id="aboutme" :info-box-infos="{}">
-      <AboutMe :about-me-info="aboutme.infos" />
-    </InfoBox>
-    <InfoBox :info-box-infos="{}">
+    <Header v-bind="header" :about-me="aboutme" />
+    <InfoBox :info-box-infos="{}" :with-blob="true">
       <h3 class="info-box__subline">{{ date.subline }}</h3>
-      <strong id="animationNumber" ref="animationNumber" class="info-box__date">{{ date.year }}</strong>
+      <p>
+        <strong id="animationNumber" ref="animationNumber" class="info-box__date">{{ date.year }}</strong>
+      </p>
     </InfoBox>
-    <InfoBox id="achivments" :info-box-infos="achievments.infos">
+    <SectionConnection />
+    <InfoBox id="achivments" :info-box-infos="achievments.infos" :with-underline="false">
       <StatsOverview :stats="achievments.stats" :inverted-style="true" />
     </InfoBox>
-    <InfoBox id="skills" :info-box-infos="skills.infos">
+    <SectionConnection />
+    <InfoBox id="skills" :info-box-infos="skills.infos" :with-underline="false">
       <StatsOverview :stats="skills.stats" />
     </InfoBox>
-    <InfoBox id="social" :info-box-infos="social.infos">
+    <SectionConnection />
+    <InfoBox id="social" :info-box-infos="social.infos" :with-blob="true" :headline-center="true">
       <h3 class="info-box__subline">{{ social.subline }}</h3>
       <SocialMediaBar :icons="social.icons" />
     </InfoBox>
-    <InfoBox id="contact" :info-box-infos="contact.infos">
+    <SectionConnection />
+    <InfoBox id="contact" :info-box-infos="contact.infos" :with-blob="true" :headline-center="true">
       <h3 class="info-box__subline">{{ contact.subline }}</h3>
       <Button
         :button-obj="{
@@ -27,6 +30,7 @@
           src: contact.mailLink,
         }"
         :with-hover-animation="true"
+        :with-svg="true"
       />
     </InfoBox>
     <Footer />
@@ -35,15 +39,16 @@
 
 <script lang="ts">
 import { Component } from 'nuxt-property-decorator';
-import InfoBox from '@/components/layouts/info-box.vue';
+import InfoBox from '@/components/wrapper/info-box.vue';
 import SocialMediaBar from '@/components/ui/social-media-bar.vue';
 import StatsOverview from '@/components/ui/stats-overview.vue';
 import AboutMe from '@/components/ui/about-me.vue';
-import Header from '@/components/layouts/header.vue';
-import Navigation from '@/components/layouts/navigation.vue';
-import Footer from '@/components/layouts/footer.vue';
-import { Animation, AnimationInterface } from '@/mixins/number-increase-animation';
+import Header from '@/components/wrapper/header.vue';
+import Navigation from '@/components/wrapper/navigation.vue';
+import Footer from '@/components/wrapper/footer.vue';
 import Button from '@/components/ui/button.vue';
+import SectionConnection from '@/components/ui/section-connection.vue';
+import { Animation, AnimationInterface } from '~/mixins/Animation';
 
 @Component({
   components: {
@@ -55,13 +60,14 @@ import Button from '@/components/ui/button.vue';
     Navigation,
     Footer,
     Button,
+    SectionConnection,
   },
 })
 export default class Index extends Animation {
   header = {
     sublinePartOne: 'Software',
     sublinePartTwo: 'Developer',
-    headline: 'Henry <br>Steinhauer',
+    tag: 'Henry <br>Steinhauer',
   };
 
   date = {
@@ -73,7 +79,7 @@ export default class Index extends Animation {
     infos: {
       headline: 'About Me',
       description:
-        'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolor. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolor. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolor',
+        'Hey, I am a passionate Software Engineer and writer on Medium. I love to explore new programming languages, design patterns, and frameworks. In my free time, I work on various private development projects and run, climb and read books. Hey, I am a passionate Software Engineer and writer on Medium. I love to explore new programming languages, design patterns, and frameworks. In my free time, I work on various private development projects and run, climb and read books.',
     },
   };
 
@@ -81,19 +87,19 @@ export default class Index extends Animation {
     stats: [
       {
         label: 'Published Articles',
-        value: '6',
+        value: '-',
       },
       {
         label: 'Commits',
-        value: '560',
+        value: '-',
       },
       {
         label: 'Repositories',
-        value: '10',
+        value: '-',
       },
       {
         label: 'Programming Languages',
-        value: '6',
+        value: '-',
       },
     ],
     infos: {
@@ -184,6 +190,37 @@ export default class Index extends Animation {
     return `mailto:${this.contact.email}`;
   }
 
+  mappingGithubStats = (githubStats: Record<any, any>) => {
+    return [
+      {
+        label: 'Published Articles',
+        value: '6',
+      },
+      {
+        label: 'Commits',
+        value: githubStats.data.user.contributionsCollection.contributionCalendar.totalContributions,
+      },
+      {
+        label: 'Repositories',
+        value: githubStats.data.user.repositories.totalCount,
+      },
+      {
+        label: 'Programming Languages',
+        value: '6',
+      },
+    ];
+  };
+
+  async fetch() {
+    const githubStats = await fetch(`http://localhost:3000/api/github-stats`, {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' },
+    });
+
+    const { stats } = await githubStats.json();
+    this.achievments.stats = this.mappingGithubStats(stats);
+  }
+
   mounted() {
     this.startObserver(this.animationsElements);
   }
@@ -203,7 +240,6 @@ export default class Index extends Animation {
     font-size: 10px;
     font-weight: 300;
     text-transform: uppercase;
-    margin-bottom: 50px;
 
     @media screen and (min-width: 640px) {
       font-size: 13px;
@@ -224,9 +260,11 @@ export default class Index extends Animation {
   }
 
   &__date {
-    font-size: 40vw;
+    font-size: 34vw;
     margin-top: -50px;
     text-align: left;
+    font-weight: 500;
+    letter-spacing: 1vw;
   }
 }
 </style>

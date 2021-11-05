@@ -1,6 +1,7 @@
 <template>
   <a :key="index" ref="button" :href="buttonObj.src" target="_blank" class="button">
     <svg
+      v-if="withSvg"
       width="100%"
       viewBox="0 0 214 127"
       fill="none"
@@ -16,8 +17,13 @@
     </svg>
     <span
       ref="buttonContent"
-      class="button__icon"
-      :class="{ 'button--relative': buttonObj.mobileHideSVG }"
+      class="button__text"
+      :class="{
+        'button--mobile-relative': buttonObj.mobileHideSVG && withSvg,
+        'button--relative': !withSvg,
+        'button--left': buttonObj.textLeft,
+        'button--underscore-animation': !withSvg,
+      }"
       :style="styles"
       v-html="buttonObj.label"
     />
@@ -31,6 +37,7 @@ export interface IButtonObj {
   src: String;
   label: String;
   mobileHideSVG?: boolean;
+  textLeft?: boolean;
 }
 
 @Component
@@ -42,14 +49,17 @@ export default class Button extends Vue {
   readonly styles!: Array<any>;
 
   @Prop({ required: false })
+  readonly withSvg!: boolean;
+
+  @Prop({ required: false })
   readonly withHoverAnimation!: boolean;
 
   get prepareStyle() {
     return '';
   }
 
-  relativeCoords(event: Event) {
-    const bounds = event.target.getBoundingClientRect();
+  relativeCoords(event: MouseEvent) {
+    const bounds = (event.target as HTMLInputElement).getBoundingClientRect();
     const width = (this.$refs.button as HTMLElement).offsetWidth / 2;
     const height = (this.$refs.button as HTMLElement).offsetHeight / 2;
     const x = event.clientX - bounds.left - width;
@@ -57,7 +67,7 @@ export default class Button extends Vue {
     return { x, y };
   }
 
-  animate(event: Event) {
+  animate(event: MouseEvent) {
     const { x, y } = this.relativeCoords(event);
     const devider = 10;
     (this.$refs.buttonContent as HTMLElement).style.transform = `translate(${-(x / devider)}px, ${-(y / devider)}px)`;
@@ -110,10 +120,12 @@ export default class Button extends Vue {
   justify-content: center;
   align-items: center;
   position: relative;
-  height: 16vh;
+  height: 10vh;
   cursor: pointer;
   margin: 10px 10px;
   text-decoration: none;
+  text-align: center;
+  z-index: 9999;
 
   &:hover {
     .svg__path--animation {
@@ -122,13 +134,15 @@ export default class Button extends Vue {
     }
   }
 
-  &__icon {
+  &__text {
     transition: transform 0.2s linear;
     color: black;
     text-decoration: none;
     font-size: 19px;
     position: absolute;
     padding: 10px;
+    width: auto;
+    z-index: 9999;
 
     @media screen and (min-width: 640px) {
       font-size: 3vw;
@@ -139,7 +153,21 @@ export default class Button extends Vue {
     }
   }
 
+  &--underscore-animation {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &--left {
+    text-align: left;
+  }
+
   &--relative {
+    position: relative;
+  }
+
+  &--mobile-relative {
     position: relative;
 
     @media screen and (min-width: 768px) {

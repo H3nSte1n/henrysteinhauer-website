@@ -39,10 +39,10 @@
 
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator';
-import Header from '@/components/layouts/header.vue';
-import InfoBox from '@/components/layouts/info-box.vue';
-import Navigation from '@/components/layouts/navigation.vue';
-import Footer from '@/components/layouts/footer.vue';
+import Header from '@/components/wrapper/header.vue';
+import InfoBox from '@/components/wrapper/info-box.vue';
+import Navigation from '@/components/wrapper/navigation.vue';
+import Footer from '@/components/wrapper/footer.vue';
 import ContentBox from '@/components/ui/content-box.vue';
 import List from '@/components/ui/list.vue';
 
@@ -60,7 +60,7 @@ export default class Index extends Vue {
   header = {
     sublinePartOne: 'Software',
     sublinePartTwo: 'Developer',
-    headline: 'Henry <br>Steinhauer',
+    tag: 'Henry <br>Steinhauer',
   };
 
   pesonalData = ['Henry Steinhauer', 'Taunusstraße 24', '53225 Bonn'];

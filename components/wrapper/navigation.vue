@@ -1,8 +1,14 @@
 <template>
   <div ref="nav" class="nav__container" :class="{ 'nav__container--hide': scrollDown }">
     <div :class="{ nav: true, 'nav--active': toggleActive }">
-      <a v-if="!viewSubNavMenue" class="nav__list-item-link" href="/">Henry Steinhauer</a>
-      <a else class="nav__list-item-link" @click="smoothScrolling('.header')">Henry Steinhauer</a>
+      <a v-if="!viewSubNavMenue" class="nav__list-item-link" href="/">
+        <h1>
+          {{ fullName }}
+        </h1>
+      </a>
+      <a v-if="viewSubNavMenue" class="nav__list-item-link" @click="smoothScrolling('.header')">
+        <h1>{{ fullName }}</h1>
+      </a>
       <nav v-if="viewSubNavMenue">
         <ul :class="{ nav__list: true, 'nav__list--active': toggleActive }" @click="toggleMenue">
           <li
@@ -11,14 +17,13 @@
             class="nav__list-item"
             :style="{ top: index > 0 && toggleActive ? 'calc(50% - 20%)' : '0px' }"
           >
-            <a class="nav__list-item-link" @click="smoothScrolling(nav.link)">
+            <a class="nav__list-item-link nav__list-item-link--big" @click="smoothScrolling(nav.link)">
               {{ nav.name }}
             </a>
           </li>
         </ul>
       </nav>
     </div>
-    <hr />
   </div>
 </template>
 
@@ -32,6 +37,7 @@ interface NavigationInterface {
 
 @Component
 export default class Navigation extends Vue {
+  private readonly fullName = 'Henry Steinhauer';
   readonly navs: Array<NavigationInterface> = [
     {
       name: 'MENU',
@@ -60,7 +66,7 @@ export default class Navigation extends Vue {
   viewSubNavMenue = true;
 
   toggleMenue() {
-    if (window.innerWidth <= 700) {
+    if (window.innerWidth <= 768) {
       this.toggleActive = !this.toggleActive;
     } else {
       this.toggleActive = false;
@@ -89,7 +95,7 @@ export default class Navigation extends Vue {
     let prevScrollpos = window.pageYOffset;
     window.onscroll = () => {
       const currentScrollPos = window.pageYOffset;
-      if (prevScrollpos > currentScrollPos) {
+      if (prevScrollpos > currentScrollPos || currentScrollPos === 0) {
         this.scrollDown = false;
       } else {
         this.scrollDown = true;
@@ -109,6 +115,8 @@ export default class Navigation extends Vue {
 <style scoped lang="scss">
 .nav {
   width: 100%;
+  max-width: 92%;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   margin-bottom: 15px;
@@ -128,15 +136,12 @@ export default class Navigation extends Vue {
     width: 100vw;
     position: sticky;
     top: 0px;
-    padding: 15px 20px 0 15px;
+    padding: 15px 0 0 0;
     z-index: 1;
     transition: transform 0.4s ease-out;
-    background-color: rgba(237, 237, 231, 0.2);
-    backdrop-filter: blur(8px);
-
-    @supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
-      background-color: rgba(237, 237, 231, 0.8);
-    }
+    background-image: url('./assets/images/background-image.jpg');
+    background-color: #edede7;
+    border-bottom: 1px solid #000000;
 
     &--hide {
       transform: translateY(-100%);
@@ -154,7 +159,7 @@ export default class Navigation extends Vue {
       height: 100%;
     }
 
-    @media screen and (min-width: 700px) {
+    @media screen and (min-width: 768px) {
       flex-direction: row;
       height: 100%;
     }
@@ -166,7 +171,8 @@ export default class Navigation extends Vue {
       cursor: pointer;
 
       &-link {
-        @media screen and (min-width: 700px) {
+        font-size: 8px;
+        @media screen and (min-width: 768px) {
           line-height: 26px;
 
           &:before,
@@ -198,20 +204,24 @@ export default class Navigation extends Vue {
             top: 0;
           }
         }
+
+        &--big {
+          font-size: 15px;
+        }
       }
-      @media screen and (min-width: 700px) {
+      @media screen and (min-width: 768px) {
         padding: 0 15px;
       }
 
       &:last-child {
-        @media screen and (min-width: 700px) {
+        @media screen and (min-width: 768px) {
           padding: 0 0 0 15px;
         }
       }
       &:first-child {
         top: 0px;
         padding-bottom: 33px;
-        @media screen and (min-width: 700px) {
+        @media screen and (min-width: 768px) {
           display: none;
           padding-bottom: 33px;
         }

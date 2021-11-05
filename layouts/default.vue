@@ -6,7 +6,12 @@
 
 <style>
 html {
-  background-image: url('./assets/background-image.png');
+  background-image: url('./assets/images/background-image.jpg');
+  background-repeat: repeat-y;
+}
+
+body {
+  overflow-x: hidden;
 }
 
 *,

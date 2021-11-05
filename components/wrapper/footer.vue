@@ -1,13 +1,14 @@
 <template>
   <div class="footer">
-    <template v-for="(link, index) in links">
+    <div class="footer__list">
       <Button
+        v-for="(link, index) in links"
         :key="index"
         :button-obj="link"
-        :styles="{ 'font-size': '16px', 'text-transform': 'uppercase' }"
+        :styles="{ 'font-size': '13px', 'text-transform': 'uppercase', padding: '0px' }"
         class="footer__list-item"
       />
-    </template>
+    </div>
     <a class="footer__nav-item" @click="smoothScrolling">Back to Top</a>
   </div>
 </template>
@@ -25,14 +26,16 @@ import type { IButtonObj } from '@/components/ui/button.vue';
 export default class Footer extends Vue {
   links: Array<IButtonObj> = [
     {
-      label: 'Design by<br>Johannes Zimmer',
-      src: 'https://johanneszimmer.com/',
-      mobileHideSVG: true,
-    },
-    {
       label: 'Impressum',
       src: '/impressum',
       mobileHideSVG: true,
+      textLeft: true,
+    },
+    {
+      label: 'Design by<br>Johannes Zimmer',
+      src: 'https://johanneszimmer.com/',
+      mobileHideSVG: true,
+      textLeft: true,
     },
   ];
 
@@ -49,27 +52,28 @@ export default class Footer extends Vue {
 <style scoped lang="scss">
 .footer {
   width: 100%;
+  max-width: 92%;
   display: flex;
   flex: 1 1 0px;
   flex-flow: row;
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
-  margin-bottom: 50px;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-top: 20vh;
 
   &__list {
     display: flex;
     flex-direction: column;
-    width: calc(50% + 40px);
+    align-items: baseline;
 
     @media screen and (min-width: 768px) {
-      flex-direction: row;
+      flex-direction: column;
       justify-content: space-between;
-      align-items: center;
     }
 
     &-item {
-      padding: 12px 0;
       cursor: pointer;
     }
   }
@@ -78,7 +82,7 @@ export default class Footer extends Vue {
     position: relative;
     text-transform: uppercase;
     cursor: pointer;
-    background-image: url(./assets/illustration-circle-contact.svg);
+    background-image: url(./assets/images/illustration-circle-contact.svg);
     padding: 32px;
     background-repeat: no-repeat;
     background-size: contain;

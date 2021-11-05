@@ -1,0 +1,215 @@
+<template>
+  <header ref="header" class="header">
+    <div class="header-row">
+      <h2 class="header-row--big">{{ sublinePartOne }}</h2>
+      <h2 class="header-row--small header-row--small-invert header-row--small header-row--small-text" v-html="tag" />
+    </div>
+    <div ref="row" class="header-row">
+      <svg class="svg svg--hide-small" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 316 747">
+        <path
+          ref="path"
+          d="M193.181 1c2 173-199.069 263.5-191.999 518 4 144 177.5 238 269.5 225.5 73.6-10 43.833-23.833 0-31.5"
+          stroke="#000"
+        />
+      </svg>
+      <div class="header-row__container">
+        <h2 class="header-row--big header-row--big-blobs-reverse">{{ sublinePartTwo }}</h2>
+        <svg class="svg svg--hide-large" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 257 327">
+          <path
+            ref="path2"
+            d="M255.993 1C256.802 77.4 202 136.675 117 146 23.5 156.257-14.5 267 10.5 311"
+            stroke="#000"
+          />
+        </svg>
+        <AboutMe :about-me-info="aboutMe.infos" />
+      </div>
+    </div>
+  </header>
+</template>
+
+<script lang="ts">
+import { Component, Prop } from 'nuxt-property-decorator';
+import AboutMe from '@/components/ui/about-me.vue';
+import type { AboutMeInterface } from '@/components/ui/about-me.vue';
+import { Animation, AnimationInterface } from '~/mixins/Animation';
+
+@Component({
+  components: {
+    AboutMe,
+  },
+})
+export default class Header extends Animation {
+  @Prop({ required: true })
+  readonly sublinePartOne!: string;
+
+  @Prop({ required: true })
+  readonly sublinePartTwo!: string;
+
+  @Prop({ required: true })
+  readonly tag!: string;
+
+  @Prop({ required: true })
+  readonly aboutMe!: AboutMeInterface;
+
+  totalLength!: number;
+  path!: SVGGeometryElement;
+
+  getAnimationsElement(refSvgName: string): Array<AnimationInterface> {
+    return [
+      {
+        methodObj: {
+          name: 'animateOnScroll',
+          params: ['drawSVG', [this.initPath(refSvgName), refSvgName]],
+        },
+        target: 'header',
+      },
+    ];
+  }
+
+  mounted() {
+    this.startObserver(this.getAnimationsElement('path'));
+    this.startObserver(this.getAnimationsElement('path2'));
+  }
+}
+</script>
+
+<style scoped lang="scss">
+.header {
+  width: 100%;
+  max-width: 92%;
+  margin-bottom: 100px;
+  padding-top: 30vh;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 0;
+  }
+
+  @media screen and (min-width: 1480px) {
+    margin-bottom: 200px;
+  }
+
+  &-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    margin: 0px 0;
+    flex-direction: column;
+
+    @media screen and (min-width: 768px) {
+      flex-direction: row;
+      margin: 30px 0;
+    }
+
+    &__container {
+      position: relative;
+      width: 63vw;
+    }
+
+    &__stripe {
+      width: 20px;
+      align-self: flex-start;
+      background-color: black;
+      margin: 0 auto;
+      transition: height 0.5s ease-out;
+    }
+
+    &--big {
+      font-size: 15vw;
+      font-weight: 400;
+      position: relative;
+
+      &::before {
+        content: '';
+        width: 26vw;
+        height: 26vw;
+        position: absolute;
+        border-radius: 100%;
+        top: 13%;
+        left: 20%;
+        background-color: rgba(23, 99, 142, 0.2);
+        filter: blur(3vw);
+      }
+
+      &::after {
+        content: '';
+        width: 26vw;
+        height: 26vw;
+        position: absolute;
+        top: -22%;
+        left: 38%;
+        border-radius: 100%;
+        background-color: rgba(61, 142, 23, 0.2125);
+        filter: blur(5vw);
+      }
+
+      &-blobs-reverse {
+        &::before {
+          top: -22%;
+          left: 38%;
+        }
+
+        &::after {
+          top: 13%;
+          left: 20%;
+        }
+      }
+    }
+
+    &--small {
+      display: none;
+      font-size: 26px;
+      font-weight: 400;
+
+      @media screen and (min-width: 768px) {
+        display: block;
+      }
+
+      &-text {
+        background-image: url('./assets/images/illustration-circle-contact.svg');
+        padding: 50px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        text-transform: uppercase;
+        font-size: 2vw;
+
+        @media screen and (min-width: 768px) {
+          font-size: 1.8vw;
+        }
+
+        @media screen and (min-width: 1024px) {
+          padding: 71px;
+          font-size: 2vw;
+        }
+      }
+
+      &-invert {
+        @media screen and (min-width: 640px) {
+          margin-left: 2vw;
+        }
+      }
+    }
+  }
+}
+
+.svg {
+  &--hide-small {
+    display: none;
+    @media screen and (min-width: 768px) {
+      display: block;
+    }
+  }
+
+  &--hide-large {
+    display: block;
+    @media screen and (min-width: 768px) {
+      display: none;
+    }
+  }
+
+  & path {
+    transition: stroke-dashoffset 0.2s linear;
+  }
+}
+</style>
