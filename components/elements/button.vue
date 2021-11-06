@@ -8,7 +8,6 @@
   >
     <svg
       v-if="withSvg"
-      width="100%"
       viewBox="0 0 214 127"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -98,6 +97,7 @@ export default class Button extends Vue {
 
   @media screen and (min-width: 768px) {
     width: 100%;
+    max-width: 32vw;
   }
 
   &--mobile-hide {

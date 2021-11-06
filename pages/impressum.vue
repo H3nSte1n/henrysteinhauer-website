@@ -6,7 +6,6 @@
       <h3 class="subheadline">Kontaktdaten</h3>
       <List :items="pesonalData" :gap="true" />
       <List :items="contactData" :gap="true" />
-      <p><strong>Steuer - Identifikationsnummer: </strong> REPLACE_ME</p>
       <p><strong>Inhaltlich verantwortlich gemäß § 55 Abs. 2 RStV:</strong></p>
       <List :items="pesonalData" :gap="true" />
     </ContentBox>
@@ -19,12 +18,8 @@
     <ContentBox headline="Urheberrechtshinweis">
       <p>
         Alle Inhalte dieser Website, insbesondere Texte und Fotografien, sind urheberrechtlich geschützt (Copyright).
-        Soweit nicht ausdrücklich anders gekennzeichnet, liegt das Urheberrecht bei Claudia Eck. Falls Sie Inhalte
+        Soweit nicht ausdrücklich anders gekennzeichnet, liegt das Urheberrecht bei Henry Steinhauer. Falls Sie Inhalte
         dieser Website nutzen möchten, fragen Sie mich bitte.
-      </p>
-      <p>
-        Die auf dieser Website (Deine URL) verwendeten Bilder kommen von pexels.com und dürfen frei ohne Angaben des
-        Erstellers verwendet werden.
       </p>
       <p>
         Wer gegen das Urheberrecht verstößt (z.B. indem er die Inhalte ohne explizite Genehmigung des Rechteinhabers
