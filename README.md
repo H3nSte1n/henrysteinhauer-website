@@ -20,8 +20,7 @@
 </details>
 
 ## About The Project
-
-Hey, welcome. This is the repo from my portfolio website. Here you can find informations like the tech-stack, how you can run the site local and much more. Enjoy. The design was created by [Johannes Zimmer](https://johannes-portfolio-9bd3ff97ac7e5035ea33.webflow.io/).
+Hello, welcome. This is the repo of my portfolio website. Here you will find information like the tech stack, how to run the site locally and much more. Have fun! The design was created by [Johannes Zimmer](https://johannes-portfolio-9bd3ff97ac7e5035ea33.webflow.io/).
 
 ## Used
 
