@@ -26,7 +26,9 @@ Hey, welcome. This is the repo from my portfolio website. Here you can find info
 ## Used
 
 - [![][logo-nuxt]](https://nuxtjs.org/)
+
 * [![][logo-typescript]](https://www.typescriptlang.org/)
+
 - [![][logo-express]](https://expressjs.com/de/)
 
 ## Contact

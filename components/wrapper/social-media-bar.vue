@@ -8,8 +8,8 @@
 
 <script lang="ts">
 import { Vue, Component, Prop } from 'nuxt-property-decorator';
-import Button from '@/components/ui/button.vue';
-import type { IButtonObj } from '@/components/ui/button.vue';
+import Button from '@/components/elements/button.vue';
+import type { IButtonObj } from '@/components/elements/button.vue';
 
 @Component({
   components: {
@@ -57,7 +57,7 @@ export default class SocialMediaBar extends Vue {
       height: 16vh;
 
       &:hover {
-        background-image: url('./assets/images/illustration-circle-contact.svg');
+        background-image: url('./assets/images/svgs/illustration-circle-contact.svg');
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;

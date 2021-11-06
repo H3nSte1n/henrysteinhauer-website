@@ -27,7 +27,7 @@
       <Button
         :button-obj="{
           label: contact.email,
-          src: contact.mailLink,
+          src: mailLink,
         }"
         :with-hover-animation="true"
         :with-svg="true"
@@ -39,16 +39,17 @@
 
 <script lang="ts">
 import { Component } from 'nuxt-property-decorator';
-import InfoBox from '@/components/wrapper/info-box.vue';
-import SocialMediaBar from '@/components/ui/social-media-bar.vue';
-import StatsOverview from '@/components/ui/stats-overview.vue';
-import AboutMe from '@/components/ui/about-me.vue';
-import Header from '@/components/wrapper/header.vue';
-import Navigation from '@/components/wrapper/navigation.vue';
-import Footer from '@/components/wrapper/footer.vue';
-import Button from '@/components/ui/button.vue';
-import SectionConnection from '@/components/ui/section-connection.vue';
-import { Animation, AnimationInterface } from '~/mixins/Animation';
+import InfoBox from '@/components/global/info-box.vue';
+import AboutMe from '@/components/wrapper/about-me.vue';
+import Header from '@/components/global/header.vue';
+import Navigation from '@/components/global/navigation.vue';
+import Footer from '@/components/global/footer.vue';
+import Button from '@/components/elements/button.vue';
+import SectionConnection from '@/components/elements/section-connection.vue';
+import SocialMediaBar from '@/components/wrapper/social-media-bar.vue';
+import StatsOverview from '@/components/wrapper/stats-overview.vue';
+import type { IAnimation } from '@/mixins/Animation';
+import { Animation } from '@/mixins/Animation';
 
 @Component({
   components: {
@@ -79,7 +80,7 @@ export default class Index extends Animation {
     infos: {
       headline: 'About Me',
       description:
-        'Hey, I am a passionate Software Engineer and writer on Medium. I love to explore new programming languages, design patterns, and frameworks. In my free time, I work on various private development projects and run, climb and read books. Hey, I am a passionate Software Engineer and writer on Medium. I love to explore new programming languages, design patterns, and frameworks. In my free time, I work on various private development projects and run, climb and read books.',
+        "Hey, I'm Henry Steinhauer, a passionate Software Engineer and writer on Medium. I love to explore new programming languages, design patterns, and frameworks. In my free time, I work on various private development projects and run, climb, cook and read books. But before I chat you up too much ;D, welcome to my portfolio website. Here you can find some informations describing me and what I have done so far.",
     },
   };
 
@@ -105,7 +106,7 @@ export default class Index extends Animation {
     infos: {
       headline: 'My Highlights',
       caption:
-        'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos e',
+        'This year, too, there was a lot to try out, discover and implement. I have picked out and listed a few key figures below.',
     },
   };
 
@@ -113,7 +114,7 @@ export default class Index extends Animation {
     infos: {
       headline: "What I 've learned",
       caption:
-        'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos e',
+        'Below you can find some of the programming languages, frameworks and libraries I worked with this year. If you want to know more, you can check out my github page.',
     },
     stats: [
       {
@@ -149,21 +150,25 @@ export default class Index extends Animation {
         src: 'https://github.com/H3nSte1n',
         label: 'Github',
         mobileHideSVG: true,
+        isTargetBlank: true,
       },
       {
-        src: 'https://github.com/H3nSte1n',
+        src: 'https://twitter.com/H3nSte1n',
         label: 'Twitter',
         mobileHideSVG: true,
+        isTargetBlank: true,
       },
       {
-        src: 'https://github.com/H3nSte1n',
+        src: 'https://medium.com/@henrysteinhauer',
         label: 'Medium',
         mobileHideSVG: true,
+        isTargetBlank: true,
       },
       {
-        src: 'https://github.com/H3nSte1n',
+        src: 'https://www.reddit.com/user/H3nry_d3v',
         label: 'Reddit',
         mobileHideSVG: true,
+        isTargetBlank: true,
       },
     ],
   };
@@ -176,7 +181,7 @@ export default class Index extends Animation {
     email: 'hello@steinhauer.dev',
   };
 
-  animationsElements: Array<AnimationInterface> = [
+  animationsElements: Array<IAnimation> = [
     {
       methodObj: {
         name: 'increaseNumberAnimation',

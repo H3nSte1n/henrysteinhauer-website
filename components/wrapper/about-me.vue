@@ -8,7 +8,7 @@
 <script lang="ts">
 import { Vue, Component, Prop } from 'nuxt-property-decorator';
 
-export interface AboutMeInterface {
+export interface IAboutMeProps {
   headline: string;
   description: string;
 }
@@ -16,7 +16,7 @@ export interface AboutMeInterface {
 @Component
 export default class AboutMe extends Vue {
   @Prop({ required: true })
-  readonly aboutMeInfo!: AboutMeInterface;
+  readonly aboutMeInfo!: IAboutMeProps;
 }
 </script>
 

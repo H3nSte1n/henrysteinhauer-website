@@ -5,9 +5,9 @@ export default {
     { path: '/api/github-stats', handler: '~/api/github-stats.ts' },
   ],
   head: {
-    title: 'Henry Steinhauer',
+    title: 'Henry Steinhauer - Portfolio Website',
     htmlAttrs: {
-      lang: 'de',
+      lang: 'en',
     },
     meta: [
       { charset: 'utf-8' },
@@ -18,7 +18,17 @@ export default {
       { name: 'msapplication-TileImage', content: '/assets/fav/ms-icon-144x144.png' },
       { name: 'msapplication-TileImage', content: '/assets/fav/ms-icon-150x150.png' },
       { name: 'theme-color', content: '#ffffff' },
-      { hid: 'description', name: 'description', content: '' },
+      {
+        hid: 'description',
+        name: 'description',
+        content:
+          "Hey, I'm Henry, passionate software developer and author on Medium. Here you can find some information describing me and what I have done so far.",
+      },
+      {
+        hid: 'keywords',
+        name: 'keywords',
+        content: 'nuxt, typescript, henry, steinhauer, express, portfolio, software development, backend, frontend',
+      },
       { hid: 'og:title', property: 'og:title', content: 'Henry Steinhauer' },
       { hid: 'og:description', property: 'og:description', content: '' },
       { hid: 'og:url', property: 'og:url', content: 'https://steinhauer.dev' },

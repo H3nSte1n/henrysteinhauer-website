@@ -4,7 +4,8 @@
 
 <script lang="ts">
 import { Prop, Component } from 'nuxt-property-decorator';
-import { Animation, AnimationInterface } from '~/mixins/Animation';
+import type { IAnimation } from '@/mixins/Animation';
+import { Animation } from '~/mixins/Animation';
 
 @Component
 export default class Subheadline extends Animation {
@@ -14,7 +15,7 @@ export default class Subheadline extends Animation {
   @Prop({ required: true })
   readonly isCenter!: boolean;
 
-  animationsElements: Array<AnimationInterface> = [
+  animationsElements: Array<IAnimation> = [
     {
       methodObj: {
         name: 'revealAnimation',

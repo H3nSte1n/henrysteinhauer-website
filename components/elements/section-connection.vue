@@ -8,14 +8,15 @@
 
 <script lang="ts">
 import { Component } from 'nuxt-property-decorator';
-import { Animation, AnimationInterface } from '~/mixins/Animation';
+import type { IAnimation } from '@/mixins/Animation';
+import { Animation } from '@/mixins/Animation';
 
 @Component
 export default class SectionConnection extends Animation {
   totalLength!: number;
   path!: SVGGeometryElement;
 
-  getAnimationsElement(refSvgName: string): Array<AnimationInterface> {
+  getAnimationsElement(refSvgName: string): Array<IAnimation> {
     return [
       {
         methodObj: {

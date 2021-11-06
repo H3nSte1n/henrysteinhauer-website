@@ -2,7 +2,7 @@
   <header ref="header" class="header">
     <div class="header-row">
       <h2 class="header-row--big">{{ sublinePartOne }}</h2>
-      <h2 class="header-row--small header-row--small-invert header-row--small header-row--small-text" v-html="tag" />
+      <h3 class="header-row--small header-row--small-invert header-row--small header-row--small-text" v-html="tag" />
     </div>
     <div ref="row" class="header-row">
       <svg class="svg svg--hide-small" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 316 747">
@@ -29,9 +29,10 @@
 
 <script lang="ts">
 import { Component, Prop } from 'nuxt-property-decorator';
-import AboutMe from '@/components/ui/about-me.vue';
-import type { AboutMeInterface } from '@/components/ui/about-me.vue';
-import { Animation, AnimationInterface } from '~/mixins/Animation';
+import type { IAboutMeProps } from '@/components/wrapper/about-me.vue';
+import AboutMe from '@/components/wrapper/about-me.vue';
+import type { IAnimation } from '@/mixins/Animation';
+import { Animation } from '@/mixins/Animation';
 
 @Component({
   components: {
@@ -49,12 +50,12 @@ export default class Header extends Animation {
   readonly tag!: string;
 
   @Prop({ required: true })
-  readonly aboutMe!: AboutMeInterface;
+  readonly aboutMe!: IAboutMeProps;
 
   totalLength!: number;
   path!: SVGGeometryElement;
 
-  getAnimationsElement(refSvgName: string): Array<AnimationInterface> {
+  getAnimationsElement(refSvgName: string): Array<IAnimation> {
     return [
       {
         methodObj: {
@@ -166,7 +167,7 @@ export default class Header extends Animation {
       }
 
       &-text {
-        background-image: url('./assets/images/illustration-circle-contact.svg');
+        background-image: url('./assets/images/svgs/illustration-circle-contact.svg');
         padding: 50px;
         background-repeat: no-repeat;
         background-size: contain;

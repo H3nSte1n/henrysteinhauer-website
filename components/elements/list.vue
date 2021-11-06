@@ -6,8 +6,8 @@
 
 <script lang="ts">
 import { Vue, Component, Prop } from 'nuxt-property-decorator';
-import Button from '@/components/ui/button.vue';
-import type { IButtonObj } from '@/components/ui/button.vue';
+import Button from '@/components/elements/button.vue';
+import type { IButtonObj } from '@/components/elements/button.vue';
 
 @Component({
   components: {
