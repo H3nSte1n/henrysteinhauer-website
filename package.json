@@ -21,15 +21,6 @@
     "url": "https://github.com/H3nSte1n/henrysteinhauer-website"
   },
   "homepage": "https://github.com/H3nSte1n/henrysteinhauer-website#readme",
-  "lint-staged": {
-    "*.ts": "npm lint",
-    "*.vue": "npm lint"
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS && lint-staged"
-    }
-  },
   "dependencies": {
     "@nuxtjs/sitemap": "2.4.0",
     "core-js": "3.14.0",
@@ -38,8 +29,7 @@
     "nuxt": "2.15.8",
     "nuxt-property-decorator": "2.9.1",
     "redirect-ssl": "^3.0.0",
-    "sass": "1.35.1",
-    "three": "^0.133.1"
+    "sass": "1.35.1"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "12.1.4",
@@ -59,8 +49,6 @@
     "eslint-plugin-nuxt": "2.0.0",
     "eslint-plugin-prettier": "3.4.0",
     "eslint-plugin-vue": "7.10.0",
-    "husky": "6.0.0",
-    "lint-staged": "11.0.0",
     "prettier": "2.3.1"
   },
   "czConfig": {
