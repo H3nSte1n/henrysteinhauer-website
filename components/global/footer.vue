@@ -76,6 +76,8 @@ export default class Footer extends Vue {
 
     &-item {
       cursor: pointer;
+      display: flex;
+      justify-content: flex-start;
     }
   }
 

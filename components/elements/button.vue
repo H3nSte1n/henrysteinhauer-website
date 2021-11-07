@@ -133,6 +133,7 @@ export default class Button extends Vue {
   text-decoration: none;
   text-align: center;
   z-index: 9999;
+  width: 100%;
 
   &:hover {
     .svg__path--animation {
@@ -157,6 +158,10 @@ export default class Button extends Vue {
 
     @media screen and (min-width: 1280px) {
       font-size: 2vw;
+    }
+
+    @media screen and (min-width: 1920px) {
+      font-size: 46px;
     }
   }
 

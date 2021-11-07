@@ -185,7 +185,7 @@ export default class Index extends Animation {
     {
       methodObj: {
         name: 'increaseNumberAnimation',
-        params: [70, 2021, 'animationNumber'],
+        params: [90, 2021, 'animationNumber', 2000],
       },
       target: 'animationNumber',
     },
@@ -217,7 +217,6 @@ export default class Index extends Animation {
   };
 
   async fetch() {
-    console.log(process.env.BASE_URL);
     const githubStats = await fetch(`${process.env.BASE_URL}/api/github-stats`, {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },

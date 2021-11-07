@@ -5,12 +5,9 @@
 </template>
 
 <style>
-html {
-  background-image: url('./assets/images/background-image.jpg');
-  background-repeat: repeat-y;
-}
-
 body {
+  background-image: url('./assets/images/background-image.jpg');
+  background-repeat: repeat;
   overflow-x: hidden;
 }
 

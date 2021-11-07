@@ -30,7 +30,7 @@ export default class SocialMediaBar extends Vue {
   justify-content: space-around;
   flex-wrap: wrap;
 
-  @media screen and (min-width: 920px) {
+  @media screen and (min-width: 640px) {
     flex-wrap: unset;
   }
 

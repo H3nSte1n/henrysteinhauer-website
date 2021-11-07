@@ -13,12 +13,12 @@ export interface IAnimation {
 
 @Component
 export class Animation extends Vue {
-  private increaseNumberAnimation(sec: number, maxNumber: number, htmlElementName: string) {
+  private increaseNumberAnimation(sec: number, maxNumber: number, htmlElementName: string, currentNumber: number) {
     const htmlElement = this.$refs[htmlElementName] as HTMLElement;
-    if (parseInt(htmlElement.innerText) >= maxNumber) return;
+    if (currentNumber >= maxNumber) return;
     setTimeout(() => {
-      htmlElement.innerText = `${parseInt(htmlElement.innerText) + 1}`;
-      this.increaseNumberAnimation(sec, maxNumber, htmlElementName);
+      htmlElement.innerText = `${currentNumber + 1}`;
+      this.increaseNumberAnimation(sec, maxNumber, htmlElementName, currentNumber + 1);
     }, sec);
   }
 
@@ -64,12 +64,13 @@ export class Animation extends Vue {
     };
 
     return new IntersectionObserver(
-      (entries, _observer) => {
+      (entries, observer) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const methodObj: MethodObjInterface = animation.methodObj;
             const key = animation.methodObj.name as keyof Animation;
             this[key](...methodObj.params);
+            observer.unobserve(entry.target);
           }
         });
       },
