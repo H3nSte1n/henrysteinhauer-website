@@ -67,6 +67,7 @@ export default {
 
   env: {
     GITHUB_KEY: process.env.GITHUB_KEY,
+    BASE_URL: process.env.BASE_URL,
   },
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins

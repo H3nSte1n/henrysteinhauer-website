@@ -217,7 +217,8 @@ export default class Index extends Animation {
   };
 
   async fetch() {
-    const githubStats = await fetch(`http://localhost:3000/api/github-stats`, {
+    console.log(process.env.BASE_URL);
+    const githubStats = await fetch(`${process.env.BASE_URL}/api/github-stats`, {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
     });
