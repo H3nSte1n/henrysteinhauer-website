@@ -64,6 +64,7 @@ Hello, welcome. This is the repo of my portfolio website. Here you will find inf
 
 - set following env variables
   - GITHUB_KEY=YOUR PRIVATE GITHUB KEY
+  - BASE_URL=http://localhost:3000
 
 ## Acknowledgements
 
