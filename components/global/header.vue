@@ -5,7 +5,12 @@
       <h3 class="header-row--small header-row--small-invert header-row--small header-row--small-text" v-html="tag" />
     </div>
     <div ref="row" class="header-row">
-      <svg class="svg svg--hide-small" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 316 747">
+      <svg
+        class="svg svg--hide-small svg--screen-h"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 316 747"
+      >
         <path
           ref="path"
           d="M193.181 1c2 173-199.069 263.5-191.999 518 4 144 177.5 238 269.5 225.5 73.6-10 43.833-23.833 0-31.5"
@@ -195,6 +200,10 @@ export default class Header extends Animation {
 }
 
 .svg {
+  &--screen-h {
+    height: 100vh;
+  }
+
   &--hide-small {
     display: none;
     @media screen and (min-width: 768px) {
