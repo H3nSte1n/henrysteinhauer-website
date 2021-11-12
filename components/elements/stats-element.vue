@@ -5,7 +5,7 @@
     :style="{ left: `calc(50% - ${positionX}%)`, top: `${positionY}vh` }"
   >
     <div>
-      <p>{{ stats.label }}</p>
+      <p class="stats-element__label">{{ stats.label }}</p>
       <bold class="stats-element--big">{{ stats.value }}</bold>
     </div>
     <div ref="blobs" class="blobs" />
@@ -88,17 +88,67 @@ export default class StatsElement extends Animation {
     opacity: 1;
   }
 
+  &__label {
+    font-size: 3vw;
+    margin-bottom: 10px;
+
+    @media screen and (min-width: 640px) {
+      font-size: 2.2vw;
+    }
+
+    @media screen and (min-width: 768px) {
+        font-size: 16px;
+      }
+  }
+
   &--invert {
     flex-direction: column-reverse;
 
+    .stats-element__label {
+      font-size: 17px;
+      margin-bottom: 10px;
+
+      @media screen and (min-width: 640px) {
+        font-size: 2vw;
+      }
+
+      @media screen and (min-width: 768px) {
+        font-size: 16px;
+      }
+    }
+
     .stats-element--big {
-      font-size: 4vw;
+      font-size: 36px;
+
+      @media screen and (min-width: 640px) {
+        font-size: 4.5vw;
+      }
+
+      @media screen and (min-width: 768px) {
+        font-size: 4vw;
+      }
     }
   }
 
   &--big {
     margin: 15px 0;
-    font-size: 2vw;
+    font-size: 4.7vw;
+
+    @media screen and (min-width: 640px) {
+      font-size: 3.5vw;
+    }
+
+    @media screen and (min-width: 768px) {
+      font-size: 3.5vw;
+    }
+
+    @media screen and (min-width: 920px) {
+      font-size: 3vw;
+    }
+
+    @media screen and (min-width: 1024px) {
+      font-size: 2.4vw;
+    }
   }
 
   @keyframes rotate_blob_before {
@@ -273,8 +323,8 @@ export default class StatsElement extends Animation {
   transform: rotate(0);
   width: 12vw;
   height: 12vw;
-  top: -75%;
-  left: -25%;
+  // top: -75%;
+  // left: -25%;
   animation: rotate_blob 526s linear infinite;
 
   &::before {

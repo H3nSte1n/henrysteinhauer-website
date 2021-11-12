@@ -40,7 +40,7 @@ export default class Caption extends Animation {
 
 <style scoped lang="scss">
 .caption {
-  font-size: 1.4vw;
+  font-size: 3vw;
   max-width: 1050px;
   margin: 6vh 0 0 0;
   transform: translateY(100%);
@@ -50,6 +50,14 @@ export default class Caption extends Animation {
   &--visible {
     transform: translateY(0%);
     opacity: 1;
+  }
+
+  @media screen and (min-width: 640px) {
+    font-size: 2.5vw;
+  }
+
+  @media screen and (min-width: 1024px) {
+    font-size: 1.4vw;
   }
 
   @media screen and (min-width: 1480px) {

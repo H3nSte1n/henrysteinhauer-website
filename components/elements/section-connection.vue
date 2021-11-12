@@ -40,6 +40,7 @@ export default class SectionConnection extends Animation {
 <style scoped lang="scss">
 .section-connection {
   width: 5vw;
+  min-width: 50px;
   margin: 4vh 0;
 }
 svg {
