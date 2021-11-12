@@ -97,8 +97,8 @@ export default class StatsElement extends Animation {
     }
 
     @media screen and (min-width: 768px) {
-        font-size: 16px;
-      }
+      font-size: 16px;
+    }
   }
 
   &--invert {
