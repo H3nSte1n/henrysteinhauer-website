@@ -55,7 +55,7 @@ export default class Subheadline extends Animation {
     text-align: center;
   }
 
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 768px) {
     font-size: 12vw;
   }
 
