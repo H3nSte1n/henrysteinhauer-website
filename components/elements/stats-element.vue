@@ -143,7 +143,7 @@ export default class StatsElement extends Animation {
       @media screen and (min-width: 1024px) {
         font-size: 4vw;
       }
-      
+
       @media screen and (min-width: 1920px) {
         font-size: 60px;
       }

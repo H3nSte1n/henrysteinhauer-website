@@ -82,7 +82,7 @@ export default class Navigation extends Vue {
   scrollToElement(elementName: string, offset: number) {
     const element = document.querySelector(elementName) as HTMLElement;
     // const elementPosition = element!.offsetTop;
-    const elementPosition = window.pageYOffset + element.getBoundingClientRect().top
+    const elementPosition = window.pageYOffset + element.getBoundingClientRect().top;
     const offsetPosition = elementPosition - offset;
 
     window.scrollTo({
@@ -139,9 +139,9 @@ export default class Navigation extends Vue {
 
   @media screen and (max-width: 768px) {
     &--open {
-    height: 100vh;
-    transition: height 0.5s ease-out;
-  }
+      height: 100vh;
+      transition: height 0.5s ease-out;
+    }
 
     &--close {
       height: 19px;
