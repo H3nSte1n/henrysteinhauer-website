@@ -1,7 +1,7 @@
 <template>
   <header ref="header" id="header" class="header">
     <div class="header-row">
-      <h2 class="header-row--big">{{ sublinePartOne }}</h2>
+      <h2 class="header-row--big header-row--view-blob-mobile">{{ sublinePartOne }}</h2>
       <h3 class="header-row--small header-row--small-invert header-row--small header-row--small-text" v-html="tag" />
     </div>
     <div ref="row" class="header-row">
@@ -82,7 +82,7 @@ export default class Header extends Animation {
 <style scoped lang="scss">
 .header {
   width: 100%;
-  max-width: 92%;
+  max-width: 87%;
   margin-bottom: 100px;
   padding-top: 30vh;
 
@@ -98,18 +98,22 @@ export default class Header extends Animation {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    align-items: center;
+    align-items: start;
     margin: 0px 0;
     flex-direction: column;
 
     @media screen and (min-width: 768px) {
       flex-direction: row;
       margin: 30px 0;
+      align-items: center;
     }
 
     &__container {
       position: relative;
-      width: 63vw;
+
+      @media screen and (min-width: 768px) {
+        width: 63vw;
+      }
     }
 
     &__stripe {
@@ -120,33 +124,66 @@ export default class Header extends Animation {
       transition: height 0.5s ease-out;
     }
 
+    &--view-blob-mobile {
+      @media screen and (max-width: 768px) {
+        &::before {
+          content: '';
+          width: 87vw;
+          height: 87vw;
+          position: absolute;
+          border-radius: 100%;
+          top: -103%;
+          left: -38%;
+          background-color: rgba(23, 99, 142, 0.2);
+          filter: blur(8vw); 
+        }
+
+        &::after {
+          content: '';
+          width: 87vw;
+          height: 87vw;
+          position: absolute;
+          border-radius: 100%;
+          background-color: rgba(61, 142, 23, 0.2125);
+          filter: blur(8vw);
+          top: -35%;
+          left: 23%;
+        }
+      }
+    }
+
     &--big {
-      font-size: 15vw;
+      font-size: 18vw;
       font-weight: 400;
       position: relative;
 
-      &::before {
-        content: '';
-        width: 26vw;
-        height: 26vw;
-        position: absolute;
-        border-radius: 100%;
-        top: 13%;
-        left: 20%;
-        background-color: rgba(23, 99, 142, 0.2);
-        filter: blur(3vw);
+      @media screen and (min-width: 768px) {
+        font-size: 15vw;
       }
+      @media screen and (min-width: 768px) {
+        &::before {
+          content: '';
+          width: 26vw;
+          height: 26vw;
+          position: absolute;
+          border-radius: 100%;
+          top: 13%;
+          left: 20%;
+          background-color: rgba(23, 99, 142, 0.2);
+          filter: blur(3vw); 
+        }
 
-      &::after {
-        content: '';
-        width: 26vw;
-        height: 26vw;
-        position: absolute;
-        top: -22%;
-        left: 38%;
-        border-radius: 100%;
-        background-color: rgba(61, 142, 23, 0.2125);
-        filter: blur(5vw);
+        &::after {
+          content: '';
+          width: 26vw;
+          height: 26vw;
+          top: -22%;
+          left: 38%;
+          position: absolute;
+          border-radius: 100%;
+          background-color: rgba(61, 142, 23, 0.2125);
+          filter: blur(5vw);
+        }
       }
 
       &-blobs-reverse {
@@ -200,6 +237,8 @@ export default class Header extends Animation {
 }
 
 .svg {
+  padding-right: 34px;
+
   &--screen-h {
     height: 100vh;
   }

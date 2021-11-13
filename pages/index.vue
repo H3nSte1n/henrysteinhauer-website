@@ -237,7 +237,6 @@ export default class Index extends Animation {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 20px 20px 20px;
 }
 
 .info-box {
