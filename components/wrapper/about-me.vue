@@ -22,7 +22,8 @@ export default class AboutMe extends Vue {
 
 <style scoped lang="scss">
 .about-me {
-  margin-top: 60px;
+  margin-top: 30px;
+  padding-top: 30px;
 
   &__headline {
     display: none;
