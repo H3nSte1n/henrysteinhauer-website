@@ -19,7 +19,7 @@ export default class Header extends Vue {
 <style scoped lang="scss">
 .header {
   width: 100%;
-  max-width: 92%;
+  max-width: 87%;
   padding-top: 30vh;
   margin: 10vh auto 17vh auto;
 

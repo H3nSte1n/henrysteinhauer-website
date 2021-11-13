@@ -82,9 +82,10 @@ export default class Header extends Animation {
 <style scoped lang="scss">
 .header {
   width: 100%;
-  max-width: 87%;
+  max-width: 100vw;
   margin-bottom: 100px;
   padding-top: 30vh;
+  overflow: hidden;
 
   @media screen and (min-width: 768px) {
     padding-top: 0;
@@ -98,13 +99,14 @@ export default class Header extends Animation {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    align-items: start;
-    margin: 0px 0;
+    max-width: 87%;
+    margin: 0 auto;
+    align-items: flex-start;
     flex-direction: column;
 
     @media screen and (min-width: 768px) {
       flex-direction: row;
-      margin: 30px 0;
+      margin: 30px auto;
       align-items: center;
     }
 
@@ -237,7 +239,7 @@ export default class Header extends Animation {
 }
 
 .svg {
-  padding-right: 34px;
+  padding: 0 34px;
 
   &--screen-h {
     height: 100vh;

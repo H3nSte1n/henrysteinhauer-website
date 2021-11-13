@@ -2,14 +2,14 @@
   <div ref="nav" class="nav__container" :class="{ 'nav__container--hide': scrollDown }">
     <div :class="{ nav: true, 'nav--open': toggleActive, 'nav--close': !toggleActive }">
       <a v-if="!viewSubNavMenue" class="nav__list-item-link" href="/">
-        <h1>
+        <h1 class="nav__list-item-link--font-normal">
           {{ fullName }}
         </h1>
       </a>
       <a v-if="viewSubNavMenue" class="nav__list-item-link" @click="headerActivity">
-        <h1>{{ fullName }}</h1>
+        <h1 class="nav__list-item-link--font-normal">{{ fullName }}</h1>
       </a>
-      <nav v-if="viewSubNavMenue">
+      <nav v-if="viewSubNavMenue" class="nav__row--small">
         <ul :class="{ nav__list: true, 'nav__list--open': toggleActive }" @click="toggleMenue">
           <li
             v-for="(nav, index) in navs"
@@ -18,7 +18,11 @@
             :class="`nav__list-item--${toggleActive ? 'write' : 'remote'}-animation-${toggleActive ? index : 'base'}`"
             :style="{ top: index > 0 && toggleActive ? 'calc(50% - 20%)' : '0px', width: index === 0 && '100%' }"
           >
-            <a class="nav__list-item-link nav__list-item-link--big nav__list-item-link--spacing" @click="smoothScrolling(nav.link)">
+            <a
+              class="nav__list-item-link nav__list-item-link--big nav__list-item-link--spacing"
+              :class="{'nav__list-item-link--font-normal': index === 0}"
+              @click="smoothScrolling(nav.link)"
+            >
               {{ nav.name }}
             </a>
           </li>
@@ -164,6 +168,14 @@ export default class Navigation extends Vue {
     }
   }
 
+  &__row{
+    &--small {
+      @media screen and (max-width: 768px) {
+        width: 35%
+      }
+    }
+  }
+
   &__list {
     list-style: none;
     display: flex;
@@ -260,6 +272,11 @@ export default class Navigation extends Vue {
             font-size: 21px;
             letter-spacing: 10px;
           }
+        }
+
+        &--font-normal {
+          font-size: 15px;
+          letter-spacing: 3px;
         }
       }
       @media screen and (min-width: 768px) {

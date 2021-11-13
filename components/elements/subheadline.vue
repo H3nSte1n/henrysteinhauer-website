@@ -36,7 +36,7 @@ export default class Subheadline extends Animation {
 
 <style scoped lang="scss">
 .subheadline {
-  font-size: 10vw;
+  font-size: 11vw;
   text-align: center;
   width: 100%;
   max-width: 1306px;
@@ -53,6 +53,10 @@ export default class Subheadline extends Animation {
 
   &--center {
     text-align: center;
+  }
+
+  @media screen and (min-width: 640px) {
+    font-size: 10vw;
   }
 
   @media screen and (min-width: 768px) {
