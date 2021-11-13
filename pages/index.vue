@@ -45,7 +45,7 @@ import Header from '@/components/global/header.vue';
 import Navigation from '@/components/global/navigation.vue';
 import Footer from '@/components/global/footer.vue';
 import Button from '@/components/elements/button.vue';
-import SectionConnection from '@/components/elements/section-connection.vue';
+import SectionConnection from '@/components/global/section-connection.vue';
 import SocialMediaBar from '@/components/wrapper/social-media-bar.vue';
 import StatsOverview from '@/components/wrapper/stats-overview.vue';
 import type { IAnimation } from '@/mixins/Animation';
@@ -118,23 +118,23 @@ export default class Index extends Animation {
     },
     stats: [
       {
-        label: 'Skill Level',
+        label: 'Skill',
         value: 'Kotlin',
       },
       {
-        label: 'Skill Level',
+        label: 'Skill',
         value: 'Ruby',
       },
       {
-        label: 'Skill Level',
+        label: 'Skill',
         value: 'Typescript',
       },
       {
-        label: 'Skill Level',
+        label: 'Skill',
         value: 'OpenAPI',
       },
       {
-        label: 'Skill Level',
+        label: 'Skill',
         value: 'Docker',
       },
     ],
@@ -177,7 +177,7 @@ export default class Index extends Animation {
     infos: {
       headline: '...or interested in<br> working together?',
     },
-    subline: "Let's talks!",
+    subline: "Let's talk!",
     email: 'hello@steinhauer.dev',
   };
 

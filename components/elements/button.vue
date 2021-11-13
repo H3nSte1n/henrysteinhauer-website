@@ -5,6 +5,7 @@
     :href="buttonObj.src"
     :target="buttonObj.isTargetBlank ? '_blank' : '_self'"
     class="button"
+    :class="customClasses"
   >
     <svg
       v-if="withSvg"
@@ -52,7 +53,10 @@ export default class Button extends Vue {
   readonly buttonObj!: IButtonObj;
 
   @Prop({ required: false })
-  readonly styles!: Array<any>;
+  readonly styles!: Array<string>;
+
+  @Prop({ required: false, default: '' })
+  readonly customClasses!: Array<string>;
 
   @Prop({ required: false })
   readonly withSvg!: boolean;
