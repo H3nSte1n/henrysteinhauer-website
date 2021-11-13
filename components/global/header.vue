@@ -137,7 +137,7 @@ export default class Header extends Animation {
           top: -103%;
           left: -38%;
           background-color: rgba(23, 99, 142, 0.2);
-          filter: blur(8vw); 
+          filter: blur(8vw);
         }
 
         &::after {
@@ -172,7 +172,7 @@ export default class Header extends Animation {
           top: 13%;
           left: 20%;
           background-color: rgba(23, 99, 142, 0.2);
-          filter: blur(3vw); 
+          filter: blur(3vw);
         }
 
         &::after {

@@ -20,7 +20,7 @@
           >
             <a
               class="nav__list-item-link nav__list-item-link--big nav__list-item-link--spacing"
-              :class="{'nav__list-item-link--font-normal': index === 0}"
+              :class="{ 'nav__list-item-link--font-normal': index === 0 }"
               @click="smoothScrolling(nav.link)"
             >
               {{ nav.name }}
@@ -168,10 +168,10 @@ export default class Navigation extends Vue {
     }
   }
 
-  &__row{
+  &__row {
     &--small {
       @media screen and (max-width: 768px) {
-        width: 35%
+        width: 35%;
       }
     }
   }
