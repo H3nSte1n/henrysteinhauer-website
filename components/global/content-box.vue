@@ -20,7 +20,7 @@ export default class Caption extends Vue {
 <style scoped lang="scss">
 .content-box {
   margin-bottom: 100px;
-  max-width: 92%;
+  max-width: 87%;
   margin: 7vh auto;
 
   &__headline {

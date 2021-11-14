@@ -59,7 +59,7 @@ export default class InfoBox extends Vue {
 .info-box {
   display: flex;
   position: relative;
-  max-width: 1200px;
+  max-width: 87%;
   width: 100%;
   flex-direction: column;
   justify-content: center;
@@ -69,6 +69,7 @@ export default class InfoBox extends Vue {
 
   @media screen and (min-width: 1024px) {
     padding: 0 10%;
+    max-width: 1200px;
   }
 
   &--blob {

@@ -6,7 +6,7 @@
   >
     <div>
       <p class="stats-element__label">{{ stats.label }}</p>
-      <bold class="stats-element--big">{{ stats.value }}</bold>
+      <b class="stats-element--big">{{ stats.value }}</b>
     </div>
     <div ref="blobs" class="blobs" />
   </div>
@@ -99,6 +99,10 @@ export default class StatsElement extends Animation {
     @media screen and (min-width: 768px) {
       font-size: 16px;
     }
+
+    @media screen and (min-width: 1920px) {
+      font-size: 22px;
+    }
   }
 
   &--invert {
@@ -115,17 +119,33 @@ export default class StatsElement extends Animation {
       @media screen and (min-width: 768px) {
         font-size: 16px;
       }
+
+      @media screen and (min-width: 1460px) {
+        font-size: 17px;
+      }
+
+      @media screen and (min-width: 1920px) {
+        font-size: 19px;
+      }
     }
 
     .stats-element--big {
       font-size: 36px;
 
       @media screen and (min-width: 640px) {
-        font-size: 4.5vw;
+        font-size: 6vw;
       }
 
       @media screen and (min-width: 768px) {
+        font-size: 5vw;
+      }
+
+      @media screen and (min-width: 1024px) {
         font-size: 4vw;
+      }
+
+      @media screen and (min-width: 1920px) {
+        font-size: 60px;
       }
     }
   }
@@ -148,6 +168,10 @@ export default class StatsElement extends Animation {
 
     @media screen and (min-width: 1024px) {
       font-size: 2.4vw;
+    }
+
+    @media screen and (min-width: 1920px) {
+      font-size: 43px;
     }
   }
 

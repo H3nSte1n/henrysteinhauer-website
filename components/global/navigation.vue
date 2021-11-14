@@ -1,23 +1,28 @@
 <template>
   <div ref="nav" class="nav__container" :class="{ 'nav__container--hide': scrollDown }">
-    <div :class="{ nav: true, 'nav--active': toggleActive }">
+    <div :class="{ nav: true, 'nav--open': toggleActive, 'nav--close': !toggleActive }">
       <a v-if="!viewSubNavMenue" class="nav__list-item-link" href="/">
-        <h1>
+        <h1 class="nav__list-item-link--font-normal">
           {{ fullName }}
         </h1>
       </a>
-      <a v-if="viewSubNavMenue" class="nav__list-item-link" @click="smoothScrolling('.header')">
-        <h1>{{ fullName }}</h1>
+      <a v-if="viewSubNavMenue" class="nav__list-item-link" @click="headerActivity">
+        <h1 class="nav__list-item-link--font-normal">{{ fullName }}</h1>
       </a>
-      <nav v-if="viewSubNavMenue">
-        <ul :class="{ nav__list: true, 'nav__list--active': toggleActive }" @click="toggleMenue">
+      <nav v-if="viewSubNavMenue" :class="{ 'nav__row--small': !toggleActive }">
+        <ul :class="{ nav__list: true, 'nav__list--open': toggleActive }" @click="toggleMenue">
           <li
             v-for="(nav, index) in navs"
             :key="index"
             class="nav__list-item"
-            :style="{ top: index > 0 && toggleActive ? 'calc(50% - 20%)' : '0px' }"
+            :class="`nav__list-item--${toggleActive ? 'write' : 'remote'}-animation-${toggleActive ? index : 'base'}`"
+            :style="{ top: index > 0 && toggleActive ? 'calc(50% - 20%)' : '0px', width: index === 0 && '98%' }"
           >
-            <a class="nav__list-item-link nav__list-item-link--big" @click="smoothScrolling(nav.link)">
+            <a
+              class="nav__list-item-link nav__list-item-link--big nav__list-item-link--spacing"
+              :class="{ 'nav__list-item-link--font-normal': index === 0 }"
+              @click="smoothScrolling(nav.link)"
+            >
               {{ nav.name }}
             </a>
           </li>
@@ -48,8 +53,8 @@ export default class Navigation extends Vue {
       link: '#aboutme',
     },
     {
-      name: 'Achivments',
-      link: '#achivments',
+      name: 'Highlights',
+      link: '#highlights',
     },
     {
       name: 'Skills',
@@ -65,6 +70,11 @@ export default class Navigation extends Vue {
   scrollDown: Boolean = false;
   viewSubNavMenue = true;
 
+  headerActivity() {
+    if (this.toggleActive) this.toggleMenue();
+    this.smoothScrolling('#header');
+  }
+
   toggleMenue() {
     if (window.innerWidth <= 768) {
       this.toggleActive = !this.toggleActive;
@@ -75,7 +85,8 @@ export default class Navigation extends Vue {
 
   scrollToElement(elementName: string, offset: number) {
     const element = document.querySelector(elementName) as HTMLElement;
-    const elementPosition = element!.offsetTop;
+    // const elementPosition = element!.offsetTop;
+    const elementPosition = window.pageYOffset + element.getBoundingClientRect().top;
     const offsetPosition = elementPosition - offset;
 
     window.scrollTo({
@@ -115,21 +126,30 @@ export default class Navigation extends Vue {
 <style scoped lang="scss">
 .nav {
   width: 100%;
-  max-width: 92%;
+  max-width: 87%;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   margin-bottom: 15px;
   overflow: hidden;
   position: relative;
-  padding: 0 10px;
+  transition: height 0.5s ease-out;
+  height: 100%;
 
   & a {
     cursor: pointer;
   }
 
-  &--active {
-    height: 100vh;
+  @media screen and (max-width: 768px) {
+    &--open {
+      height: 100vh;
+      transition: height 0.5s ease-out;
+    }
+
+    &--close {
+      height: 19px;
+      transition: height 0.2s ease-out;
+    }
   }
 
   &__container {
@@ -148,14 +168,23 @@ export default class Navigation extends Vue {
     }
   }
 
+  &__row {
+    &--small {
+      @media screen and (max-width: 768px) {
+        width: 35%;
+      }
+    }
+  }
+
   &__list {
     list-style: none;
     display: flex;
     flex-direction: column;
     position: relative;
     height: 0px;
+    padding-left: 0px;
 
-    &--active {
+    &--open {
       height: 100%;
     }
 
@@ -165,10 +194,40 @@ export default class Navigation extends Vue {
     }
 
     &-item {
-      padding: 0 0 20px 0;
+      padding: 0 0 29px 0;
       text-align: right;
       position: relative;
       cursor: pointer;
+      overflow: hidden;
+      white-space: nowrap;
+
+      @media screen and (max-width: 768px) {
+        width: 0%;
+
+        &--remove-animation-base {
+          width: 0%;
+        }
+
+        &--write-animation-1 {
+          transition: width 0.3s ease-out 0.3s;
+          width: 100%;
+        }
+
+        &--write-animation-2 {
+          transition: width 0.3s ease-out 0.6s;
+          width: 100%;
+        }
+
+        &--write-animation-3 {
+          transition: width 0.3s ease-out 0.9s;
+          width: 100%;
+        }
+
+        &--write-animation-4 {
+          transition: width 0.3s ease-out 1.2s;
+          width: 100%;
+        }
+      }
 
       &-link {
         font-size: 8px;
@@ -207,6 +266,18 @@ export default class Navigation extends Vue {
 
         &--big {
           font-size: 15px;
+        }
+
+        &--spacing {
+          @media screen and (max-width: 768px) {
+            font-size: 21px;
+            letter-spacing: 10px;
+          }
+        }
+
+        &--font-normal {
+          font-size: 15px;
+          letter-spacing: 3px;
         }
       }
       @media screen and (min-width: 768px) {

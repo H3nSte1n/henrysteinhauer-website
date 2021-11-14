@@ -22,7 +22,13 @@ export default class AboutMe extends Vue {
 
 <style scoped lang="scss">
 .about-me {
-  margin-top: 60px;
+  margin-top: 30px;
+  padding-top: 30px;
+
+  @media screen and (min-width: 768px) {
+    margin-top: 10vw;
+    padding-top: 10vw;
+  }
 
   &__headline {
     display: none;
@@ -37,8 +43,12 @@ export default class AboutMe extends Vue {
   }
 
   &__desc {
-    font-size: 2.5vw;
+    font-size: 4vw;
     text-align: justify;
+
+    @media screen and (min-width: 640px) {
+      font-size: 2.5vw;
+    }
   }
 }
 </style>

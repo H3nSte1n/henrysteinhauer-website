@@ -9,7 +9,7 @@
       </p>
     </InfoBox>
     <SectionConnection />
-    <InfoBox id="achivments" :info-box-infos="achievments.infos" :with-underline="false">
+    <InfoBox id="highlights" :info-box-infos="achievments.infos" :with-underline="false">
       <StatsOverview :stats="achievments.stats" :inverted-style="true" />
     </InfoBox>
     <SectionConnection />
@@ -153,20 +153,14 @@ export default class Index extends Animation {
         isTargetBlank: true,
       },
       {
-        src: 'https://twitter.com/H3nSte1n',
-        label: 'Twitter',
+        src: 'https://www.linkedin.com/in/henry-steinhauer/',
+        label: 'LinkedIn',
         mobileHideSVG: true,
         isTargetBlank: true,
       },
       {
         src: 'https://medium.com/@henrysteinhauer',
         label: 'Medium',
-        mobileHideSVG: true,
-        isTargetBlank: true,
-      },
-      {
-        src: 'https://www.reddit.com/user/H3nry_d3v',
-        label: 'Reddit',
         mobileHideSVG: true,
         isTargetBlank: true,
       },
@@ -237,7 +231,6 @@ export default class Index extends Animation {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 20px 20px 20px;
 }
 
 .info-box {
@@ -245,9 +238,12 @@ export default class Index extends Animation {
     font-size: 10px;
     font-weight: 300;
     text-transform: uppercase;
+    letter-spacing: 6px;
 
     @media screen and (min-width: 640px) {
       font-size: 13px;
+      margin-bottom: 30px;
+      letter-spacing: 8px;
     }
   }
   &__mail {
