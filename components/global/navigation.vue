@@ -9,7 +9,7 @@
       <a v-if="viewSubNavMenue" class="nav__list-item-link" @click="headerActivity">
         <h1 class="nav__list-item-link--font-normal">{{ fullName }}</h1>
       </a>
-      <nav v-if="viewSubNavMenue" :class="{'nav__row--small': !toggleActive}">
+      <nav v-if="viewSubNavMenue" :class="{ 'nav__row--small': !toggleActive }">
         <ul :class="{ nav__list: true, 'nav__list--open': toggleActive }" @click="toggleMenue">
           <li
             v-for="(nav, index) in navs"
