@@ -6,7 +6,7 @@
   >
     <div>
       <p class="stats-element__label">{{ stats.label }}</p>
-      <bold class="stats-element--big">{{ stats.value }}</bold>
+      <b class="stats-element--big">{{ stats.value }}</b>
     </div>
     <div ref="blobs" class="blobs" />
   </div>

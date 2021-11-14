@@ -254,6 +254,7 @@ export default class Header extends Animation {
 
   &--hide-large {
     display: block;
+    padding-right: 20px;
     @media screen and (min-width: 768px) {
       display: none;
     }

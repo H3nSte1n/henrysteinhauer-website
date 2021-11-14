@@ -16,7 +16,7 @@
             :key="index"
             class="nav__list-item"
             :class="`nav__list-item--${toggleActive ? 'write' : 'remote'}-animation-${toggleActive ? index : 'base'}`"
-            :style="{ top: index > 0 && toggleActive ? 'calc(50% - 20%)' : '0px', width: index === 0 && '100%' }"
+            :style="{ top: index > 0 && toggleActive ? 'calc(50% - 20%)' : '0px', width: index === 0 && '98%' }"
           >
             <a
               class="nav__list-item-link nav__list-item-link--big nav__list-item-link--spacing"
