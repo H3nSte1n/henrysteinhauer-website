@@ -244,6 +244,7 @@ export default class Index extends Animation {
     font-size: 10px;
     font-weight: 300;
     text-transform: uppercase;
+    letter-spacing: 8px;
 
     @media screen and (min-width: 640px) {
       font-size: 13px;
