@@ -87,12 +87,13 @@ export default class Header extends Animation {
   padding-top: 30vh;
   overflow: hidden;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 640px) {
     padding-top: 0;
+    margin-bottom: 200px;
   }
 
   @media screen and (min-width: 1480px) {
-    margin-bottom: 200px;
+    margin-bottom: 350px;
   }
 
   &-row {
@@ -205,6 +206,7 @@ export default class Header extends Animation {
       display: none;
       font-size: 26px;
       font-weight: 400;
+      letter-spacing: 0.1vw;
 
       @media screen and (min-width: 768px) {
         display: block;
