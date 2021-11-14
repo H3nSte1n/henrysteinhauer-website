@@ -193,7 +193,7 @@ export default class Index extends Animation {
     return [
       {
         label: 'Published Articles',
-        value: '6',
+        value: '5',
       },
       {
         label: 'Commits',
