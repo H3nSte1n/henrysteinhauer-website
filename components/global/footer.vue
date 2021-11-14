@@ -5,7 +5,7 @@
         v-for="(link, index) in links"
         :key="index"
         :button-obj="link"
-        :styles="{ 'font-size': '13px', 'text-transform': 'uppercase', padding: '0px' }"
+        :styles="{ 'font-size': '13px' }"
         customClasses="footer__list-item"
       />
     </div>
@@ -78,6 +78,8 @@ export default class Footer extends Vue {
       cursor: pointer;
       display: flex;
       justify-content: flex-start;
+      padding: 0px;
+      letter-spacing: 1px;
     }
   }
 
