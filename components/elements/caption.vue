@@ -57,7 +57,7 @@ export default class Caption extends Animation {
   }
 
   @media screen and (min-width: 1024px) {
-    font-size: 1.4vw;
+    font-size: 2vw;
   }
 
   @media screen and (min-width: 1480px) {

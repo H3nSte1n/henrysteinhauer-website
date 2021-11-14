@@ -182,6 +182,7 @@ export default class Navigation extends Vue {
     flex-direction: column;
     position: relative;
     height: 0px;
+    padding-left: 0px;
 
     &--open {
       height: 100%;
