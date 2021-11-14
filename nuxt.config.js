@@ -22,7 +22,7 @@ export default {
         hid: 'description',
         name: 'description',
         content:
-          "Hey, I'm Henry, passionate software developer and author on Medium. Here you can find some information describing me and what I have done so far.",
+          "I'm Henry Steinhauer, a passionate software developer and author on Medium. Here you can find some information describing me and what I have done so far.",
       },
       {
         hid: 'keywords',
