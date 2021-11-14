@@ -14,7 +14,7 @@
     </li>
     <li><a href="#used">Used</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="setup">Setup</a></li>
+    <li><a href="#setup">Setup</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
 </details>
