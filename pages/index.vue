@@ -9,7 +9,7 @@
       </p>
     </InfoBox>
     <SectionConnection />
-    <InfoBox id="achivments" :info-box-infos="achievments.infos" :with-underline="false">
+    <InfoBox id="highlights" :info-box-infos="achievments.infos" :with-underline="false">
       <StatsOverview :stats="achievments.stats" :inverted-style="true" />
     </InfoBox>
     <SectionConnection />

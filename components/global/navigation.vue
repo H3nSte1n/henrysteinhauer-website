@@ -54,7 +54,7 @@ export default class Navigation extends Vue {
     },
     {
       name: 'Highlights',
-      link: '#achivments',
+      link: '#highlights',
     },
     {
       name: 'Skills',
