@@ -3,7 +3,7 @@
     <Navigation />
     <Header v-bind="header" :about-me="aboutme" />
     <InfoBox :info-box-infos="{}" :with-blob="true">
-      <h3 class="info-box__subline">{{ date.subline }}</h3>
+      <h3 class="info-box__subline info-box__subline--small-gap">{{ date.subline }}</h3>
       <p>
         <strong id="animationNumber" ref="animationNumber" class="info-box__date">{{ date.year }}</strong>
       </p>
@@ -72,7 +72,7 @@ export default class Index extends Animation {
   };
 
   date = {
-    subline: 'What I"ve accomplished to',
+    subline: "What I've accomplished to",
     year: '2000',
   };
 
@@ -80,7 +80,7 @@ export default class Index extends Animation {
     infos: {
       headline: 'About Me',
       description:
-        "Hey, I'm Henry Steinhauer, a passionate Software Engineer and writer on Medium. I love to explore new programming languages, design patterns, and frameworks. In my free time, I work on various private development projects and run, climb, cook and read books. But before I chat you up too much ;D, welcome to my portfolio website. Here you can find some informations describing me and what I have done so far.",
+        "I'm Henry Steinhauer, a twenty-one-year-old German software developer and author on Medium. I’m deeply passionated about exploring new programming languages, design patterns, and frameworks. Currently, I work at i22 focused on backend services. In my free time I work on various private development projects and love to run, climb, cook and read books. If you'd like to chat, please feel free to reach out on LinkedIn or via email.",
     },
   };
 
@@ -106,7 +106,7 @@ export default class Index extends Animation {
     infos: {
       headline: 'My Highlights',
       caption:
-        'This year, too, there was a lot to try out, discover and implement. I have picked out and listed a few key figures below.',
+        'Until today, there was a lot to try out, discover and implement. In the following, I have picked out and listed some key data.',
     },
   };
 
@@ -114,27 +114,27 @@ export default class Index extends Animation {
     infos: {
       headline: "What I 've learned",
       caption:
-        'Below you can find some of the programming languages, frameworks and libraries I worked with this year. If you want to know more, you can check out my github page.',
+        "Below are some of the programming languages and frameworks I've worked with this year. If you would like to know more, feel free to check out my GitHub page.",
     },
     stats: [
       {
-        label: 'Skill',
+        label: 'Intermediate',
         value: 'Kotlin',
       },
       {
-        label: 'Skill',
+        label: 'Intermediate',
         value: 'Ruby',
       },
       {
-        label: 'Skill',
+        label: 'Advanced',
         value: 'Typescript',
       },
       {
-        label: 'Skill',
+        label: 'Intermediate',
         value: 'OpenAPI',
       },
       {
-        label: 'Skill',
+        label: 'Intermediate',
         value: 'Docker',
       },
     ],
@@ -241,9 +241,17 @@ export default class Index extends Animation {
     letter-spacing: 6px;
 
     @media screen and (min-width: 640px) {
-      font-size: 13px;
+      font-size: 16px;
       margin-bottom: 30px;
       letter-spacing: 8px;
+    }
+
+    &--small-gap {
+      @media screen and (min-width: 640px) {
+        font-size: 13px;
+        margin-bottom: -2.5vw;
+        letter-spacing: 8px;
+      }
     }
   }
   &__mail {

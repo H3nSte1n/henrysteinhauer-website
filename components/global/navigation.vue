@@ -200,6 +200,7 @@ export default class Navigation extends Vue {
       cursor: pointer;
       overflow: hidden;
       white-space: nowrap;
+      letter-spacing: 1.5px;
 
       @media screen and (max-width: 768px) {
         width: 0%;
@@ -277,7 +278,7 @@ export default class Navigation extends Vue {
 
         &--font-normal {
           font-size: 15px;
-          letter-spacing: 3px;
+          letter-spacing: 1.5px;
         }
       }
       @media screen and (min-width: 768px) {

@@ -60,7 +60,7 @@ export default class Subheadline extends Animation {
   }
 
   @media screen and (min-width: 768px) {
-    font-size: 12vw;
+    font-size: 11vw;
   }
 
   @media screen and (min-width: 1024px) {

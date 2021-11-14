@@ -34,10 +34,13 @@ export default class AboutMe extends Vue {
     display: none;
     float: left;
     margin: 3px 30px 30px 0;
-    font-size: 2vw;
     font-weight: 400;
+    font-size: 16px;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    margin: 1.25vw 7vw 6vw 0;
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 1344px) {
       display: block;
     }
   }
@@ -45,6 +48,7 @@ export default class AboutMe extends Vue {
   &__desc {
     font-size: 4vw;
     text-align: justify;
+    letter-spacing: 0.05vw;
 
     @media screen and (min-width: 640px) {
       font-size: 2.5vw;
