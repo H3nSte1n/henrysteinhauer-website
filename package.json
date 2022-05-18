@@ -23,7 +23,7 @@
   "homepage": "https://github.com/H3nSte1n/henrysteinhauer-website#readme",
   "dependencies": {
     "@nuxtjs/sitemap": "2.4.0",
-    "core-js": "3.21.1",
+    "core-js": "3.22.5",
     "express": "4.17.3",
     "node-fetch": "2.6.7",
     "nuxt": "2.15.8",
