@@ -1,5 +1,5 @@
 # Multi-stage build for optimization
-FROM node:20-alpine AS builder
+FROM node:18-alpine AS builder
 
 WORKDIR /app
 
@@ -12,11 +12,12 @@ RUN npm ci
 # Copy source code
 COPY . .
 
-# Build the application
+# Build the application (enable legacy OpenSSL for older webpack in Nuxt 2)
+ENV NODE_OPTIONS=--openssl-legacy-provider
 RUN npm run build
 
 # Production image
-FROM node:20-alpine
+FROM node:18-alpine
 
 WORKDIR /app
 
