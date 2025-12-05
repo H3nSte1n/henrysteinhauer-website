@@ -80,7 +80,7 @@ export default class Index extends Animation {
     infos: {
       headline: 'About Me',
       description:
-        "I'm Henry Steinhauer, a twenty-one-year-old German software developer and author on Medium. I’m deeply passionated about exploring new programming languages, design patterns, and frameworks. Currently, I work at i22 focused on backend services. In my free time I work on various private development projects and love to run, climb, cook and read books. If you'd like to chat, please feel free to reach out on LinkedIn or via email.",
+        "I'm Henry Steinhauer, a twenty-five-year-old German software developer and author on Medium. I’m deeply passionated about exploring new programming languages, design patterns, and frameworks. Currently, I work at i22 focused on backend services. In my free time I work on various private development projects and love to run, climb, cook and read books. If you'd like to chat, please feel free to reach out on LinkedIn or via email.",
     },
   };
 
@@ -119,23 +119,23 @@ export default class Index extends Animation {
     stats: [
       {
         label: 'Intermediate',
-        value: 'Kotlin',
+        value: 'Go',
       },
       {
-        label: 'Intermediate',
+        label: 'Expert',
         value: 'Ruby',
       },
       {
-        label: 'Advanced',
-        value: 'Typescript',
+        label: 'Intermediate',
+        value: 'Podman',
       },
       {
         label: 'Intermediate',
-        value: 'OpenAPI',
+        value: 'Kubernetes',
       },
       {
-        label: 'Intermediate',
-        value: 'Docker',
+        label: 'Expert',
+        value: 'TypeScript',
       },
     ],
   };
@@ -179,7 +179,7 @@ export default class Index extends Animation {
     {
       methodObj: {
         name: 'increaseNumberAnimation',
-        params: [90, 2021, 'animationNumber', 2000],
+        params: [90, 2025, 'animationNumber', 2000],
       },
       target: 'animationNumber',
     },
@@ -193,7 +193,7 @@ export default class Index extends Animation {
     return [
       {
         label: 'Published Articles',
-        value: '5',
+        value: '9',
       },
       {
         label: 'Commits',
