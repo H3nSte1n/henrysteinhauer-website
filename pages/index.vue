@@ -179,7 +179,7 @@ export default class Index extends Animation {
     {
       methodObj: {
         name: 'increaseNumberAnimation',
-        params: [90, 2025, 'animationNumber', 2000],
+        params: [90, 2026, 'animationNumber', 2000],
       },
       target: 'animationNumber',
     },
