@@ -210,18 +210,22 @@ export default class Index extends Animation {
     ];
   };
 
-  async fetch() {
-    const githubStats = await fetch(`${process.env.BASE_URL}/api/github-stats`, {
-      method: 'GET',
-      headers: { 'Content-Type': 'application/json' },
-    });
-
-    const { stats } = await githubStats.json();
-    this.achievments.stats = this.mappingGithubStats(stats);
-  }
-
-  mounted() {
+  async mounted() {
     this.startObserver(this.animationsElements);
+
+    try {
+      const response = await fetch('/api/github-stats', {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+      });
+
+      if (response.ok) {
+        const { stats } = await response.json();
+        this.achievments.stats = this.mappingGithubStats(stats);
+      }
+    } catch (error) {
+      console.error('Error fetching GitHub stats:', error);
+    }
   }
 }
 </script>
