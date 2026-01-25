@@ -6,7 +6,7 @@
         :key="index"
         :button-obj="link"
         :styles="{ 'font-size': '13px' }"
-        customClasses="footer__list-item"
+        custom-classes="footer__list-item"
       />
     </div>
     <a class="footer__nav-item" @click="smoothScrolling">Back to Top</a>

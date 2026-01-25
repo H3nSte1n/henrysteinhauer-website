@@ -1,5 +1,5 @@
 <template>
-  <header ref="header" id="header" class="header">
+  <header id="header" ref="header" class="header">
     <div class="header-row">
       <h2 class="header-row--big header-row--view-blob-mobile">{{ sublinePartOne }}</h2>
       <h3 class="header-row--small header-row--small-invert header-row--small header-row--small-text" v-html="tag" />
