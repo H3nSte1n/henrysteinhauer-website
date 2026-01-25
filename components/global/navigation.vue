@@ -232,6 +232,11 @@ export default class Navigation extends Vue {
           transition: width 0.3s ease-out 1.2s;
           width: 100%;
         }
+
+        &--write-animation-5 {
+          transition: width 0.3s ease-out 1.5s;
+          width: 100%;
+        }
       }
 
       &-link {
@@ -277,6 +282,10 @@ export default class Navigation extends Vue {
           @media screen and (max-width: 768px) {
             font-size: 21px;
             letter-spacing: 10px;
+          }
+          @media screen and (max-width: 440px) {
+            font-size: 21px;
+            letter-spacing: clamp(3px, 0.28em, 7px);
           }
         }
 
