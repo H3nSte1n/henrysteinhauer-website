@@ -120,10 +120,7 @@ export default class Index extends Animation {
           'Train/validate pipeline with greedy + beam search',
           'Dataset loading + preprocessing for IAM handwriting',
         ],
-        links: [
-          { label: 'GitHub', href: 'https://github.com/H3nSte1n/HTR-Model', targetBlank: true },
-          { label: 'Live Demo', href: 'https://HTR-steinhauer.dev', targetBlank: true },
-        ],
+        links: [{ label: 'GitHub', href: 'https://github.com/H3nSte1n/HTR-Model', targetBlank: true }],
       },
       {
         title: 'OAuth 2.0 Provider (Go)',
