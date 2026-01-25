@@ -9,8 +9,12 @@
       </p>
     </InfoBox>
     <SectionConnection />
-    <InfoBox id="highlights" :info-box-infos="achievments.infos" :with-underline="false">
-      <StatsOverview :stats="achievments.stats" :inverted-style="true" />
+    <InfoBox id="projects" :info-box-infos="projects.infos" :with-underline="false">
+      <ProjectsShowcase :projects="projects.items" />
+    </InfoBox>
+    <SectionConnection />
+    <InfoBox id="highlights" :info-box-infos="achievements.infos" :with-underline="false">
+      <StatsOverview :stats="achievements.stats" :inverted-style="true" />
     </InfoBox>
     <SectionConnection />
     <InfoBox id="skills" :info-box-infos="skills.infos" :with-underline="false">
@@ -48,11 +52,13 @@ import Button from '@/components/elements/button.vue';
 import SectionConnection from '@/components/global/section-connection.vue';
 import SocialMediaBar from '@/components/wrapper/social-media-bar.vue';
 import StatsOverview from '@/components/wrapper/stats-overview.vue';
+import ProjectsShowcase from '~/components/wrapper/projects-showcase.vue';
 import type { IAnimation } from '@/mixins/Animation';
 import { Animation } from '@/mixins/Animation';
 
 @Component({
   components: {
+    ProjectsShowcase,
     InfoBox,
     SocialMediaBar,
     StatsOverview,
@@ -72,7 +78,7 @@ export default class Index extends Animation {
   };
 
   date = {
-    subline: "What I've accomplished to",
+    subline: "What I've accomplished up to",
     year: '2000',
   };
 
@@ -80,18 +86,92 @@ export default class Index extends Animation {
     infos: {
       headline: 'About Me',
       description:
-        "I'm Henry Steinhauer, a twenty-five-year-old German software developer and author on Medium. I’m deeply passionated about exploring new programming languages, design patterns, and frameworks. Currently, I work at i22 focused on backend services. In my free time I work on various private development projects and love to run, climb, cook and read books. If you'd like to chat, please feel free to reach out on LinkedIn or via email.",
+        "I'm Henry Steinhauer, a twenty-five-year-old German software developer and author on Medium. I’m deeply passionate about exploring new programming languages, design patterns, and frameworks. Currently, I work at i22 focused on backend services. In my free time I work on various private development projects and love to run, climb, cook and play chess. If you'd like to chat, please feel free to reach out on LinkedIn or via email.",
     },
   };
 
-  achievments = {
+  projects = {
+    infos: {
+      headline: 'Featured Work',
+      caption: 'Backend systems, developer tooling, and shipped web products — built with reliability in mind.',
+    },
+    items: [
+      {
+        title: 'Coverage Badge Creator',
+        description: 'CLI that generates coverage badges and updates README placeholders.',
+        tags: ['TypeScript', 'CLI', 'Jest', 'Coverage', 'CI/CD'],
+        bullets: [
+          'Generates badges from coverage JSON summaries',
+          'Updates README via placeholders ($coverage$, $lines$ …)',
+          'CI-friendly CLI; published to npm/yarn',
+        ],
+        links: [
+          { label: 'GitHub', href: 'https://github.com/H3nSte1n/coverage-badge-creator', targetBlank: true },
+          { label: 'npm', href: 'https://www.npmjs.com/package/coverage-badge-creator', targetBlank: true },
+          { label: 'yarn', href: 'https://classic.yarnpkg.com/en/package/coverage-badge-creator', targetBlank: true },
+        ],
+      },
+      {
+        title: 'HTR Model (Handwritten Text Recognition)',
+        description: 'Python ML pipeline + web demo for handwritten text recognition.',
+        tags: ['Python', 'TensorFlow', 'Keras', 'OCR', 'HTR', 'CRNN'],
+        bullets: [
+          'Web demo: upload image → decoded text output',
+          'Train/validate pipeline with greedy + beam search',
+          'Dataset loading + preprocessing for IAM handwriting',
+        ],
+        links: [
+          { label: 'GitHub', href: 'https://github.com/H3nSte1n/HTR-Model', targetBlank: true },
+          { label: 'Live Demo', href: 'https://HTR-steinhauer.dev', targetBlank: true },
+        ],
+      },
+      {
+        title: 'OAuth 2.0 Provider (Go)',
+        description: 'OAuth2/JWT provider concepts with strong domain modeling + documentation.',
+        tags: ['Go', 'Gin', 'OAuth2', 'JWT', 'MongoDB', 'Docker'],
+        bullets: [
+          'Modeled users, scopes, resources, and access groups',
+          'ERD + sequence diagrams to make flows auditable',
+          'Dockerized dev setup for repeatable local runs',
+        ],
+        links: [
+          { label: 'GitHub', href: 'https://github.com/H3nSte1n/go-oauth-provider', targetBlank: true },
+          {
+            label: 'Docs/Diagrams',
+            href: 'https://github.com/H3nSte1n/go-oauth-provider/tree/main/doc',
+            targetBlank: true,
+          },
+        ],
+      },
+      {
+        title: 'Claudia Eck – Coaching Website',
+        description:
+          'Production-style “business card” website built for a strong visual impression while keeping content central.',
+        tags: ['Nuxt', 'Vue', 'JavaScript', 'SCSS', 'Nodemailer', 'reCAPTCHA', 'Docker'],
+        bullets: [
+          'Nuxt/Vue frontend with a high-polish experience and content-first structure',
+          'Contact flow + email delivery via Nodemailer (reliable form handling)',
+          'reCAPTCHA + Strapi CMS integration',
+        ],
+        links: [
+          {
+            label: 'GitHub',
+            href: 'https://github.com/H3nSte1n/c-business-website',
+            targetBlank: true,
+          },
+        ],
+      },
+    ],
+  };
+
+  achievements = {
     stats: [
       {
         label: 'Published Articles',
         value: '-',
       },
       {
-        label: 'Commits',
+        label: 'Contributions',
         value: '-',
       },
       {
@@ -99,7 +179,7 @@ export default class Index extends Animation {
         value: '-',
       },
       {
-        label: 'Programming Languages',
+        label: 'Core Stack',
         value: '-',
       },
     ],
@@ -112,7 +192,7 @@ export default class Index extends Animation {
 
   skills = {
     infos: {
-      headline: "What I 've learned",
+      headline: "What I've learned",
       caption:
         "Below are some of the programming languages and frameworks I've worked with this year. If you would like to know more, feel free to check out my GitHub page.",
     },
@@ -185,7 +265,7 @@ export default class Index extends Animation {
     },
   ];
 
-  get mailLink(): String {
+  get mailLink(): string {
     return `mailto:${this.contact.email}`;
   }
 
@@ -193,18 +273,18 @@ export default class Index extends Animation {
     return [
       {
         label: 'Published Articles',
-        value: '9',
+        value: '10',
       },
       {
-        label: 'Commits',
-        value: githubStats.data.user.contributionsCollection.contributionCalendar.totalContributions,
+        label: 'Contributions',
+        value: githubStats.totalContributions,
       },
       {
         label: 'Repositories',
-        value: githubStats.data.user.repositories.totalCount,
+        value: githubStats.repositories,
       },
       {
-        label: 'Programming Languages',
+        label: 'Core Stack',
         value: '6',
       },
     ];
@@ -221,7 +301,7 @@ export default class Index extends Animation {
 
       if (response.ok) {
         const { stats } = await response.json();
-        this.achievments.stats = this.mappingGithubStats(stats);
+        this.achievements.stats = this.mappingGithubStats(stats);
       }
     } catch (error) {
       console.error('Error fetching GitHub stats:', error);

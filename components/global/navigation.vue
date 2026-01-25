@@ -36,8 +36,8 @@
 import { Vue, Component } from 'nuxt-property-decorator';
 
 interface NavigationInterface {
-  name: String;
-  link: String;
+  name: string;
+  link: string;
 }
 
 @Component
@@ -53,6 +53,10 @@ export default class Navigation extends Vue {
       link: '#aboutme',
     },
     {
+      name: 'Featured Work',
+      link: '#projects',
+    },
+    {
       name: 'Highlights',
       link: '#highlights',
     },
@@ -61,13 +65,13 @@ export default class Navigation extends Vue {
       link: '#skills',
     },
     {
-      name: 'contact',
+      name: 'Contact',
       link: '#contact',
     },
   ];
 
-  toggleActive: Boolean = false;
-  scrollDown: Boolean = false;
+  toggleActive: boolean = false;
+  scrollDown: boolean = false;
   viewSubNavMenue = true;
 
   headerActivity() {
