@@ -151,11 +151,11 @@ export default class ProjectsShowcase extends Vue {
 
   &:hover {
     opacity: 0.75;
-    border-bottom-color: rgba(0,0,0,0.5);
+    border-bottom-color: rgba(0, 0, 0, 0.5);
   }
 
   &:focus-visible {
-    outline: 2px solid rgba(0,0,0,0.25);
+    outline: 2px solid rgba(0, 0, 0, 0.25);
     outline-offset: 3px;
     border-bottom-color: transparent;
   }
