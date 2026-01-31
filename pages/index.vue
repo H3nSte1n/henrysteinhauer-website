@@ -86,14 +86,14 @@ export default class Index extends Animation {
     infos: {
       headline: 'About Me',
       description:
-        "I'm Henry Steinhauer, a twenty-five-year-old German software developer and author on Medium. I’m deeply passionate about exploring new programming languages, design patterns, and frameworks. Currently, I work at i22 focused on backend services. In my free time I work on various private development projects and love to run, climb, cook and play chess. If you'd like to chat, please feel free to reach out on LinkedIn or via email.",
+        "I'm Henry Steinhauer - a backend-focused software developer at i22 Digitalagentur.I build reliable services and developer tooling, focusing on pragmatic system design, solid APIs, and smooth developer workflows. I also share practical lessons from my projects on Medium.",
     },
   };
 
   projects = {
     infos: {
       headline: 'Featured Work',
-      caption: 'Backend systems, developer tooling, and shipped web products — built with reliability in mind.',
+      caption: 'Backend systems, developer tooling, and shipped web products - built with reliability in mind.',
     },
     items: [
       {

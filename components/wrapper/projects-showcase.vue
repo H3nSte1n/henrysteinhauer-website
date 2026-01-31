@@ -57,8 +57,6 @@ export default class ProjectsShowcase extends Vue {
   width: 95vw;
   max-width: 1050px;
   position: relative;
-  left: 50%;
-  transform: translateX(-50%);
 }
 
 .track {
@@ -68,7 +66,7 @@ export default class ProjectsShowcase extends Vue {
   grid-auto-flow: column;
   grid-auto-columns: minmax(260px, 85%);
   overflow-x: auto;
-  padding: 6px 4px 10px;
+  padding: 6px 16px 10px 6px;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
 
@@ -76,6 +74,16 @@ export default class ProjectsShowcase extends Vue {
 }
 .track::-webkit-scrollbar {
   display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .card {
+    transition: transform 160ms ease, border-color 160ms ease;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(0, 0, 0, 0.14);
+  }
 }
 
 @media screen and (min-width: 900px) {
@@ -139,6 +147,18 @@ export default class ProjectsShowcase extends Vue {
 .link {
   text-decoration: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  transition: opacity 160ms ease, border-bottom-color 160ms ease;
+
+  &:hover {
+    opacity: 0.75;
+    border-bottom-color: rgba(0,0,0,0.5);
+  }
+
+  &:focus-visible {
+    outline: 2px solid rgba(0,0,0,0.25);
+    outline-offset: 3px;
+    border-bottom-color: transparent;
+  }
 }
 .private-note {
   font-size: 12px;
