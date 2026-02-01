@@ -61,7 +61,7 @@ export default class ProjectsShowcase extends Vue {
 
 .track {
   display: grid;
-  gap: 16px;
+  gap: 22px;
 
   grid-auto-flow: column;
   grid-auto-columns: minmax(260px, 85%);
@@ -76,44 +76,64 @@ export default class ProjectsShowcase extends Vue {
   display: none;
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .card {
-    transition: transform 160ms ease, border-color 160ms ease;
-  }
-  .card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(0, 0, 0, 0.14);
-  }
-}
-
 @media screen and (min-width: 900px) {
   .track {
     grid-auto-flow: row;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     overflow: visible;
     padding: 0;
+    gap: 28px;
   }
 }
 
 .card {
   scroll-snap-align: start;
-  border-radius: 18px;
-  padding: 18px 18px 14px;
+  position: relative;
+  overflow: hidden;
+
+  border-radius: 22px;
+  padding: 28px;
+
   border: 1px solid rgba(0, 0, 0, 0.08);
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(6px);
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(10px);
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.card::before {
+  content: '';
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.04), transparent 40%);
+  opacity: 0.6;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(0, 0, 0, 0.14);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.085);
+  }
 }
 
 .card__title {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
-  letter-spacing: 0.5px;
-  margin: 0 0 6px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0;
+  color: rgba(0, 0, 0, 0.9);
 }
 
 .card__desc {
-  margin: 0 0 12px;
-  opacity: 0.85;
+  margin: 10px 0 0;
+  max-width: 52ch;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(0, 0, 0, 0.6);
 }
 
 .chips {
@@ -122,46 +142,71 @@ export default class ProjectsShowcase extends Vue {
   gap: 8px;
   list-style: none;
   padding: 0;
-  margin: 0 0 12px;
+  margin: 16px 0 0;
 }
+
 .chip {
-  font-size: 12px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  padding: 6px 10px;
+  display: inline-flex;
+  align-items: center;
+
   border-radius: 999px;
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.10);
+  background: rgba(0, 0, 0, 0.03);
+
+  padding: 6px 10px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.55);
 }
 
 .bullets {
-  margin: 0 0 14px;
-  padding-left: 18px;
+  margin: 18px 0 0;
+  padding-left: 20px;
+  font-size: 14px;
+  line-height: 1.65;
+  color: rgba(0, 0, 0, 0.6);
+
+  li::marker {
+    color: rgba(0, 0, 0, 0.25);
+  }
 }
 
 .links {
+  margin-top: 18px;
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 10px 16px;
   align-items: center;
 }
+
 .link {
-  text-decoration: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-  transition: opacity 160ms ease, border-bottom-color 160ms ease;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.8);
 
-  &:hover {
-    opacity: 0.75;
-    border-bottom-color: rgba(0, 0, 0, 0.5);
-  }
+  text-decoration: underline;
+  text-decoration-color: rgba(0, 0, 0, 0.20);
+  text-underline-offset: 4px;
 
-  &:focus-visible {
-    outline: 2px solid rgba(0, 0, 0, 0.25);
-    outline-offset: 3px;
-    border-bottom-color: transparent;
+  transition: color 160ms ease, text-decoration-color 160ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .link:hover {
+    color: rgba(0, 0, 0, 0.9);
+    text-decoration-color: rgba(0, 0, 0, 0.45);
   }
 }
+
+.link:focus-visible {
+  outline: 2px solid rgba(0, 0, 0, 0.25);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
 .private-note {
   font-size: 12px;
-  opacity: 0.75;
+  color: rgba(0, 0, 0, 0.55);
 }
 </style>
