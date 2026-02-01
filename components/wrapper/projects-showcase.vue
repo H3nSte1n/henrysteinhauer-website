@@ -150,7 +150,7 @@ export default class ProjectsShowcase extends Vue {
   align-items: center;
 
   border-radius: 999px;
-  border: 1px solid rgba(0, 0, 0, 0.10);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   background: rgba(0, 0, 0, 0.03);
 
   padding: 6px 10px;
@@ -186,7 +186,7 @@ export default class ProjectsShowcase extends Vue {
   color: rgba(0, 0, 0, 0.8);
 
   text-decoration: underline;
-  text-decoration-color: rgba(0, 0, 0, 0.20);
+  text-decoration-color: rgba(0, 0, 0, 0.2);
   text-underline-offset: 4px;
 
   transition: color 160ms ease, text-decoration-color 160ms ease;
