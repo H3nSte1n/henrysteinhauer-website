@@ -141,19 +141,18 @@ export default class Index extends Animation {
         ],
       },
       {
-        title: 'Claudia Eck – Coaching Website',
-        description:
-          'Production-style “business card” website built for a strong visual impression while keeping content central.',
-        tags: ['Nuxt', 'Vue', 'JavaScript', 'SCSS', 'Nodemailer', 'reCAPTCHA', 'Docker'],
+        title: 'Recipe App (Go)',
+        description: 'Go backend service for a recipe app, featuring clean architecture and PostgreSQL persistence.',
+        tags: ['GO', 'POSTGRESQL', 'DOCKER/COMPOSE', 'GITHUB ACTIONS'],
         bullets: [
-          'Nuxt/Vue frontend with a high-polish experience and content-first structure',
-          'Contact flow + email delivery via Nodemailer (reliable form handling)',
-          'reCAPTCHA + Strapi CMS integration',
+          'Go backend service with a clean, modular structure (handlers/services/storage)',
+          'PostgreSQL persistence with clean schema + migrations',
+          'Dockerized dev setup + CI checks',
         ],
         links: [
           {
             label: 'GitHub',
-            href: 'https://github.com/H3nSte1n/c-business-website',
+            href: 'https://github.com/H3nSte1n/recipe/tree/main/services/backend',
             targetBlank: true,
           },
         ],
