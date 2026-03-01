@@ -86,7 +86,7 @@ export default class Index extends Animation {
     infos: {
       headline: 'About Me',
       description:
-        "I'm Henry Steinhauer - a backend-focused software developer at i22 Digitalagentur.I build reliable services and developer tooling, focusing on pragmatic system design, solid APIs, and smooth developer workflows. I also share practical lessons from my projects on Medium.",
+        "I'm Henry Steinhauer, a backend-focused software engineer at i22 Digitalagentur. I design and build backend systems and developer tooling, focusing on pragmatic system design, clear abstractions, and reliable APIs. I also share technical insights and engineering reflections on Medium.",
     },
   };
 
@@ -97,39 +97,13 @@ export default class Index extends Animation {
     },
     items: [
       {
-        title: 'Coverage Badge Creator',
-        description: 'CLI that generates coverage badges and updates README placeholders.',
-        tags: ['TypeScript', 'CLI', 'Jest', 'Coverage', 'CI/CD'],
-        bullets: [
-          'Generates badges from coverage JSON summaries',
-          'Updates README via placeholders ($coverage$, $lines$ …)',
-          'CI-friendly CLI; published to npm/yarn',
-        ],
-        links: [
-          { label: 'GitHub', href: 'https://github.com/H3nSte1n/coverage-badge-creator', targetBlank: true },
-          { label: 'npm', href: 'https://www.npmjs.com/package/coverage-badge-creator', targetBlank: true },
-          { label: 'yarn', href: 'https://classic.yarnpkg.com/en/package/coverage-badge-creator', targetBlank: true },
-        ],
-      },
-      {
-        title: 'HTR Model (Handwritten Text Recognition)',
-        description: 'Python ML pipeline + web demo for handwritten text recognition.',
-        tags: ['Python', 'TensorFlow', 'Keras', 'OCR', 'HTR', 'CRNN'],
-        bullets: [
-          'Web demo: upload image → decoded text output',
-          'Train/validate pipeline with greedy + beam search',
-          'Dataset loading + preprocessing for IAM handwriting',
-        ],
-        links: [{ label: 'GitHub', href: 'https://github.com/H3nSte1n/HTR-Model', targetBlank: true }],
-      },
-      {
         title: 'OAuth 2.0 Provider (Go)',
-        description: 'OAuth2/JWT provider concepts with strong domain modeling + documentation.',
+        description: 'OAuth 2.0 provider prototype in Go exploring token issuance and scope-based access control.',
         tags: ['Go', 'Gin', 'OAuth2', 'JWT', 'MongoDB', 'Docker'],
         bullets: [
-          'Modeled users, scopes, resources, and access groups',
-          'ERD + sequence diagrams to make flows auditable',
-          'Dockerized dev setup for repeatable local runs',
+          'Modeled users, credentials, scopes, and resource access with clear domain boundaries',
+          'ERD and sequence diagrams documenting domain relationships and request flows',
+          'Dockerized setup for reproducible local development',
         ],
         links: [
           { label: 'GitHub', href: 'https://github.com/H3nSte1n/go-oauth-provider', targetBlank: true },
@@ -141,13 +115,31 @@ export default class Index extends Animation {
         ],
       },
       {
+        title: 'CI Orchestrator (Go)',
+        description: 'Build orchestration engine with a worker-based execution model and pluggable runner abstraction.',
+        tags: ['Go', 'Hexagonal Architecture', 'Concurrency'],
+        bullets: [
+          'Worker model that claims and processes builds from a Postgres-backed queue',
+          'Streams build logs through domain events and a pluggable runner interface',
+          'Execution layer designed for isolation and deterministic testing',
+        ],
+        links: [
+          { label: 'GitHub', href: 'https://github.com/H3nSte1n/ci-orchestrator', targetBlank: true },
+          {
+            label: 'Docs/Diagrams',
+            href: 'https://github.com/H3nSte1n/ci-orchestrator/tree/main/docs',
+            targetBlank: true,
+          },
+        ],
+      },
+      {
         title: 'Recipe App (Go)',
-        description: 'Go backend service for a recipe app, featuring clean architecture and PostgreSQL persistence.',
+        description: 'Structured Go backend service with layered architecture and relational persistence.',
         tags: ['GO', 'POSTGRESQL', 'DOCKER/COMPOSE', 'GITHUB ACTIONS'],
         bullets: [
-          'Go backend service with a clean, modular structure (handlers/services/storage)',
-          'PostgreSQL persistence with clean schema + migrations',
-          'Dockerized dev setup + CI checks',
+          'Layered architecture with handlers, services, and repositories',
+          'PostgreSQL persistence with migrations and transactional consistency',
+          'Containerized development workflow with automated CI checks',
         ],
         links: [
           {
@@ -155,6 +147,21 @@ export default class Index extends Animation {
             href: 'https://github.com/H3nSte1n/recipe/tree/main/services/backend',
             targetBlank: true,
           },
+        ],
+      },
+      {
+        title: 'Coverage Badge CLI',
+        description: 'CLI tool that generates coverage badges and automates README updates for CI pipelines.',
+        tags: ['TypeScript', 'CLI', 'Jest', 'Coverage', 'CI', 'Automation'],
+        bullets: [
+          'Generates badges from coverage JSON summaries',
+          'Updates README placeholders via deterministic template injection',
+          'CI-friendly CLI; published to npm/yarn',
+        ],
+        links: [
+          { label: 'GitHub', href: 'https://github.com/H3nSte1n/coverage-badge-creator', targetBlank: true },
+          { label: 'npm', href: 'https://www.npmjs.com/package/coverage-badge-creator', targetBlank: true },
+          { label: 'yarn', href: 'https://classic.yarnpkg.com/en/package/coverage-badge-creator', targetBlank: true },
         ],
       },
     ],
