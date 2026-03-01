@@ -1,7 +1,6 @@
 services:
   steinhauer-web:
     build: .
-    image: steinhauer-dev:latest
     container_name: steinhauer-web
     restart: always
     environment:
