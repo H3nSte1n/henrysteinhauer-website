@@ -201,7 +201,7 @@ export default class Index extends Animation {
     },
     stats: [
       {
-        label: 'Intermediate',
+        label: 'Expert',
         value: 'Go',
       },
       {
@@ -209,7 +209,7 @@ export default class Index extends Animation {
         value: 'Ruby',
       },
       {
-        label: 'Intermediate',
+        label: 'Expert',
         value: 'Podman',
       },
       {
@@ -217,7 +217,7 @@ export default class Index extends Animation {
         value: 'Kubernetes',
       },
       {
-        label: 'Expert',
+        label: 'Intermediate',
         value: 'TypeScript',
       },
     ],
