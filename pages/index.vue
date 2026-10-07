@@ -86,7 +86,7 @@ export default class Index extends Animation {
     infos: {
       headline: 'About Me',
       description:
-        "I'm Henry Steinhauer, a backend-focused software engineer at i22 Digitalagentur. I design and build backend systems and developer tooling, focusing on pragmatic system design, clear abstractions, and reliable APIs. I also share technical insights and engineering reflections on Medium.",
+        'I’m Henry Steinhauer, a backend-focused software engineer at SIXT. I design and build backend systems and developer tooling, focusing on pragmatic system design, clear abstractions, and reliable APIs. I also share technical insights and engineering reflections on Medium.',
     },
   };
 
@@ -110,6 +110,26 @@ export default class Index extends Animation {
           {
             label: 'Docs/Diagrams',
             href: 'https://github.com/H3nSte1n/go-oauth-provider/tree/main/doc',
+            targetBlank: true,
+          },
+        ],
+      },
+      {
+        title: 'AI Agent Skills',
+        description:
+          'Reusable Markdown instructions for AI coding assistants, with task-specific triggers and operational guidance. Currently includes a DevOps skill for Debian/Ubuntu server management over SSH.',
+        tags: ['AI', 'Agent Skills', 'Markdown', 'DevOps', 'SSH'],
+        bullets: [
+          'Task-specific instructions package domain knowledge into reusable skills for coding assistants',
+          'DevOps workflows for Debian/Ubuntu service health, nginx/SSL, Docker, and security checks',
+          'Documented change review, confirmation, backups, validation, and rollback steps',
+        ],
+        links: [
+          { label: 'GitHub', href: 'https://github.com/H3nSte1n/skills', targetBlank: true },
+          { label: 'DevOps on skills.sh', href: 'https://www.skills.sh/h3nste1n/skills/devops', targetBlank: true },
+          {
+            label: 'DevOps skill',
+            href: 'https://github.com/H3nSte1n/skills/tree/main/skills/devops',
             targetBlank: true,
           },
         ],
@@ -206,11 +226,11 @@ export default class Index extends Animation {
       },
       {
         label: 'Expert',
-        value: 'Ruby',
+        value: 'OpenSearch',
       },
       {
         label: 'Expert',
-        value: 'Podman',
+        value: 'Kafka',
       },
       {
         label: 'Intermediate',

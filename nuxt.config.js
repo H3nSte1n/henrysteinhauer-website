@@ -66,7 +66,6 @@ export default {
   css: ['~fonts/global.scss'],
 
   env: {
-    GITHUB_KEY: process.env.GITHUB_KEY,
     BASE_URL: process.env.BASE_URL,
   },
 
@@ -85,6 +84,6 @@ export default {
   build: {},
 
   sitemap: {
-    hostname: 'https://henrysteinhauer.dev',
+    hostname: 'https://steinhauer.dev',
   },
 };
