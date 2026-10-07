@@ -116,8 +116,7 @@ export default class Index extends Animation {
       },
       {
         title: 'AI Agent Skills',
-        description:
-          'Reusable Markdown instructions for AI coding assistants, with task-specific triggers and operational guidance. Currently includes a DevOps skill for Debian/Ubuntu server management over SSH.',
+        description: 'Reusable skills for AI coding agents, including DevOps workflows for Linux servers over SSH.',
         tags: ['AI', 'Agent Skills', 'Markdown', 'DevOps', 'SSH'],
         bullets: [
           'Task-specific instructions package domain knowledge into reusable skills for coding assistants',
