@@ -66,6 +66,7 @@ export default {
   css: ['~fonts/global.scss'],
 
   env: {
+    GITHUB_KEY: process.env.GITHUB_KEY,
     BASE_URL: process.env.BASE_URL,
   },
 
