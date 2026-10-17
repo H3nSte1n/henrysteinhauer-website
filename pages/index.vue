@@ -1,6 +1,7 @@
 <template>
   <div class="index">
     <Navigation />
+    <p class="sr-only">{{ intro }}</p>
     <Header v-bind="header" :about-me="aboutme" />
     <InfoBox :info-box-infos="{}" :with-blob="true">
       <h3 class="info-box__subline info-box__subline--small-gap">{{ date.subline }}</h3>
@@ -53,6 +54,7 @@ import SectionConnection from '@/components/global/section-connection.vue';
 import SocialMediaBar from '@/components/wrapper/social-media-bar.vue';
 import StatsOverview from '@/components/wrapper/stats-overview.vue';
 import ProjectsShowcase from '~/components/wrapper/projects-showcase.vue';
+import { SITE_URL, HOME_DESCRIPTION, structuredData } from '@/lib/seo';
 import type { IAnimation } from '@/mixins/Animation';
 import { Animation } from '@/mixins/Animation';
 
@@ -71,6 +73,15 @@ import { Animation } from '@/mixins/Animation';
   },
 })
 export default class Index extends Animation {
+  head() {
+    return {
+      link: [{ hid: 'canonical', rel: 'canonical', href: `${SITE_URL}/` }],
+      script: [{ hid: 'ld-json', type: 'application/ld+json', json: structuredData }],
+    };
+  }
+
+  intro = HOME_DESCRIPTION;
+
   header = {
     sublinePartOne: 'Software',
     sublinePartTwo: 'Developer',
