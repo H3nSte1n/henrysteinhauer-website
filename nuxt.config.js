@@ -1,3 +1,5 @@
+import { SITE_URL, HOME_TITLE, HOME_DESCRIPTION, IMAGE_URL, IMAGE_WIDTH, IMAGE_HEIGHT } from './lib/seo';
+
 export default {
   serverMiddleware: [
     // TODO: activate
@@ -5,7 +7,7 @@ export default {
     { path: '/api/github-stats', handler: '~/api/github-stats.ts' },
   ],
   head: {
-    title: 'Henry Steinhauer - Portfolio Website',
+    title: HOME_TITLE,
     htmlAttrs: {
       lang: 'en',
     },
@@ -18,29 +20,25 @@ export default {
       { name: 'msapplication-TileImage', content: '/assets/fav/ms-icon-144x144.png' },
       { name: 'msapplication-TileImage', content: '/assets/fav/ms-icon-150x150.png' },
       { name: 'theme-color', content: '#ffffff' },
-      {
-        hid: 'description',
-        name: 'description',
-        content:
-          "I'm Henry Steinhauer, a passionate software developer and author on Medium. Here you can find some information describing me and what I have done so far.",
-      },
-      {
-        hid: 'keywords',
-        name: 'keywords',
-        content: 'nuxt, typescript, henry, steinhauer, express, portfolio, software development, backend, frontend',
-      },
-      { hid: 'og:title', property: 'og:title', content: 'Henry Steinhauer' },
-      { hid: 'og:description', property: 'og:description', content: '' },
-      { hid: 'og:url', property: 'og:url', content: 'https://steinhauer.dev' },
-      { name: 'robots', content: 'index, follow' },
+      { hid: 'description', name: 'description', content: HOME_DESCRIPTION },
+      { hid: 'og:title', property: 'og:title', content: HOME_TITLE },
+      { hid: 'og:description', property: 'og:description', content: HOME_DESCRIPTION },
+      { hid: 'og:url', property: 'og:url', content: `${SITE_URL}/` },
+      { hid: 'robots', name: 'robots', content: 'index, follow' },
       { property: 'og:type', content: 'website' },
       { property: 'og:site_name', content: 'Henry Steinhauer' },
-      { property: 'og:image', content: '/assets/og-image.jpg' },
+      { hid: 'og:image', property: 'og:image', content: IMAGE_URL },
+      { hid: 'og:image:width', property: 'og:image:width', content: IMAGE_WIDTH },
+      { hid: 'og:image:height', property: 'og:image:height', content: IMAGE_HEIGHT },
+      { hid: 'og:image:alt', property: 'og:image:alt', content: 'Henry Steinhauer, backend software engineer' },
       {
         hid: 'twitter:card',
         name: 'twitter:card',
         content: 'summary_large_image',
       },
+      { hid: 'twitter:title', name: 'twitter:title', content: HOME_TITLE },
+      { hid: 'twitter:description', name: 'twitter:description', content: HOME_DESCRIPTION },
+      { hid: 'twitter:image', name: 'twitter:image', content: IMAGE_URL },
     ],
     link: [
       { rel: 'apple-touch-icon', sizes: '57x57', href: '/assets/fav/apple-icon-57x57.png' },
@@ -56,9 +54,6 @@ export default {
       { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/assets/fav/favicon-32x32.png' },
       { rel: 'icon', type: 'image/png', sizes: '96x96', href: '/assets/fav/favicon-96x96.png' },
       { rel: 'manifest', href: '/assets/fav/manifest.json' },
-      { name: 'msapplication-TileColor', content: '#000000' },
-      { name: 'msapplication-TileImage', content: '/ms-icon-144x144.png' },
-      { name: 'theme-color', content: '#000000' },
     ],
   },
 
@@ -66,7 +61,6 @@ export default {
   css: ['~fonts/global.scss'],
 
   env: {
-    GITHUB_KEY: process.env.GITHUB_KEY,
     BASE_URL: process.env.BASE_URL,
   },
 
@@ -85,6 +79,7 @@ export default {
   build: {},
 
   sitemap: {
-    hostname: 'https://steinhauer.dev',
+    hostname: SITE_URL,
+    exclude: ['/impressum'],
   },
 };

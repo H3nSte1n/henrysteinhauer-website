@@ -1,0 +1,19 @@
+# Henry Steinhauer
+
+> Portfolio of Henry Steinhauer, a backend software engineer working with Go and TypeScript on services, developer tools and AI-agent skills. A playful, interactive version lives at https://workshop.steinhauer.dev.
+
+## Profiles
+- [Interactive workshop](https://workshop.steinhauer.dev): game-like companion to this site
+- [GitHub](https://github.com/H3nSte1n): source code and projects
+- [Medium](https://medium.com/@henrysteinhauer): engineering notes
+- [LinkedIn](https://www.linkedin.com/in/henry-steinhauer/): professional profile
+
+## Featured projects
+- [OAuth 2.0 Provider (Go)](https://github.com/H3nSte1n/go-oauth-provider): token issuance and scope-based access control
+- [AI Agent Skills](https://github.com/H3nSte1n/skills): reusable agent skills, including a DevOps skill
+- [CI Orchestrator (Go)](https://github.com/H3nSte1n/ci-orchestrator): worker-based build orchestration engine
+- [Recipe App (Go)](https://github.com/H3nSte1n/recipe): layered Go backend service with relational persistence
+- [Coverage Badge CLI](https://github.com/H3nSte1n/coverage-badge-creator): generates coverage badges for CI pipelines
+
+## Contact
+- hello@steinhauer.dev
