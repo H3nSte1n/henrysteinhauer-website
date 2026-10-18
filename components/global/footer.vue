@@ -32,7 +32,7 @@ export default class Footer extends Vue {
       textLeft: true,
     },
     {
-      label: 'Interactive<br>Workshop',
+      label: 'Interactive<br>Portfolio',
       src: 'https://workshop.steinhauer.dev',
       mobileHideSVG: true,
       textLeft: true,
