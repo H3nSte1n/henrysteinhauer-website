@@ -1,6 +1,6 @@
 # Henry Steinhauer
 
-> Portfolio of Henry Steinhauer, a backend software engineer working with Go and TypeScript on services, developer tools and AI-agent skills. A playful, interactive version lives at https://workshop.steinhauer.dev.
+> Portfolio of Henry Steinhauer, a backend software engineer working with Go on distributed systems, backend services, developer tools and AI-agent skills. A playful, interactive version lives at https://workshop.steinhauer.dev.
 
 ## Profiles
 - [Interactive workshop](https://workshop.steinhauer.dev): game-like companion to this site
