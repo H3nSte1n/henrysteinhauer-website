@@ -32,6 +32,13 @@ export default class Footer extends Vue {
       textLeft: true,
     },
     {
+      label: 'Interactive<br>Workshop',
+      src: 'https://workshop.steinhauer.dev',
+      mobileHideSVG: true,
+      textLeft: true,
+      isTargetBlank: true,
+    },
+    {
       label: 'Design by<br>Johannes Zimmer',
       src: 'https://johanneszimmer.com/',
       mobileHideSVG: true,
