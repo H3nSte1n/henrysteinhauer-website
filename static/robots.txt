@@ -1,21 +1,13 @@
+# Search and AI crawlers are welcome, except for the API
 User-agent: *
-Allow: /
-Disallow: /api/
-
-# AI search and assistant crawlers are welcome
 User-agent: GPTBot
-Allow: /
 User-agent: OAI-SearchBot
-Allow: /
 User-agent: ChatGPT-User
-Allow: /
 User-agent: ClaudeBot
-Allow: /
 User-agent: Claude-SearchBot
-Allow: /
 User-agent: PerplexityBot
-Allow: /
 User-agent: Google-Extended
 Allow: /
+Disallow: /api/
 
 Sitemap: https://steinhauer.dev/sitemap.xml

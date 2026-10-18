@@ -53,14 +53,14 @@ import { SITE_URL } from '@/lib/seo';
 export default class Index extends Vue {
   head() {
     return {
-      title: 'Impressum | Henry Steinhauer',
+      title: 'Impressum - Henry Steinhauer',
       meta: [
         { hid: 'robots', name: 'robots', content: 'noindex, follow' },
         { hid: 'description', name: 'description', content: 'Legal notice (Impressum) of Henry Steinhauer.' },
-        { hid: 'og:title', property: 'og:title', content: 'Impressum | Henry Steinhauer' },
+        { hid: 'og:title', property: 'og:title', content: 'Impressum - Henry Steinhauer' },
         { hid: 'og:description', property: 'og:description', content: 'Legal notice (Impressum) of Henry Steinhauer.' },
         { hid: 'og:url', property: 'og:url', content: `${SITE_URL}/impressum` },
-        { hid: 'twitter:title', name: 'twitter:title', content: 'Impressum | Henry Steinhauer' },
+        { hid: 'twitter:title', name: 'twitter:title', content: 'Impressum - Henry Steinhauer' },
         {
           hid: 'twitter:description',
           name: 'twitter:description',

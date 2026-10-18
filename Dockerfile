@@ -28,6 +28,8 @@ RUN apk add --no-cache curl
 COPY --from=builder /app/.nuxt ./.nuxt
 COPY --from=builder /app/static ./static
 COPY --from=builder /app/nuxt.config.js ./
+# nuxt.config.js imports the shared SEO constants at runtime
+COPY --from=builder /app/lib/seo.js ./lib/seo.js
 COPY --from=builder /app/package*.json ./
 
 # Copy serverMiddleware API files (required at runtime)
