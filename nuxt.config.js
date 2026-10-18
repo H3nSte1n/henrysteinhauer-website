@@ -23,7 +23,6 @@ export default {
       { hid: 'description', name: 'description', content: HOME_DESCRIPTION },
       { hid: 'og:title', property: 'og:title', content: HOME_TITLE },
       { hid: 'og:description', property: 'og:description', content: HOME_DESCRIPTION },
-      { hid: 'og:url', property: 'og:url', content: `${SITE_URL}/` },
       { hid: 'robots', name: 'robots', content: 'index, follow' },
       { property: 'og:type', content: 'website' },
       { property: 'og:site_name', content: 'Henry Steinhauer' },
