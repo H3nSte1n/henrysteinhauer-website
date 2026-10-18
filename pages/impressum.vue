@@ -39,6 +39,7 @@ import Navigation from '@/components/global/navigation.vue';
 import Footer from '@/components/global/footer.vue';
 import List from '@/components/elements/list.vue';
 import ContentBox from '@/components/global/content-box.vue';
+import { SITE_URL } from '@/lib/seo';
 
 @Component({
   components: {
@@ -50,6 +51,26 @@ import ContentBox from '@/components/global/content-box.vue';
   },
 })
 export default class Index extends Vue {
+  head() {
+    return {
+      title: 'Impressum - Henry Steinhauer',
+      meta: [
+        { hid: 'robots', name: 'robots', content: 'noindex, follow' },
+        { hid: 'description', name: 'description', content: 'Legal notice (Impressum) of Henry Steinhauer.' },
+        { hid: 'og:title', property: 'og:title', content: 'Impressum - Henry Steinhauer' },
+        { hid: 'og:description', property: 'og:description', content: 'Legal notice (Impressum) of Henry Steinhauer.' },
+        { hid: 'og:url', property: 'og:url', content: `${SITE_URL}/impressum` },
+        { hid: 'twitter:title', name: 'twitter:title', content: 'Impressum - Henry Steinhauer' },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: 'Legal notice (Impressum) of Henry Steinhauer.',
+        },
+      ],
+      link: [{ hid: 'canonical', rel: 'canonical', href: `${SITE_URL}/impressum` }],
+    };
+  }
+
   header = {
     headline: 'Impressum',
   };
